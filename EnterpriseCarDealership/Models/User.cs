@@ -10,7 +10,7 @@
         public User()
         {
             Id = -1;
-            Name = "dummyuser";
+            Name = "dummy";
             Password = "dummy";
             Tlf = "00000000";
             
