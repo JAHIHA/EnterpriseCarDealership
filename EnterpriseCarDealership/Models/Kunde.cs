@@ -5,7 +5,7 @@
         public string Adress { get; set; }
         public Kunde()
         {
-
+            Adress = "nowhere";
         }
         public Kunde(string adress) : base()
         {
