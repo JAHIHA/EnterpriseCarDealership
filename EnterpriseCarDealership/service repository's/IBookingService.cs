@@ -2,18 +2,20 @@
 
 namespace EnterpriseCarDealership.service_repository_s
 {
-    public interface Interface
+    public interface IBookingService
     {
-        public List<booking> GetbookingList();
+        public List<Booking> GetbookingList();
 
-        public void Addbooking(booking booking);
-
-
-        public void Updatebooking(booking booking);
+        public void Addbooking(Booking booking);
 
 
-        public Kunde GetbookingById(int id);
+        public void Updatebooking(Booking booking);
+
+
+        public Booking GetbookingById(int id);
 
         public void Deletebooking(int id);
+
+
     }
 }

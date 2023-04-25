@@ -4,15 +4,15 @@ namespace EnterpriseCarDealership.service_repository_s
 {
     public interface IKundeService
     {
-        public List<Kunde> GetKundeList();
+        public List<Booking> GetKundeList();
 
-        public void Addkunde(Kunde kunde); 
+        public void Addkunde(Booking kunde); 
         
 
-        public void Updatekunde(Kunde kunde); 
+        public void Updatekunde(Booking kunde); 
   
       
-        public Kunde GetKundeById(int id);
+        public Booking GetKundeById(int id);
    
         public void Deletekunde(int id);
 

@@ -1,4 +1,4 @@
-﻿using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Models;
 
 namespace EnterpriseCarDealership.service_repository_s
 {
@@ -13,7 +13,11 @@ namespace EnterpriseCarDealership.service_repository_s
         public void Updatemedarbejder(Medarbejder medarbejder);
 
 
+khaled
         public Medarbejder GetmedarbejderById(int id);
+
+        public Booking GetmedarbejderById(int id);
+ master
 
         public void Deletemedarbejder(int id);
     }

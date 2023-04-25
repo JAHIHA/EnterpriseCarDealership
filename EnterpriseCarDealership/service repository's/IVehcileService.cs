@@ -12,7 +12,7 @@ namespace EnterpriseCarDealership.service_repository_s
         public void UpdateVehicle(Vehicle vehicle);
 
 
-        public Kunde GetvehicleById(int id);
+        public Booking GetvehicleById(int id);
 
         public void Deletevehicle(int id);
 
