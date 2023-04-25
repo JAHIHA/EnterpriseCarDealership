@@ -13,7 +13,7 @@ namespace EnterpriseCarDealership.service_repository_s
         public void Updatemedarbejder(medarbejder medarbejder);
 
 
-        public Kunde GetmedarbejderById(int id);
+        public Booking GetmedarbejderById(int id);
 
         public void Deletemedarbejder(int id);
     }

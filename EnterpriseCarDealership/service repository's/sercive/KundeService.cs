@@ -4,22 +4,22 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
 {
     public class KundeService : IKundeService
     {
-        private List<Kunde> _kunder;
+        private List<Booking> _kunder;
 
-        public List<Kunde> GetKundeList()
+        public List<Booking> GetKundeList()
         {
             return _kunder; 
         }
 
 
-        public void Addkunde(Kunde kunde)
+        public void Addkunde(Booking kunde)
         {
             _kunder.Add(kunde); 
             
         }
 
 
-        public void Updatekunde(Kunde kunde)
+        public void Updatekunde(Booking kunde)
         {
             var existingkunde = GetKundeById(kunde.Id);
             if (existingkunde != null)
@@ -33,7 +33,7 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
         
 
 
-        public Kunde GetKundeById(int id)
+        public Booking GetKundeById(int id)
         {
             return _kunder.FirstOrDefault(Kunde => Kunde.Id == id);
         }

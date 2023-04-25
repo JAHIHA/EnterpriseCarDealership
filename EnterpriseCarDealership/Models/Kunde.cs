@@ -1,13 +1,13 @@
 ﻿namespace EnterpriseCarDealership.Models
 {
-    public class Kunde:User
+    public class Booking:User
     {
         public string Adress { get; set; }
-        public Kunde()
+        public Booking()
         {
             Adress = "nowhere";
         }
-        public Kunde(string adress) : base()
+        public Booking(string adress) : base()
         {
             Adress = adress;
         }

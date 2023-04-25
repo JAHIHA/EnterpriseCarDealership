@@ -1,4 +1,6 @@
-﻿namespace EnterpriseCarDealership.Models
+﻿using EnterpriseCarDealership.service_repository_s;
+
+namespace EnterpriseCarDealership.Models
 {
     public class Booking
     {
