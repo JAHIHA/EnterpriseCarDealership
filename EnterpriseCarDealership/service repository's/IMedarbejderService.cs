@@ -4,16 +4,16 @@ namespace EnterpriseCarDealership.service_repository_s
 {
     public interface IMedarbejderService
     {
-        public List<Medarbejder> GetbookingList();
+        public List<Medarbejder> GetmedarbejderList();
 
-        public void Addmedarbejder(medarbejder medarbejder);
+        public void Addmedarbejder(Medarbejder medarbejder);
 );
 
 
-        public void Updatemedarbejder(medarbejder medarbejder);
+        public void Updatemedarbejder(Medarbejder medarbejder);
 
 
-        public Kunde GetmedarbejderById(int id);
+        public Medarbejder GetmedarbejderById(int id);
 
         public void Deletemedarbejder(int id);
     }
