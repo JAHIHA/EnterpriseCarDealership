@@ -25,8 +25,11 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             if (existingkunde != null)
             {
                 existingkunde.Name = kunde.Name;
-                existingkunde.Email = kunde.Email;
-                existingkunde.Address = kunde.Address;
+                existingkunde.Tlf = kunde.Tlf;
+                existingkunde.Adress = kunde.Adress;
+                existingkunde.Password = kunde.Password;
+
+
             }
 
         }
@@ -38,6 +41,11 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             return _kunder.FirstOrDefault(Kunde => Kunde.Id == id);
         }
         
-        public void Deletekunde(int id);
+        public void Deletekunde(int id)
+        {
+           Kunde kunde = GetKundeById(id);
+            _kunder.Remove(kunde);
+        }
     }
-}
+    }
+
