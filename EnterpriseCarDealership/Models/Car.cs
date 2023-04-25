@@ -2,7 +2,7 @@
 {
     public class Car : Vehicle
     {
-        //PROPERT
+        //PROPERTy
         public bool AC { get; set; }
         public bool Sunroof { get; set; }
 
