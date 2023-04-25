@@ -5,6 +5,7 @@
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password {get; set; }
+        public bool IsAdmin { get; set; }
         public string Tlf { get; set; }
 
         public User()
@@ -12,15 +13,18 @@
             Id = -1;
             Name = "dummy";
             Password = "dummy";
+            IsAdmin = false;
             Tlf = "00000000";
             
         }
-        public User(int id, string name, string password, string tlf)
+        public User(int id, string name, string password,  bool isAdmin, string tlf)
         {
             Id = id;
             Name = name;
             Password = password;
+            IsAdmin = isAdmin;
             Tlf = tlf;
+            
         }
 
         public override string ToString()
