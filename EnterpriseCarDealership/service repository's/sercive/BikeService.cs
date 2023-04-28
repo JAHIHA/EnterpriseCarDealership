@@ -1,21 +1,30 @@
-﻿using EnterpriseCarDealership.Models;
+﻿using EnterpriseCarDealership.DBContextFolder;
+using EnterpriseCarDealership.Models;
+using System.Reflection.Metadata.Ecma335;
 
 namespace EnterpriseCarDealership.service_repository_s.sercive
 {
     public class BikeService : IBikeService
     {
         //KARZAN
-        public List<Bike> BikeList = new List<Bike>();
+
+        private BikeDBContext dBContext = new BikeDBContext();
+
         public void Addbike(Bike bike)
         {
-            BikeList.Add(bike); 
+            dBContext.Bike.Add(bike);
+            dBContext.SaveChanges();    
         }
+       
 
-        public void Deletebike(int id)
+        public Bike Deletebike(int id)
         {
             Bike bike = GetBikeById(id);
-            BikeList.Remove(bike);
+            dBContext.Bike.Remove(bike);    
+            dBContext.SaveChanges();
+            return bike; 
         }
+        
 
         public Bike GetBikeById(int id)
         {
@@ -27,23 +36,26 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             return BikeList;
         }
 
-        public void Updatebike(Bike bike)
+        public Bike Updatebike(int id, Bike bike)
         {
-            var newbike = GetBikeById(bike.Id);
+            Bike newbike = GetBikeById((int)id);
             if (newbike != null)
             {
-                newbike.Id = bike.Id;
+                
                 newbike.Brand = bike.Brand;
                 newbike.Type = bike.Type;
                 newbike.PrisPrDag = bike.PrisPrDag;
-                newbike.Year=bike.Year;
-                newbike.Km=bike.Km;
+                newbike.Year = bike.Year;
+                newbike.Km = bike.Km;
                 newbike.Sidebike = bike.Sidebike;
-                newbike.LeatherSddle=bike.LeatherSddle;
+                newbike.LeatherSddle = bike.LeatherSddle;
                 newbike.ExtraStorage = bike.ExtraStorage;
 
 
             }
+            dBContext.Bike.Update(newbike);
+            dBContext.SaveChanges();
+            return newbike; 
         }
     }
 }
