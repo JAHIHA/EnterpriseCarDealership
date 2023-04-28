@@ -22,7 +22,7 @@ namespace EnterpriseCarDealership.Models
         public override string ToString()
         {
             return $"{{{nameof(Sidebike)}={Sidebike.ToString()}, {nameof(LeatherSddle)}={LeatherSddle.ToString()}, " +
-                $"{nameof(ExtraStorage)}={ExtraStorage.ToString()}, {nameof(Id)}={Id.ToString()}, " +
+                $"{nameof(ExtraStorage)}={ExtraStorage.ToString()}, {nameof(NextId)}={NextId.ToString()}, " +
                 $"{nameof(Brand)}={Brand}, {nameof(Type)}={Type.ToString()}, {nameof(PrisPrDag)}={PrisPrDag.ToString()}, " +
                 $"{nameof(Year)}={Year.ToString()}, {nameof(Km)}={Km.ToString()}}}";
         }
