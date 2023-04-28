@@ -3,7 +3,7 @@
     public enum MotorType { Electric, Hybrid, Diesel };
     public abstract class Vehicle
     {
-        public int Id { get; set; }
+        public static int NextId { get; set; }
         public string Brand { get; set; }
         public MotorType Type{ get; set; }
         public double PrisPrDag { get; set; }
@@ -15,7 +15,7 @@
         }
         public Vehicle(int id, string brand, MotorType type, double prisPrDag, int year, int km )
         {
-            Id = id;
+            id = NextId++;
             Brand = brand;
             Type = type;
             PrisPrDag = prisPrDag;
@@ -26,7 +26,7 @@
 
         public override string ToString()
         {
-            return $"{{{nameof(Id)}={Id.ToString()}, {nameof(Brand)}={Brand}, {nameof(Type)}={Type.ToString()}, {nameof(PrisPrDag)}={PrisPrDag.ToString()}, {nameof(Year)}={Year.ToString()}, {nameof(Km)}={Km.ToString()}}}";
+            return $"{{{nameof(NextId)}={NextId.ToString()}, {nameof(Brand)}={Brand}, {nameof(Type)}={Type.ToString()}, {nameof(PrisPrDag)}={PrisPrDag.ToString()}, {nameof(Year)}={Year.ToString()}, {nameof(Km)}={Km.ToString()}}}";
         }
     }
 }

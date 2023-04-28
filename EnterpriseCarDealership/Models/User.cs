@@ -2,7 +2,7 @@
 {
     public abstract class User
     {
-        public int Id { get; set; }
+        public static int NextId { get; set; }
         public string Name { get; set; }
         public string Password {get; set; }
         public bool IsAdmin { get; set; }
@@ -10,7 +10,7 @@
 
         public User()
         {
-            Id = -1;
+            NextId = -1;
             Name = "dummy";
             Password = "dummy";
             IsAdmin = false;
@@ -19,7 +19,7 @@
         }
         public User(int id, string name, string password,  bool isAdmin, string tlf)
         {
-            Id = id;
+            id = NextId++;
             Name = name;
             Password = password;
             IsAdmin = isAdmin;
@@ -29,7 +29,7 @@
 
         public override string ToString()
         {
-            return $"{{{nameof(Id)}={Id.ToString()}, {nameof(Name)}={Name}, {nameof(Password)}={Password}, {nameof(Tlf)}={Tlf}}}";
+            return $"{{{nameof(NextId)}={NextId.ToString()}, {nameof(Name)}={Name}, {nameof(Password)}={Password}, {nameof(Tlf)}={Tlf}}}";
         }
     }
 }

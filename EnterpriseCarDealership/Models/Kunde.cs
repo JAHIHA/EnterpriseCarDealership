@@ -18,7 +18,7 @@
 
         public override string ToString()
         {
-            return $"{{{nameof(Adress)}={Adress}, {nameof(Id)}={Id.ToString()}, {nameof(Name)}={Name}, {nameof(Password)}={Password}, {nameof(IsAdmin)}={IsAdmin.ToString()}, {nameof(Tlf)}={Tlf}}}";
+            return $"{{{nameof(Adress)}={Adress}, {nameof(NextId)}={NextId.ToString()}, {nameof(Name)}={Name}, {nameof(Password)}={Password}, {nameof(IsAdmin)}={IsAdmin.ToString()}, {nameof(Tlf)}={Tlf}}}";
         }
     }
     

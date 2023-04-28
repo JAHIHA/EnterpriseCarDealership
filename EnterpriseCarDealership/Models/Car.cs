@@ -23,13 +23,17 @@
             
 
         }
+        public Car()
+        {
+
+        }
 
         public override string ToString()
         {
             return $"{{{nameof(AC)}={AC.ToString()}, {nameof(Sunroof)}={Sunroof.ToString()}," +
             $" {nameof(Screen)}={Screen.ToString()}, {nameof(DVD)}={DVD.ToString()}, " +
             $"{nameof(Camera)}={Camera.ToString()}, {nameof(Sensor)}={Sensor.ToString()}, " +
-            $"{nameof(Id)}={Id.ToString()}, {nameof(Brand)}={Brand}, {nameof(Type)}={Type.ToString()}, " +
+            $"{nameof(NextId)}={NextId.ToString()}, {nameof(Brand)}={Brand}, {nameof(Type)}={Type.ToString()}, " +
             $"{nameof(PrisPrDag)}={PrisPrDag.ToString()}, {nameof(Year)}={Year.ToString()}, " +
             $"{nameof(Km)}={Km.ToString()}}}";
         }
