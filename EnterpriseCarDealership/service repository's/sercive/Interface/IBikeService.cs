@@ -15,7 +15,7 @@ namespace EnterpriseCarDealership.service_repository_s
 
         public Bike GetBikeById(int id);
 
-        public void Deletebike(int id);
+        public Bike Deletebike(int id);
 
     }
 }
