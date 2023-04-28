@@ -1,52 +1,41 @@
 ﻿using DocumentFormat.OpenXml.Math;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using EnterpriseCarDealership.DBContextFolder;
 using EnterpriseCarDealership.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace EnterpriseCarDealership.service_repository_s.sercive
 {
     public class CarService :ICarService
     {
-        public List<Car> CarList = new List<Car>();
-
-        public void Addcar(Car car)
+      private CarDBContext _cardb = new CarDBContext();
+        public List<Car> GetCarList()
         {
-            CarList.Add(car);
+            return new List<Car>(_cardb.Car);
         }
 
-        public void Deletecar(int id)
-        {
-            Car car = GetCarById(id);
-            CarList.Remove(car); ;
-        }
 
         public Car GetCarById(int id)
         {
-            return CarList.FirstOrDefault(x => x.Id == id);
+
         }
 
-        public List<Car> GetCarList()
+       
+
+        public Car Updatecar(Car car)
         {
-            return CarList;
+            throw new NotImplementedException();
         }
 
-        public void Updatecar(Car car)
+        public Car Addcar(Car car)
         {
-            var newcar = GetCarById(car.Id);
-            if (newcar != null)
-            {
-                newcar.Id = car.Id;
-                newcar.Brand = car.Brand;
-                newcar.Type = car.Type;
-                newcar.PrisPrDag = car.PrisPrDag;
-                newcar.Year = car.Year;
-                newcar.Km = car.Km;
-                newcar.AC = car.AC;
-                newcar.Sunroof = car.Sunroof;
-                newcar.Screen = car.Screen;
-                newcar.DVD = car.DVD;
-                newcar.Camera=car.Camera;
-                newcar.Sensor = car.Sensor;
+           _cardb.Car.Add(car);
+            _cardb.Car.
+        }
 
-            }
+        public Car Deletecar(int id)
+        {
+            throw new NotImplementedException();
         }
     }
 }
