@@ -1,9 +1,8 @@
 ﻿using EnterpriseCarDealership.Models;
 using Microsoft.EntityFrameworkCore;
-
 namespace EnterpriseCarDealership.DBContextFolder
 {
-    public class BikeDBContext : DbContext
+    public class DealershipContext:DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -13,5 +12,7 @@ namespace EnterpriseCarDealership.DBContextFolder
         {
             get; set;
         }
+        public virtual DbSet<Booking> Booking { get; set; }
+        public virtual DbSet<Car> Car { get; set; }
     }
 }

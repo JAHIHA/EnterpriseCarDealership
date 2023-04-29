@@ -8,7 +8,7 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
     {
         //KARZAN
 
-        private BikeDBContext dBContext = new BikeDBContext();
+        private DealershipContext dBContext = new DealershipContext();
 
         public void Addbike(Bike bike)
         {
