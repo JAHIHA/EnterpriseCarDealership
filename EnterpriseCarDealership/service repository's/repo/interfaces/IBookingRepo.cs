@@ -1,8 +1,8 @@
 ﻿using EnterpriseCarDealership.Models;
 
-namespace EnterpriseCarDealership.service_repository_s
+namespace EnterpriseCarDealership.service_repository_s.repo.interfaces
 {
-    public interface IBookingService
+    public interface IBookingRepo
     {
         public List<Booking> GetbookingList();
 
@@ -15,7 +15,5 @@ namespace EnterpriseCarDealership.service_repository_s
         public Booking GetbookingById(int id);
 
         public Task Deletebooking(int id);
-
-
     }
 }

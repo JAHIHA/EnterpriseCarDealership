@@ -1,31 +1,30 @@
 ﻿using DocumentFormat.OpenXml.Office2010.Excel;
-using EnterpriseCarDealership.DBContextFolder;
 using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 
 namespace EnterpriseCarDealership.service_repository_s.sercive
 {
     public class BookingService : IBookingService
     {
-        private BookingDBContext _bookdb = new BookingDBContext();
+        private IBookingRepo _bookRep;
+        public BookingService(IBookingRepo bookRep)
+        {
+            _bookRep = bookRep;
+        }
 
         public Booking Addbooking(Booking booking)
         {
-            _bookdb.Booking.Add(booking);
-            _bookdb.SaveChanges();
-            return booking;
+            return _bookRep.Addbooking(booking);
         }
 
-        public Booking Deletebooking(int id)
+        public async Task Deletebooking(int id)
         {
-            Booking? booking = GetbookingById(id);
-            _bookdb.Booking.Remove(booking);
-            _bookdb.SaveChanges();
-            return booking;
+             await  _bookRep.Deletebooking(id);
         }
 
         public Booking? GetbookingById(int id)
         {
-            Booking? booking = GetbookingList().FirstOrDefault(x => x.ID == id);
+            Booking booking = _bookRep.GetbookingById(id);
             if (booking == null)
             {
                 throw new KeyNotFoundException();
@@ -35,7 +34,7 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
 
         public List<Booking> GetbookingList()
         {
-            return new List<Booking>(_bookdb.Booking);
+            return _bookRep.GetbookingList();
         }
 
         public bool IsOverlapping(Booking booking)
@@ -46,18 +45,11 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
 
         public Booking Updatebooking(Booking booking)
         {
-            Booking book = GetbookingById(booking.ID);
-         
-            if (book != null)
+            if (booking != null)
             {
-                booking.StartTime = book.StartTime;
-                booking.EndTime = book.EndTime;
-                booking.KundeId = book.KundeId;
-                booking.CarId = book.CarId;
+                return _bookRep.Updatebooking(booking);
             }
-            _bookdb.Booking.Update(book);
-            _bookdb.SaveChanges();
-            return book;
+            return booking;
         }
     }
 }
