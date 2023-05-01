@@ -1,47 +1,44 @@
 ﻿using EnterpriseCarDealership.DBContextFolder;
 using EnterpriseCarDealership.Models;
-using System.Reflection.Metadata.Ecma335;
+using EnterpriseCarDealership.service_repository_s.repo.interfaces;
+using Microsoft.EntityFrameworkCore;
 
-namespace EnterpriseCarDealership.service_repository_s.sercive
+namespace EnterpriseCarDealership.service_repository_s.repo
 {
-    public class BikeService : IBikeService
-    {
+    public class BikeRepo : IBikeRepo
         //KARZAN
-
+    {
         private DealershipContext dBContext = new DealershipContext();
 
-        public void Addbike(Bike bike)
+        public async Task Addbike(Bike bike)
         {
             dBContext.Bike.Add(bike);
-            dBContext.SaveChanges();    
+            await dBContext.SaveChangesAsync();
         }
-       
 
-        public Bike Deletebike(int id)
+        public async Task Deletebike(int id)
         {
             Bike bike = GetBikeById(id);
-            dBContext.Bike.Remove(bike);    
-            dBContext.SaveChanges();
-            return bike; 
+            dBContext.Bike.Remove(bike);
+            await dBContext.SaveChangesAsync();
+    
         }
-        
 
         public Bike GetBikeById(int id)
         {
-            return BikeList.FirstOrDefault(x => x.Id == id);
+            Bike bike = GetBikeList().FirstOrDefault(x => x.NextId == id);
+            return bike;
         }
 
         public List<Bike> GetBikeList()
         {
-            return BikeList;
+            return new List<Bike>(dBContext.Bike);
         }
 
-        public Bike Updatebike(int id, Bike bike)
+        public async Task Updatebike(Bike bike)
         {
-            Bike newbike = GetBikeById((int)id);
-            if (newbike != null)
-            {
-                
+            Bike newbike = GetBikeById(bike.NextId);
+
                 newbike.Brand = bike.Brand;
                 newbike.Type = bike.Type;
                 newbike.PrisPrDag = bike.PrisPrDag;
@@ -52,10 +49,9 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
                 newbike.ExtraStorage = bike.ExtraStorage;
 
 
-            }
+            
             dBContext.Bike.Update(newbike);
-            dBContext.SaveChanges();
-            return newbike; 
+            await dBContext.SaveChangesAsync();
         }
     }
 }
