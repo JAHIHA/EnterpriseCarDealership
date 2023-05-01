@@ -7,7 +7,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
     {
         //KARZAN
 
-        public Kunde ReadKunde(SqlDataReader reader)
+        public Kunde ReadKunde(SqlDataReader reader);
         public List<Kunde> GetKundeList();
 
         public Task Addkunde(Kunde kunde);

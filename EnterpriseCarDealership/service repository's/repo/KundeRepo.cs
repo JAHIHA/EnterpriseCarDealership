@@ -19,13 +19,18 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             SqlConnection connection = new SqlConnection(ConString);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
-            command.Parameters.AddWithValue("@NextId", kunde.;
+            command.Parameters.AddWithValue("@NextId", kunde.NextId);
             command.Parameters.AddWithValue("@Name", kunde.Name.ToString());
             command.Parameters.AddWithValue("@Password", kunde.Password.ToString());
             command.Parameters.AddWithValue("@IsAdmin", kunde.IsAdmin);
             command.Parameters.AddWithValue("@Tlf", kunde.Tlf.ToString());
+            command.Parameters.AddWithValue("@Adress", kunde.Adress.ToString());
 
             int rows = command.ExecuteNonQuery();
+            if (rows != 1)
+            {
+                throw new ArgumentException("Kunde er ikke oprettet");
+            }
 
             connection.Close();
             var val = GetKundeList().Last().NextId;
@@ -44,6 +49,10 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
 
             int rows = command.ExecuteNonQuery();
+            if (rows != 1)
+            {
+                throw new ArgumentException("Kunde kan ikke fjernes");
+            }
 
             connection.Close();
         }
@@ -115,13 +124,17 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             SqlConnection connection = new SqlConnection(ConString);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
-            command.Parameters.AddWithValue("@NextId", kunder.NextId);
-            command.Parameters.AddWithValue("@Name", kunder.Name.ToString());
-            command.Parameters.AddWithValue("@Password", kunder.Password.ToString());
-            command.Parameters.AddWithValue("@IsAdmin", kunder.IsAdmin);
-            command.Parameters.AddWithValue("@Tlf", kunder.Tlf.ToString());
+            command.Parameters.AddWithValue("@NextId", kunde.NextId);
+            command.Parameters.AddWithValue("@Name", kunde.ToString());
+            command.Parameters.AddWithValue("@Password", kunde.Password.ToString());
+            command.Parameters.AddWithValue("@IsAdmin", kunde.IsAdmin);
+            command.Parameters.AddWithValue("@Tlf", kunde.Tlf.ToString());
+            command.Parameters.AddWithValue("@Adress", kunde.Adress.ToString()); 
             int rows = command.ExecuteNonQuery();
-
+            if (rows != 1)
+            {
+                throw new ArgumentException("Kunde kan ikke opdateres");
+            }
 
 
             connection.Close();

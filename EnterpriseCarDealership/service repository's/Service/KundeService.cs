@@ -1,52 +1,47 @@
 ﻿using DocumentFormat.OpenXml.Office2010.Excel;
 using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.service_repository_s.repo;
+using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 
 namespace EnterpriseCarDealership.service_repository_s.sercive
 {
     public class KundeService : IKundeService
+
+
     {
-        private List<Kunde> _kunder;
 
-        public List<Kunde> GetKundeList()
+     private IKundeRepo _Kunderepo;
+
+    public KundeService(IKundeRepo kundeRepo)
+    {
+        _Kunderepo = kundeRepo;
+    }
+    public async Task Addkunde(Kunde kunde)
         {
-            return _kunder; 
+            await _Kunderepo.Addkunde(kunde);
         }
 
-
-        public void Addkunde(Kunde kunde)
+        public async Task Deletekunde(int id)
         {
-            _kunder.Add(kunde);
-            
+            await _Kunderepo.Deletekunde(id);   
         }
-
-
-        public void Updatekunde(Kunde kunde)
-        {
-            var existingkunde = GetKundeById(kunde.Id);
-            if (existingkunde != null)
-            {
-                existingkunde.Name = kunde.Name;
-                existingkunde.Tlf = kunde.Tlf;
-                existingkunde.Adress = kunde.Adress;
-                existingkunde.Password = kunde.Password;
-
-
-            }
-
-        }
-        
-
 
         public Kunde GetKundeById(int id)
         {
-            return _kunder.FirstOrDefault(Kunde => Kunde.NextId == id);
+            Kunde kunde = _Kunderepo.GetKundeById(id);
+           
+            return kunde;   
         }
-        
-        public void Deletekunde(int id)
+
+        public List<Kunde> GetKundeList()
         {
-           Kunde kunde = GetKundeById(id);
-            _kunder.Remove(kunde);
+            return _Kunderepo.GetKundeList();   
+        }
+
+        public async Task Updatekunde(Kunde kunde)
+        {
+            await _Kunderepo.Updatekunde(kunde);    
         }
     }
-    }
+}
 
