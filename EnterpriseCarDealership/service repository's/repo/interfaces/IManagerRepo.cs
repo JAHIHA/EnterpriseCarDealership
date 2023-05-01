@@ -1,21 +1,21 @@
 ﻿using EnterpriseCarDealership.Models;
+using Microsoft.Data.SqlClient;
 
-namespace EnterpriseCarDealership.service_repository_s
+namespace EnterpriseCarDealership.service_repository_s.repo.interfaces
 {
-    public interface IManagerService
+    public interface IManagerRepo
     {
         public List<Manager> GetManagerList();
+        public Manager ReadManager(SqlDataReader reader);
 
         public Task AddManager(Manager manager);
 
 
-        public Task UpdateManager(Manager vmanager);
+        public Task UpdateManager(Manager manager);
 
 
         public Manager GetManagerById(int id);
 
         public Task DeleteManager(int id);
-
-
     }
 }

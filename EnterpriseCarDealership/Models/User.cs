@@ -2,7 +2,7 @@
 {
     public abstract class User
     {
-        public static int NextId { get; set; }
+        public  int NextId { get; set; }
         public string Name { get; set; }
         public string Password {get; set; }
         public bool IsAdmin { get; set; }
