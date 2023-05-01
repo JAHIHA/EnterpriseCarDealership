@@ -1,20 +1,21 @@
 ﻿using EnterpriseCarDealership.Models;
+using Microsoft.Data.SqlClient;
 
 namespace EnterpriseCarDealership.service_repository_s
 {
     public interface IKundeService
     {
+    
         public List<Kunde> GetKundeList();
 
-        public void Addkunde(Kunde kunde); 
-        
+        public Task Addkunde(Kunde kunde);
 
-        public void Updatekunde(Kunde kunde); 
-  
-      
+
+        public Task Updatekunde(Kunde kunde);
+
+
         public Kunde GetKundeById(int id);
-   
-        public void Deletekunde(int id);
 
-        }
+        public Task Deletekunde(int id);
+    }
 }
