@@ -39,7 +39,7 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
         public async Task UpdateManager(Manager manager)
         {
             await _managerRepo.UpdateManager(manager);
-            var ok = 1;
+            
         }
     }
 }
