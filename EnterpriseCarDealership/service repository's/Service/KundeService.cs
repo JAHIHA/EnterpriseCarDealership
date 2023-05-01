@@ -1,4 +1,5 @@
-﻿using EnterpriseCarDealership.Models;
+﻿using DocumentFormat.OpenXml.Office2010.Excel;
+using EnterpriseCarDealership.Models;
 
 namespace EnterpriseCarDealership.service_repository_s.sercive
 {
@@ -38,7 +39,7 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
 
         public Kunde GetKundeById(int id)
         {
-            return _kunder.FirstOrDefault(Kunde => Kunde.Id == id);
+            return _kunder.FirstOrDefault(Kunde => Kunde.NextId == id);
         }
         
         public void Deletekunde(int id)

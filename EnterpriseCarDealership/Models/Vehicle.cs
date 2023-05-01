@@ -3,7 +3,7 @@
     public enum MotorType { Electric, Hybrid, Diesel };
     public abstract class Vehicle
     {
-        public static int NextId { get; set; }
+        public int NextId { get; set; }
         public string Brand { get; set; }
         public MotorType Type{ get; set; }
         public double PrisPrDag { get; set; }
