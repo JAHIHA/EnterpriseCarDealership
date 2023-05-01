@@ -15,7 +15,7 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
 
         public async Task AddManager(Manager manager)
         {
-            
+
             await _managerRepo.AddManager(manager);
         }
 
