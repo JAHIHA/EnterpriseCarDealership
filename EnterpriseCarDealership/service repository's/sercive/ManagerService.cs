@@ -1,32 +1,44 @@
-﻿using EnterpriseCarDealership.Models;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 
 namespace EnterpriseCarDealership.service_repository_s.sercive
 {
     public class ManagerService : IManagerService
     {
-        public Manager AddManager(Manager manager)
+        private IManagerRepo _managerRepo;
+
+        public ManagerService(IManagerRepo managerRepo)
         {
-            throw new NotImplementedException();
+            _managerRepo = managerRepo;
         }
 
-        public Manager DeleteManager(int id)
+        public async Task AddManager(Manager manager)
         {
-            throw new NotImplementedException();
+            
+            await _managerRepo.AddManager(manager);
+        }
+
+        public async Task DeleteManager(int id)
+        {
+            await _managerRepo.DeleteManager(id);
         }
 
         public Manager GetManagerById(int id)
         {
-            throw new NotImplementedException();
+            Manager manager = _managerRepo.GetManagerById(id);
+            
+            return manager;
         }
 
         public List<Manager> GetManagerList()
         {
-            throw new NotImplementedException();
+            return _managerRepo.GetManagerList();
         }
 
-        public Manager UpdateManager(Manager vmanager)
+        public async Task UpdateManager(Manager manager)
         {
-            throw new NotImplementedException();
+            await _managerRepo.UpdateManager(manager);
         }
     }
 }

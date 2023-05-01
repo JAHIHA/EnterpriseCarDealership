@@ -12,9 +12,9 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             _bookRep = bookRep;
         }
 
-        public Booking Addbooking(Booking booking)
+        public async Task Addbooking(Booking booking)
         {
-            return _bookRep.Addbooking(booking);
+            await _bookRep.Addbooking(booking);
         }
 
         public async Task Deletebooking(int id)
@@ -43,13 +43,13 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
                 .Any(a => a.ID != booking.ID && a.StartTime <= booking.EndTime && booking.StartTime <= a.EndTime && a.CarId == booking.CarId);
         }
 
-        public Booking Updatebooking(Booking booking)
+        public async Task Updatebooking(Booking booking)
         {
             if (booking != null)
             {
-                return _bookRep.Updatebooking(booking);
+                await _bookRep.Updatebooking(booking);
             }
-            return booking;
+           
         }
     }
 }
