@@ -6,10 +6,10 @@ namespace EnterpriseCarDealership.service_repository_s
     {
         public List<Medarbejder> GetmedarbejderList();
 
-        public void Addmedarbejder(Medarbejder medarbejder);
+        public Task Addmedarbejder(Medarbejder medarbejder);
 
 
-        public void Updatemedarbejder(Medarbejder medarbejder);
+        public Task Updatemedarbejder(Medarbejder medarbejder);
 
 
 
@@ -18,6 +18,6 @@ namespace EnterpriseCarDealership.service_repository_s
         
 
 
-        public void Deletemedarbejder(int id);
+        public Task Deletemedarbejder(int id);
     }
 }

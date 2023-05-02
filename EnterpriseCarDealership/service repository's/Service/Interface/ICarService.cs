@@ -7,15 +7,15 @@ namespace EnterpriseCarDealership.service_repository_s
     {
         public List<Car> GetCarList();
 
-        public Car Addcar(Car car);
+        public Task Addcar(Car car);
 
 
-        public Car Updatecar(Car car);
+        public Task Updatecar(Car car);
 
 
         public Car GetCarById(int id);
 
-        public Car Deletecar(int id);
+        public Task Deletecar(int id);
 
     }
 }
