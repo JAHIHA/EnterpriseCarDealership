@@ -1,3 +1,4 @@
+using DocumentFormat.OpenXml.Drawing;
 using EnterpriseCarDealership.service_repository_s.repo;
 using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 
@@ -13,7 +14,8 @@ builder.Services.AddSingleton<IKundeRepo,
 KundeRepo>();
 builder.Services.AddSingleton<IManagerRepo,
 ManagerRepo>();
-
+builder.Services.AddSingleton<IMedarbejderRepo, 
+MedarbejderRepo>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

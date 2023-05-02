@@ -13,6 +13,7 @@ namespace EnterpriseCarDealership.DBContextFolder
             get; set;
         }
         public virtual DbSet<Booking> Booking { get; set; }
-        public virtual DbSet<Car> Car { get; set; }
+        public virtual DbSet<Medarbejder> Medarbejder{ get; set; }
+
     }
 }

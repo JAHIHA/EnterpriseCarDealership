@@ -2,40 +2,43 @@
 using DocumentFormat.OpenXml.Office2010.Excel;
 using EnterpriseCarDealership.DBContextFolder;
 using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 using Microsoft.EntityFrameworkCore;
 
 namespace EnterpriseCarDealership.service_repository_s.sercive
 {
     public class CarService :ICarService
     {
-      private DealershipContext _cardb = new DealershipContext();
-        public List<Car> GetCarList()
+        private ICarRepo _carRepo; 
+     public CarService(ICarRepo carRepo)
         {
-            return new List<Car>(_cardb.Car);
+            _carRepo = carRepo; 
         }
 
+        public async Task Addcar(Car car)
+        {
+            await _carRepo.Addcar(car);
+        }
+
+        public async Task Deletecar(int id)
+        {
+            await _carRepo.Deletecar(id);   
+        }
 
         public Car GetCarById(int id)
         {
-
+            Car car = _carRepo.GetCarById(id); 
+            return car; 
         }
 
-       
-
-        public Car Updatecar(Car car)
+        public List<Car> GetCarList()
         {
-            throw new NotImplementedException();
+            return _carRepo.GetCarList();
         }
 
-        public Car Addcar(Car car)
+        public async Task Updatecar(Car car)
         {
-           _cardb.Car.Add(car);
-            _cardb.Car.Sa
-        }
-
-        public Car Deletecar(int id)
-        {
-            throw new NotImplementedException();
+            await _carRepo.Updatecar(car); 
         }
     }
 }

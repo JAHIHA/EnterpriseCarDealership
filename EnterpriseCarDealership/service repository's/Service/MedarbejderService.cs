@@ -1,45 +1,51 @@
 ﻿using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.service_repository_s.repo;
 
 namespace EnterpriseCarDealership.service_repository_s.sercive
 {
-    public class MedarbejderService: IMedarbejderService
+    public class MedarbejderService: IMedarbejderService 
 
     {
-        private List<Medarbejder> _medarbejder;
-
-        public void Addmedarbejder(Medarbejder medarbejder)
+        private IMedarbejderRepo _medarbejderRepo;
+        public MedarbejderService(IMedarbejderRepo medarbejderRepo)
         {
-            _medarbejder.Add(medarbejder);
+            _medarbejderRepo = medarbejderRepo;
         }
 
-        public void Deletemedarbejder(int id)
+
+        public async Task Addmedarbejder(Medarbejder medarbejder)
         {
-            Medarbejder medarbejder=GetmedarbejderById(id);
-            _medarbejder.Remove(medarbejder);
+           await _medarbejderRepo.Addmedarbejder(medarbejder);
+            
+        }
+
+        public async Task Deletemedarbejder(int id)
+        {
+
+           await _medarbejderRepo.Deletemedarbejder(id); 
         }
 
         public Medarbejder GetmedarbejderById(int id)
         {
-            return _medarbejder.FirstOrDefault(Medarbejder => Medarbejder.Id == id);
+            Medarbejder medarbejder = _medarbejderRepo.GetmedarbejderById(id); 
+            if (medarbejder ==null)
+            {
+                throw new Exception(); 
+            }
+            return medarbejder; 
         }
 
         public List<Medarbejder> GetmedarbejderList()
         {
-            return _medarbejder.ToList();
+            return _medarbejderRepo.GetmedarbejderList();
         }
 
-        public void Updatemedarbejder(Medarbejder medarbejder)
+        public async Task Updatemedarbejder(Medarbejder medarbejder)
         {
-            var existingmedarbejder = GetmedarbejderById(medarbejder.Id);
-            if (existingmedarbejder != null)
+            
+            if (medarbejder != null)
             {
-                existingmedarbejder.Name = medarbejder.Name;
-                existingmedarbejder.Tlf = medarbejder.Tlf;
-                existingmedarbejder.Adress = medarbejder.Adress;
-                existingmedarbejder.Password = medarbejder.Password;
-                existingmedarbejder.ManagerId = medarbejder.ManagerId;
-                existingmedarbejder.IsAdmin = medarbejder.IsAdmin; 
-
+                await _medarbejderRepo.Updatemedarbejder(medarbejder); 
 
             }
 
