@@ -6,6 +6,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 {
     public class KundeRepo : IKundeRepo
     {
+        //KARZAN
 
         List<Kunde> kunder = new List<Kunde>();
 

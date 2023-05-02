@@ -3,6 +3,7 @@
 
     public class Kunde : User
     {
+        //KARZAN
         public string Adress { get; set; }
 
         public Kunde()

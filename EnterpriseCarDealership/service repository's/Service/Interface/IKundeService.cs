@@ -5,7 +5,7 @@ namespace EnterpriseCarDealership.service_repository_s
 {
     public interface IKundeService
     {
-    
+     //KARZAN
         public List<Kunde> GetKundeList();
 
         public Task Addkunde(Kunde kunde);
