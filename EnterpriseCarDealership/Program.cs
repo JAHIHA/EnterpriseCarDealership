@@ -1,7 +1,18 @@
+using EnterpriseCarDealership.service_repository_s.repo;
+using EnterpriseCarDealership.service_repository_s.repo.interfaces;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSingleton<IBikeRepo,
+BikeRepo>();
+builder.Services.AddSingleton<IBookingRepo,
+BookingRepo>();
+builder.Services.AddSingleton<IKundeRepo,
+KundeRepo>();
+builder.Services.AddSingleton<IManagerRepo,
+ManagerRepo>();
 
 var app = builder.Build();
 
