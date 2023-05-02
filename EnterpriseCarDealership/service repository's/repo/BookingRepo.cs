@@ -11,15 +11,15 @@ namespace EnterpriseCarDealership.service_repository_s.repo
         public async Task Addbooking(Booking booking)
         {
             _bookdb.Booking.Add(booking);
-           await  _bookdb.SaveChangesAsync();
-            
+            await _bookdb.SaveChangesAsync();
+
         }
 
         public async Task Deletebooking(int id)
         {
             Booking? booking = GetbookingById(id);
             _bookdb.Booking.Remove(booking);
-          await  _bookdb.SaveChangesAsync();
+            await _bookdb.SaveChangesAsync();
         }
 
         public Booking? GetbookingById(int id)
@@ -37,14 +37,15 @@ namespace EnterpriseCarDealership.service_repository_s.repo
         {
             Booking book = GetbookingById(booking.ID);
 
- 
-                booking.StartTime = book.StartTime;
-                booking.EndTime = book.EndTime;
-                booking.KundeId = book.KundeId;
-                booking.CarId = book.CarId;
+
+            booking.StartTime = book.StartTime;
+            booking.EndTime = book.EndTime;
+            booking.KundeId = book.KundeId;
+            booking.CarId = book.CarId;
             _bookdb.Booking.Update(book);
             await _bookdb.SaveChangesAsync();
-            
+
+        }
     }
 }
 
