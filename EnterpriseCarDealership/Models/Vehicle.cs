@@ -1,6 +1,6 @@
 ﻿namespace EnterpriseCarDealership.Models
 {
-    public enum MotorType { Electric, Hybrid, Diesel };
+    //public enum MotorType { Electric, Hybrid, Diesel };
     public abstract class Vehicle
     {
         public int NextId { get; set; }

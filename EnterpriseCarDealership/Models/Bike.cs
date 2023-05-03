@@ -3,8 +3,15 @@
 namespace EnterpriseCarDealership.Models
 {
     //KARZAN
-    public class Bike: Vehicle
+    public enum MotorType { Electric, Hybrid, Diesel };
+    public class Bike
     {
+        public int NextId { get; set; }
+        public string Brand { get; set; }
+        public MotorType Type { get; set; }
+        public double PrisPrDag { get; set; }
+        public int Year { get; set; }
+        public int Km { get; set; }
         public bool Sidebike { get; set; }
         public bool LeatherSddle { get; set; }
         public bool ExtraStorage { get; set; }

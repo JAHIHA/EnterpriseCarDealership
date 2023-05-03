@@ -1,0 +1,64 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDBooking.CreateCarBookingModel
+@{
+}
+<div class="container border" style="padding:20px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+        
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateCar.StartTime"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateCar.StartTime" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateCar.StartTime"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateCar.EndTime"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateCar.EndTime" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateCar.EndTime"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateCar.KundeId"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateCar.KundeId" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateCar.KundeId"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateCar.CarId"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateCar.CarId" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateCar.CarId"></span>
+        </div>
+        
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateCar.PaymentId"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateCar.PaymentId" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateCar.PaymentId"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="CreateCarBooking" />
+            </div>
+            <div class="col-5">
+            </div>
+        </div>
+    </form>
+</div>
