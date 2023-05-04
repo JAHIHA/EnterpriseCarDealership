@@ -1,0 +1,64 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDBikeBooking.CreateBikeBookingModel
+@{
+}
+<div class="container border" style="padding:20px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateBike.StartTime"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateBike.StartTime" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateBike.StartTime"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateBike.EndTime"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateBike.EndTime" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateBike.EndTime"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateBike.KundeId"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateBike.KundeId" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateBike.KundeId"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateBike.BikeId"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateBike.BikeId" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateBike.BikeId"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateBike.PaymentId"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateBike.PaymentId" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateBike.PaymentId"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="CreateBikeBooking" />
+            </div>
+            <div class="col-5">
+            </div>
+        </div>
+    </form>
+</div>
