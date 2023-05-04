@@ -1,4 +1,5 @@
-﻿using EnterpriseCarDealership.Models;
+﻿using DocumentFormat.OpenXml.Office2010.Excel;
+using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.Pages.CRUDBooking;
 using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 
@@ -20,7 +21,8 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
                 EndTime = Cbooking.EndTime,
                 KundeId = Cbooking.KundeId,
                 CarId = Cbooking.CarId,
-                
+                PaymentId = Cbooking.PaymentId,
+
 
 
             };
@@ -59,7 +61,7 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             {
                 await _CbookRep.UpdateCarbooking(Cbooking);
             }
-
+           
         }
     }
 }

@@ -7,7 +7,7 @@ namespace EnterpriseCarDealership.service_repository_s.Service
 {
     public class BikeBookingService : IBikeBookingService
     {
-
+         
         private readonly IBikeBookingRepo _BbookRep;
         public BikeBookingService(IBikeBookingRepo BbookRep)
         {

@@ -8,6 +8,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
     {
         private readonly DealershipContext _context = new DealershipContext();
 
+        
 
         public async Task DeleteBikebooking(int id)
         {
@@ -52,7 +53,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             await _context.SaveChangesAsync();
         }
 
-
-
-    }
+ 
+    
+}
 }
