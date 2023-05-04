@@ -42,8 +42,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBooking
         [Required]
         public int CarId { get; set; }
 
-        [Required]
-        public int PaymentId { get; set; }
+       
 
      
 
