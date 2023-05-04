@@ -33,7 +33,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             Bikebooking.EndTime = book.EndTime;
             Bikebooking.KundeId = book.KundeId;
             Bikebooking.BikeId = book.BikeId;
-            Bikebooking.PaymentId = book.PaymentId;
+           
             _context.BikeBooking.Update(book);
             await _context.SaveChangesAsync();
 

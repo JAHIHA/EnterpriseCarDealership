@@ -12,8 +12,7 @@ namespace EnterpriseCarDealership.Models
         public DateTime EndTime { get; set; }
         public int KundeId { get; set; }
         public int CarId { get; set; }
-        public int PaymentId { get; set; }
-        public Payment Payment { get; set; }
+      
         public Car Car { get; set; }
         public Kunde Kunde { get; set; }
 
@@ -32,14 +31,14 @@ namespace EnterpriseCarDealership.Models
             if (EndTime == default) throw new ArgumentOutOfRangeException(nameof(EndTime), "EndTime date is required");
             if (KundeId == default) throw new ArgumentOutOfRangeException(nameof(KundeId), "Customer id is required");
             if (CarId == default) throw new ArgumentOutOfRangeException(nameof(CarId), "Car id  is required");
-            if (PaymentId == default) throw new ArgumentOutOfRangeException(nameof(PaymentId), "Payment id  is required");
+          
             if (StartTime >= EndTime) throw new Exception($"EndTime has to come later than StartTime (StartTime, EndTime): {StartTime}, {EndTime}");
             this.Id = ID;
             this.StartTime = StartTime;
             this.EndTime = EndTime;
             this.KundeId = KundeId;
             this.CarId = CarId;
-            this.PaymentId = PaymentId;
+           
 
         }
         public CarBooking(int _id, DateTime _startTime, DateTime _endTime, int _kundeID, int _carId, ICarBookingService _services, int _paymentId)
@@ -49,7 +48,7 @@ namespace EnterpriseCarDealership.Models
             if (_endTime == default) throw new ArgumentOutOfRangeException(nameof(_endTime), "End Time date is required");
             if (_kundeID == default) throw new ArgumentOutOfRangeException(nameof(_kundeID), "Customer id is required");
             if (_carId == default) throw new ArgumentOutOfRangeException(nameof(_carId), "Car id  is required");
-            if (_paymentId == default) throw new ArgumentOutOfRangeException(nameof(_paymentId), "Payment id  is required");
+           
             if (_startTime >= _endTime) throw new Exception($"End time has to come later than Start Time (StartTime, End): {_startTime}, {_endTime}");
             Id = _id;
             StartTime = _startTime;
@@ -57,7 +56,7 @@ namespace EnterpriseCarDealership.Models
             KundeId = _kundeID;
             CarId = _carId;
             BookingService = _services;
-            PaymentId = _paymentId;
+           
         }
     }
 }

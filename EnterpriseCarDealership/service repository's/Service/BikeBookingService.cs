@@ -21,7 +21,7 @@ namespace EnterpriseCarDealership.service_repository_s.Service
                 StartTime = Bbooking.StartTime,
                 EndTime = Bbooking.EndTime,
                 KundeId = Bbooking.KundeId,
-                PaymentId = Bbooking.PaymentId,
+               
                 BikeId = Bbooking.BikeId,
 
 

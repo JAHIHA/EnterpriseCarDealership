@@ -20,7 +20,7 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
                 EndTime = Cbooking.EndTime,
                 KundeId = Cbooking.KundeId,
                 CarId = Cbooking.CarId,
-                PaymentId = Cbooking.PaymentId,
+                
 
 
             };
