@@ -1,9 +1,6 @@
-﻿using DocumentFormat.OpenXml.Office2010.Excel;
-
-namespace EnterpriseCarDealership.Models
+﻿namespace EnterpriseCarDealership.Models
 {
     //KARZAN
-    public enum MotorType { Electric, Hybrid, Diesel };
     public class Bike
     {
         public int NextId { get; set; }
@@ -19,7 +16,7 @@ namespace EnterpriseCarDealership.Models
         {
 
         }
-        public Bike(int Id, string Brand, MotorType Type, double PrisPrDag, int Year, int Km, bool sidebike, bool leatherSddle, bool extraStorage) : base(Id,  Brand, Type, PrisPrDag, Year, Km)
+        public Bike(int Id, string Brand, MotorType Type, double PrisPrDag, int Year, int Km, bool sidebike, bool leatherSddle, bool extraStorage)
         {
             Sidebike = sidebike;
             LeatherSddle = leatherSddle;

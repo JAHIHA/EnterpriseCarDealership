@@ -1,12 +1,14 @@
 ﻿using EnterpriseCarDealership.Models;
 using Microsoft.EntityFrameworkCore;
+
 namespace EnterpriseCarDealership.DBContextFolder
 {
-    public class DealershipContext:DbContext
+    public class DealershipContext : DbContext
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Secret.GetConnectionString);
+
         }
         public virtual DbSet<Bike> Bike
         {
@@ -17,8 +19,46 @@ namespace EnterpriseCarDealership.DBContextFolder
             get; set;
         }
         public virtual DbSet<CarBooking> CarBooking { get; set; }
-        public virtual DbSet<BikeBooking> BBooking { get; set; }
-        public virtual DbSet<Medarbejder> Medarbejder{ get; set; }
+        public virtual DbSet<BikeBooking> BikeBooking { get; set; }
+        public virtual DbSet<Medarbejder> Medarbejder { get; set; }
+        public virtual DbSet<Kunde> Kunde { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            modelBuilder.Entity<Bike>()
+    .HasKey(b => b.NextId);
+
+            modelBuilder.Entity<Bike>()
+                .Property(b => b.NextId)
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
+
+            modelBuilder.Entity<Car>()
+.HasKey(b => b.NextId);
+
+            modelBuilder.Entity<Car>()
+                .Property(b => b.NextId)
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
+
+            modelBuilder.Entity<Medarbejder>()
+.HasKey(b => b.NextId);
+
+            modelBuilder.Entity<Medarbejder>()
+                .Property(b => b.NextId)
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
+
+            modelBuilder.Entity<Kunde>()
+.HasKey(b => b.NextId);
+
+            modelBuilder.Entity<Kunde>()
+                .Property(b => b.NextId)
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
+
+        }
     }
+
 }

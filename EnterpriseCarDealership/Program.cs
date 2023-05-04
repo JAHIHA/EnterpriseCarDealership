@@ -1,4 +1,3 @@
-using DocumentFormat.OpenXml.Drawing;
 using EnterpriseCarDealership.service_repository_s;
 using EnterpriseCarDealership.service_repository_s.repo;
 using EnterpriseCarDealership.service_repository_s.repo.interfaces;
@@ -15,10 +14,10 @@ BikeRepo>();
 builder.Services.AddSingleton<ICarRepo,
 CarRepo>();
 
-builder.Services.AddSingleton<IBikeBookingRepo,
-BikeBookingRepo>();
 builder.Services.AddSingleton<IBikeBookingService,
 BikeBookingService>();
+builder.Services.AddSingleton<IBikeBookingRepo,
+BikeBookingRepo>();
 
 builder.Services.AddSingleton<ICarBookingRepo,
 CarBookingRepo>();
@@ -33,7 +32,7 @@ ManagerRepo>();
 builder.Services.AddSingleton<IManagerService,
 ManagerService>();
 
-builder.Services.AddSingleton<IMedarbejderRepo, 
+builder.Services.AddSingleton<IMedarbejderRepo,
 MedarbejderRepo>();
 
 var app = builder.Build();

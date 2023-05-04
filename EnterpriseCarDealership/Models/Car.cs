@@ -1,27 +1,31 @@
 ﻿namespace EnterpriseCarDealership.Models
 {
     //KARZAN
-    public enum MotorsType { Electric, Hybrid, Diesel };
+
     public class Car
     {
         public int NextId { get; set; }
         public string Brand { get; set; }
-        public MotorsType Type { get; set; }
+        public MotorType Type { get; set; }
         public double PrisPrDag { get; set; }
         public int Year { get; set; }
         public int Km { get; set; }
         public bool AC { get; set; }
         public bool Sunroof { get; set; }
 
-        public bool Screen { get; set; }    
+        public bool Screen { get; set; }
 
-        public bool DVD { get; set; }   
+        public bool DVD { get; set; }
         public bool Camera { get; set; }
         public bool Sensor { get; set; }
 
-        public Car(int Id, string Brand, MotorType Type, double PrisPrDag, int Year, int Km, bool aC, bool sunroof, bool screen, bool dVD, bool camera, bool sensor, int nextId, string brand) : base(Id, Brand, Type, PrisPrDag, Year, Km)
+        public Car()
         {
-         
+
+        }
+        public Car(int Id, string Brand, MotorType Type, double PrisPrDag, int Year, int Km, bool aC, bool sunroof, bool screen, bool dVD, bool camera, bool sensor, int nextId, string brand)
+        {
+
             NextId = nextId;
             AC = aC;
             Sunroof = sunroof;

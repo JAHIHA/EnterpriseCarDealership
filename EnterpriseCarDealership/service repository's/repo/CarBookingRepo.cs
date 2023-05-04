@@ -10,6 +10,8 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public async Task Addcarbooking(CarBooking Carbooking)
         {
+            Carbooking.StartTime = DateTime.Now.AddDays(1);
+            Carbooking.EndTime = DateTime.Now.AddDays(2);
             _Carbookdb.CarBooking.Add(Carbooking);
             await _Carbookdb.SaveChangesAsync();
 
@@ -24,7 +26,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public CarBooking GetCarbookingById(int id)
         {
-            CarBooking Carbooking = GetCarbookingList().FirstOrDefault(x => x.ID == id);
+            CarBooking Carbooking = GetCarbookingList().FirstOrDefault(x => x.Id == id);
             return Carbooking;
         }
 
@@ -32,14 +34,14 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public async Task UpdateCarbooking(CarBooking Carbooking)
         {
-            CarBooking book = GetCarbookingById(Carbooking.ID);
+            CarBooking book = GetCarbookingById(Carbooking.Id);
 
 
             Carbooking.StartTime = book.StartTime;
             Carbooking.EndTime = book.EndTime;
             Carbooking.KundeId = book.KundeId;
             Carbooking.CarId = book.CarId;
-            Carbooking.PaymentId = book.PaymentId;
+          
             _Carbookdb.CarBooking.Update(book);
             await _Carbookdb.SaveChangesAsync();
 

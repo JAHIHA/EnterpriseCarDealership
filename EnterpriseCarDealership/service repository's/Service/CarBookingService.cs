@@ -24,13 +24,14 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
                 PaymentId = Cbooking.PaymentId,
 
 
+
             };
             await _CbookRep.AddCarbooking(newCarBooking);
         }
 
         public async Task DeleteCarbooking(int id)
         {
-             await  _CbookRep.DeleteCarbooking(id);
+            await _CbookRep.DeleteCarbooking(id);
         }
 
         public CarBooking? GetCarbookingById(int id)
@@ -51,7 +52,7 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
         public bool IsOverlapping(CarBooking Cbooking)
         {
             return GetCarbookingList()
-                .Any(a => a.ID != Cbooking.ID && a.StartTime <= Cbooking.EndTime && Cbooking.StartTime <= a.EndTime && a.CarId == Cbooking.CarId);
+                .Any(a => a.Id != Cbooking.Id && a.StartTime <= Cbooking.EndTime && Cbooking.StartTime <= a.EndTime && a.CarId == Cbooking.CarId);
         }
 
         public async Task UpdateCarbooking(CarBooking Cbooking)

@@ -42,8 +42,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
         [Required]
         public int BikeId { get; set; }
 
-        [Required]
-        public int PaymentId { get; set; }
+      
 
 
 

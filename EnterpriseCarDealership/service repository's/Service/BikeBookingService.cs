@@ -5,10 +5,10 @@ using EnterpriseCarDealership.service_repository_s.Service.Interface;
 
 namespace EnterpriseCarDealership.service_repository_s.Service
 {
-    public class BikeBookingService:IBikeBookingService
+    public class BikeBookingService : IBikeBookingService
     {
          
-        private IBikeBookingRepo _BbookRep;
+        private readonly IBikeBookingRepo _BbookRep;
         public BikeBookingService(IBikeBookingRepo BbookRep)
         {
             _BbookRep = BbookRep;
@@ -21,7 +21,7 @@ namespace EnterpriseCarDealership.service_repository_s.Service
                 StartTime = Bbooking.StartTime,
                 EndTime = Bbooking.EndTime,
                 KundeId = Bbooking.KundeId,
-                PaymentId = Bbooking.PaymentId,
+               
                 BikeId = Bbooking.BikeId,
 
 
@@ -53,7 +53,7 @@ namespace EnterpriseCarDealership.service_repository_s.Service
         public bool IsOverlapping(BikeBooking Bbooking)
         {
             return GetBikebookingList()
-                .Any(a => a.ID != Bbooking.ID && a.StartTime <= Bbooking.EndTime && Bbooking.StartTime <= a.EndTime && a.BikeId == Bbooking.BikeId);
+                .Any(a => a.Id != Bbooking.Id && a.StartTime <= Bbooking.EndTime && Bbooking.StartTime <= a.EndTime && a.BikeId == Bbooking.BikeId);
         }
 
         public async Task UpdateBikebooking(BikeBooking Bbooking)
