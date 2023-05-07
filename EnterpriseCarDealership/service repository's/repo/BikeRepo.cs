@@ -6,9 +6,10 @@ using Microsoft.EntityFrameworkCore;
 namespace EnterpriseCarDealership.service_repository_s.repo
 {
     public class BikeRepo : IBikeRepo
-        //KARZAN
+    //KARZAN
     {
         private DealershipContext dBContext = new DealershipContext();
+        // ask about ctor for the dbContext
 
         public async Task Addbike(Bike bike)
         {
