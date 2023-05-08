@@ -22,6 +22,10 @@ namespace EnterpriseCarDealership.DBContextFolder
         public virtual DbSet<BikeBooking> BikeBooking { get; set; }
         public virtual DbSet<Medarbejder> Medarbejder { get; set; }
         public virtual DbSet<Kunde> Kunde { get; set; }
+        public virtual DbSet<Manager> Manager { get; set; }
+        public virtual DbSet<CarPayment> CarPayment { get; set; }
+        public virtual DbSet<BikePayment> BikePayment { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -54,6 +58,30 @@ namespace EnterpriseCarDealership.DBContextFolder
 .HasKey(b => b.NextId);
 
             modelBuilder.Entity<Kunde>()
+                .Property(b => b.NextId)
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
+
+            modelBuilder.Entity<Manager>()
+.HasKey(b => b.NextId);
+
+            modelBuilder.Entity<Manager>()
+                .Property(b => b.NextId)
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
+
+            modelBuilder.Entity<BikePayment>()
+.HasKey(b => b.NextId);
+
+            modelBuilder.Entity<BikePayment>()
+                .Property(b => b.NextId)
+                .ValueGeneratedOnAdd()
+                .UseIdentityColumn();
+
+            modelBuilder.Entity<CarPayment>()
+.HasKey(b => b.NextId);
+
+            modelBuilder.Entity<CarPayment>()
                 .Property(b => b.NextId)
                 .ValueGeneratedOnAdd()
                 .UseIdentityColumn();

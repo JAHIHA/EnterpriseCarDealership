@@ -10,7 +10,7 @@
         {
             Adress = "nowhere";
         }
-        public Kunde(int Id, string Name, string password, bool isAdmin, string tlf, string adress) : base(Id, Name, password, isAdmin, tlf)
+        public Kunde(int Id, string Name, string password, bool IsMedarbejder, bool isAdmin, string tlf, string adress) : base(Id, Name, password, IsMedarbejder, isAdmin, tlf)
         {
             Adress = adress;
         }

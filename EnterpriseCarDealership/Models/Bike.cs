@@ -1,14 +1,9 @@
 ﻿namespace EnterpriseCarDealership.Models
 {
     //KARZAN
-    public class Bike
+    public class Bike:Vehicle
     {
-        public int NextId { get; set; }
-        public string Brand { get; set; }
-        public MotorType Type { get; set; }
-        public double PrisPrDag { get; set; }
-        public int Year { get; set; }
-        public int Km { get; set; }
+       
         public bool Sidebike { get; set; }
         public bool LeatherSddle { get; set; }
         public bool ExtraStorage { get; set; }
@@ -16,7 +11,7 @@
         {
 
         }
-        public Bike(int Id, string Brand, MotorType Type, double PrisPrDag, int Year, int Km, bool sidebike, bool leatherSddle, bool extraStorage)
+        public Bike(int Id, string Brand, MotorType Type, double PrisPrDag, int Year, int Km, bool sidebike, bool leatherSddle, bool extraStorage):base(Id,Brand,Type,PrisPrDag,Year,Km)
         {
             Sidebike = sidebike;
             LeatherSddle = leatherSddle;

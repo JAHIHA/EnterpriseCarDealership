@@ -2,14 +2,9 @@
 {
     //KARZAN
 
-    public class Car
+    public class Car:Vehicle
     {
-        public int NextId { get; set; }
-        public string Brand { get; set; }
-        public MotorType Type { get; set; }
-        public double PrisPrDag { get; set; }
-        public int Year { get; set; }
-        public int Km { get; set; }
+        
         public bool AC { get; set; }
         public bool Sunroof { get; set; }
 
@@ -23,10 +18,10 @@
         {
 
         }
-        public Car(int Id, string Brand, MotorType Type, double PrisPrDag, int Year, int Km, bool aC, bool sunroof, bool screen, bool dVD, bool camera, bool sensor, int nextId, string brand)
+        public Car(int Id, string Brand, MotorType Type, double PrisPrDag, int Year, int Km, bool aC, bool sunroof, bool screen, bool dVD, bool camera, bool sensor, int nextId, string brand):base(Id, Brand, Type, PrisPrDag, Year, Km)
         {
 
-            NextId = nextId;
+            
             AC = aC;
             Sunroof = sunroof;
             Screen = screen;
