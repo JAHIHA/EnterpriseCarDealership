@@ -1,5 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Spreadsheet;
 using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.Manager;
 using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 
 namespace EnterpriseCarDealership.service_repository_s.sercive
@@ -13,10 +14,20 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             _managerRepo = managerRepo;
         }
 
-        public async Task AddManager(Manager manager)
+        public async Task AddManager(CreateManager manager)
         {
+            Manager newManager = new Manager()
+            {
+              NextId=manager.NextId,
+                Name=manager.Name,
+                Password=manager.Password,
+                IsMedarbejder=manager.IsMedarbejder,
+                IsAdmin=manager.IsAdmin,
+                Tlf=manager.Tlf
 
-            await _managerRepo.AddManager(manager);
+
+            };
+            await _managerRepo.AddManager(newManager);
         }
 
         public async Task DeleteManager(int id)

@@ -2,3 +2,76 @@
 @model EnterpriseCarDealership.Pages.Manager.CreateManagerModel
 @{
 }
+<div class="container border" style="padding:20px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateManager.NextId"></label>
+            </div>
+            <input type="text" asp-for="CreateManager.NextId" class="form-control"
+            <div class="col-5">
+                />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateManager.NextId"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateManager.Name"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateManager.Name" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateManager.Name"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateManager.Password"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateManager.Password" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateManager.Password"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateManager.IsMedarbejder"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateManager.IsMedarbejder" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateManager.IsMedarbejder"></span>
+        </div>
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="CreateManager.IsAdmin"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateManager.IsAdmin" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateManager.IsAdmin"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="@CreateManager.Tlf"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="CreateManager.Tlf" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="CreateManager.Tlf"></span>
+        </div>
+
+
+
+        <div class="form-group row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="CreateManager" />
+            </div>
+            <div class="col-5">
+            </div>
+        </div>
+    </form>
+</div>

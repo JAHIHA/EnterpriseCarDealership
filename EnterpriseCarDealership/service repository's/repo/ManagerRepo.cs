@@ -17,7 +17,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public async Task AddManager(Manager manager)
         {
-            string queryString = "INSERT INTO Manager (NextId, Name, Password, IsAdmin, Tlf) VALUES (@NextId, @Name, @Password,@IsAdmin, @Tlf);";
+            string queryString = "INSERT INTO Manager (NextId, Name, Password, IsMedarbejder, IsAdmin, Tlf) VALUES (@NextId, @Name, @Password,@IsMedarbejder,@IsAdmin, @Tlf);";
 
             SqlConnection connection = new SqlConnection(ConString);
             await  connection.OpenAsync();
@@ -25,19 +25,12 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             command.Parameters.AddWithValue("@NextId", manager.NextId);
             command.Parameters.AddWithValue("@Name", manager.Name.ToString());
             command.Parameters.AddWithValue("@Password", manager.Password.ToString());
+            command.Parameters.AddWithValue("@IsMedarbejder", manager.IsMedarbejder);
             command.Parameters.AddWithValue("@IsAdmin", manager.IsAdmin);
             command.Parameters.AddWithValue("@Tlf", manager.Tlf.ToString());
-         
-            int rows = command.ExecuteNonQuery();
-            if (rows != 1)
-            {
-                throw new ArgumentException("Manager er ikke oprettet");
-            }
+
 
             connection.Close();
-            var val = GetManagerList().Last().NextId;
-            Console.WriteLine($"den nye id er : {val}");
-            
         }
 
         public async Task DeleteManager(int id)
@@ -50,11 +43,6 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             SqlCommand command = new SqlCommand(queryString, connection);
             command.Parameters.AddWithValue("@NextId", id);
 
-            int rows = command.ExecuteNonQuery();
-            if (rows != 1)
-            {
-                throw new ArgumentException("Manager kunne ikke fjernes");
-            }
             connection.Close();
             
         }
@@ -103,20 +91,22 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             m.NextId = reader.GetInt32(0);
             m.Name = reader.GetString(1);
             m.Password=reader.GetString(2);
-            m.IsAdmin = reader.GetBoolean(3);
-            m.Tlf = reader.GetString(4);
+            m.IsMedarbejder = reader.GetBoolean(3);
+            m.IsAdmin = reader.GetBoolean(4);
+            m.Tlf = reader.GetString(5);
             return m;
         }
 
         public async Task UpdateManager(Manager manager)
         {
-            string queryString = "update Manager set NextId=@NextId,Name=@Name,Password=@Password,IsAdmin=@IsAdmin,Tlf=@Tlf";
+            string queryString = "update Manager set NextId=@NextId,Name=@Name,Password=@Password, IsMedArbejder=@IsMedarbejder,IsAdmin=@IsAdmin,Tlf=@Tlf";
             SqlConnection connection = new SqlConnection(ConString);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
             command.Parameters.AddWithValue("@NextId", manager.NextId);
             command.Parameters.AddWithValue("@Name", manager.Name.ToString());
             command.Parameters.AddWithValue("@Password", manager.Password.ToString());
+            command.Parameters.AddWithValue("@IsMedarbejder", manager.IsMedarbejder);
             command.Parameters.AddWithValue("@IsAdmin", manager.IsAdmin);
             command.Parameters.AddWithValue("@Tlf", manager.Tlf.ToString());
             int rows = command.ExecuteNonQuery();

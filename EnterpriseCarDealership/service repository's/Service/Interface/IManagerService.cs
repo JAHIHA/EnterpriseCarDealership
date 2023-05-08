@@ -1,4 +1,5 @@
 ﻿using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.Manager;
 
 namespace EnterpriseCarDealership.service_repository_s
 {
@@ -6,7 +7,7 @@ namespace EnterpriseCarDealership.service_repository_s
     {
         public List<Manager> GetManagerList();
 
-        public Task AddManager(Manager manager);
+        public Task AddManager(CreateManager manager);
 
 
         public Task UpdateManager(Manager vmanager);
