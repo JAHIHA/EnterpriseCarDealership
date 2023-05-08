@@ -31,7 +31,7 @@ namespace EnterpriseCarDealership.Models
 
 
 
-        public BikeBooking(int ID, DateTime StartTime, DateTime EndTime, int KundeId, int CarId, int BikeId)
+        public BikeBooking(int ID, DateTime StartTime, DateTime EndTime, int KundeId,  int BikeId)
 
         {
             if (ID == default) throw new ArgumentOutOfRangeException(nameof(ID), "Booking Id is required");
@@ -44,7 +44,7 @@ namespace EnterpriseCarDealership.Models
             this.StartTime = StartTime;
             this.EndTime = EndTime;
             this.KundeId = KundeId;
-            this.BikeId = CarId;
+            this.BikeId = BikeId;
 
 
         }

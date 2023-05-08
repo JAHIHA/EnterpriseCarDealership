@@ -29,7 +29,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBooking
     
     public class CreateCarBooking
     {
-
+        
 
         [Required]
         public DateTime StartTime { get; set; }
