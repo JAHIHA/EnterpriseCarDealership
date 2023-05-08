@@ -20,12 +20,15 @@ namespace EnterpriseCarDealership.Models
         private readonly ICarBookingService BookingService;
 
 
+        public CarBooking()
+        {
+
+        }
 
 
 
 
-
-        public CarBooking(int ID, DateTime StartTime, DateTime EndTime, int KundeId, int CarId, int BikeId, int PaymentId)
+        public CarBooking(int ID, DateTime StartTime, DateTime EndTime, int KundeId, int CarId, int BikeId)
 
         {
             if (ID == default) throw new ArgumentOutOfRangeException(nameof(ID), "Booking Id is required");
