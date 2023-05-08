@@ -9,7 +9,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
     //KARZAN
     {
         private DealershipContext dBContext = new DealershipContext();
-        // ask about ctor for the dbContext
+        
 
         public async Task Addbike(Bike bike)
         {

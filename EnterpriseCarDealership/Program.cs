@@ -11,8 +11,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorPages();
 builder.Services.AddSingleton<IBikeRepo,
 BikeRepo>();
+builder.Services.AddSingleton<IBikeService,
+BikeService>();
+
 builder.Services.AddSingleton<ICarRepo,
 CarRepo>();
+builder.Services.AddSingleton<ICarService,
+CarService>();
 
 builder.Services.AddSingleton<IBikeBookingService,
 BikeBookingService>();
@@ -26,6 +31,8 @@ CarBookingService>();
 
 builder.Services.AddSingleton<IKundeRepo,
 KundeRepo>();
+builder.Services.AddSingleton<IKundeService,
+KundeService>();
 
 builder.Services.AddSingleton<IManagerRepo,
 ManagerRepo>();
@@ -34,6 +41,8 @@ ManagerService>();
 
 builder.Services.AddSingleton<IMedarbejderRepo,
 MedarbejderRepo>();
+builder.Services.AddSingleton<IMedarbejderService,
+MedarbejderService>();
 
 var app = builder.Build();
 

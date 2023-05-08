@@ -9,7 +9,7 @@
             Adress = "nowhere";
             ManagerId = 0;
         }
-        public Medarbejder(int id, string name, string password, bool isAdmin, string tlf,string adress, int managerId) : base(id, name, password, isAdmin,tlf )
+        public Medarbejder(int id, string name, string password, bool IsMedarbejder, bool isAdmin, string tlf,string adress, int managerId) : base(id, name, password, IsMedarbejder, isAdmin,tlf )
         {
             Adress = adress;
             ManagerId = managerId;
