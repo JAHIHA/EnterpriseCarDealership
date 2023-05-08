@@ -17,11 +17,12 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
         {
             CarBooking newCarBooking = new CarBooking()
             {
+                
                 StartTime = Cbooking.StartTime,
                 EndTime = Cbooking.EndTime,
                 KundeId = Cbooking.KundeId,
                 CarId = Cbooking.CarId,
-                PaymentId = Cbooking.PaymentId,
+               
 
 
 
