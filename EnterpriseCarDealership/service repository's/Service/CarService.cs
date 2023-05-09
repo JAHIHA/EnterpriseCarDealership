@@ -54,9 +54,9 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             return _carRepo.GetCarList();
         }
 
-        public async Task Updatecar(Car car)
+        public async Task Updatecar(int id, Car car)
         {
-            await _carRepo.Updatecar(car); 
+            await _carRepo.Updatecar(id, car); 
         }
         
     }

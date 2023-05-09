@@ -11,7 +11,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo.interfaces
         public Task Addcar(Car car);
 
 
-        public Task Updatecar(Car car);
+        public Task Updatecar(int id, Car car);
 
 
         public Car GetCarById(int id);
