@@ -10,7 +10,8 @@ namespace EnterpriseCarDealership.service_repository_s.repo
     {
         List<Car> _cars = new List<Car>(); 
 
-        private readonly string ConString = "Data Source = mssql6.unoeuro.com; User ID = jhhweb_dk; Password = G2ftFgwApBE5ec3Dxn9r; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
+        private readonly string ConString = "Server=mssql6.unoeuro.com;Database=jhhweb_dk_db_database;User Id=jhhweb_dk;Password=G2ftFgwApBE5ec3Dxn9r;MultipleActiveResultSets=False;Encrypt=False";
+
 
         public async Task Addcar(Car car)
         {
@@ -27,18 +28,14 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             command.Parameters.AddWithValue("@Km", car.Km);
             command.Parameters.AddWithValue("@AC", car.AC);
             command.Parameters.AddWithValue("@Sunroof", car.Sunroof);
+            command.Parameters.AddWithValue("@Screen", car.Screen);
             command.Parameters.AddWithValue("@DVD", car.DVD);
             command.Parameters.AddWithValue("@Camera", car.Camera);
             command.Parameters.AddWithValue("@Sensor", car.Sensor);
 
-            int rows = command.ExecuteNonQuery(); 
-            if (rows!=1)
-            {
-                throw new ArgumentException("Car er ikke oprettet"); 
-            }
+         
             connection.Close();
-            var val = GetCarList().Last().NextId;
-            Console.WriteLine($"den nye Id er : {val}");
+            
         }
 
 

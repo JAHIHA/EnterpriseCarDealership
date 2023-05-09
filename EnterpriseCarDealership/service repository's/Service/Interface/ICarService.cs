@@ -1,4 +1,5 @@
 ﻿using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.Car;
 
 namespace EnterpriseCarDealership.service_repository_s
 {
@@ -7,7 +8,7 @@ namespace EnterpriseCarDealership.service_repository_s
     {
         public List<Car> GetCarList();
 
-        public Task Addcar(Car car);
+        public Task Addcar(CreateCar car);
 
 
         public Task Updatecar(Car car);
