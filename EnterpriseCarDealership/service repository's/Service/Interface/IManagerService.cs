@@ -1,5 +1,5 @@
 ﻿using EnterpriseCarDealership.Models;
-using EnterpriseCarDealership.Pages.Manager;
+using EnterpriseCarDealership.Pages.CRUDManager;
 
 namespace EnterpriseCarDealership.service_repository_s
 {

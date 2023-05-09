@@ -1,5 +1,5 @@
 ﻿using EnterpriseCarDealership.Models;
-using EnterpriseCarDealership.Pages.Manager;
+using EnterpriseCarDealership.Pages.CRUDManager;
 using Microsoft.Data.SqlClient;
 
 namespace EnterpriseCarDealership.service_repository_s.repo.interfaces
