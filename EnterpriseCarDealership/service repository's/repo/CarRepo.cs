@@ -13,6 +13,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
         private readonly string ConString = "Server=mssql6.unoeuro.com;Database=jhhweb_dk_db_database;User Id=jhhweb_dk;Password=G2ftFgwApBE5ec3Dxn9r;MultipleActiveResultSets=False;Encrypt=False";
 
 
+
         public async Task Addcar(Car car)
         {
             String queryString = "INSERT INTO Car(NextId,Brand,Type,PrisPrDag,Year,Km,AC,Sunroof,Screen,DVD,Camera,Sensor) VALUES (@NextId,@Brand,@Type,@PrisPrDag,@Year,@Km,@AC,@Sunroof,@Screen,@DVD,@Camera,@Sensor)";
@@ -32,7 +33,11 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             command.Parameters.AddWithValue("@DVD", car.DVD);
             command.Parameters.AddWithValue("@Camera", car.Camera);
             command.Parameters.AddWithValue("@Sensor", car.Sensor);
-
+            var rows=command.ExecuteNonQuery();
+            if(rows!=1)
+            {
+                throw new ArgumentException("car er ikke opreteret"); 
+            }
          
             connection.Close();
             
@@ -41,24 +46,20 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public async Task Deletecar(int id)
         {
-            string queryString = "Delete from Car where  id = @NextId";
+            string queryString = "Delete from Car where  NextId = @NextId";
             SqlConnection connection = new SqlConnection(ConString);
 
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
             command.Parameters.AddWithValue("@NextId", id);
+            command.ExecuteNonQuery();
 
-            int rows = command.ExecuteNonQuery();
-            if (rows != 1)
-            {
-                throw new ArgumentException("Car kunne ikke fjernes");
-            }
             connection.Close();
         }
 
         public Car GetCarById(int id)
         {
-            string query = $"select * from Car where id = @NextId";
+            string query = $"select * from Car where NextId = @NextId";
             SqlConnection connection = new SqlConnection(ConString);
 
             connection.Open();
@@ -102,7 +103,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             car.Brand = reader.GetString(1);
             var type= Enum.Parse<MotorType>(reader.GetString(2));
             car.Type=type;
-            car.PrisPrDag = reader.GetInt32(3);
+            car.PrisPrDag = reader.GetDouble(3);
             car.Year = reader.GetInt32(4);
             car.Km = reader.GetInt32(5);
             car.AC = reader.GetBoolean(6);
@@ -130,6 +131,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             command.Parameters.AddWithValue("@Km", car.Km);
             command.Parameters.AddWithValue("@AC", car.AC);
             command.Parameters.AddWithValue("@Sunroof", car.Sunroof);
+            command.Parameters.AddWithValue("@Screen", car.Screen);
             command.Parameters.AddWithValue("@DVD", car.DVD);
             command.Parameters.AddWithValue("@Camera", car.Camera);
             command.Parameters.AddWithValue("@Sensor", car.Sensor);
