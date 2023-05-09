@@ -117,9 +117,9 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         }
 
-        public async Task Updatecar(Car car)
+        public async Task Updatecar(int id, Car car)
         {
-            string queryString = "Update Car set NextId=@NextId, Brand=@Brand,Type=@Type,PrisPrDag=@PrisPrDag,Year=@Year, Km=@Km, Ac=@AC, Sunroof=@Sunroof, Screen=@Screen, DVD=@DVD, Camera=@Camera, Sensor=@Sensor";
+            string queryString = "Update Car set NextId=@NextId, Brand=@Brand,Type=@Type,PrisPrDag=@PrisPrDag,Year=@Year, Km=@Km, Ac=@AC, Sunroof=@Sunroof, Screen=@Screen, DVD=@DVD, Camera=@Camera, Sensor=@Sensor where NextId=@id";
             SqlConnection connection = new SqlConnection(ConString);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
@@ -135,6 +135,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             command.Parameters.AddWithValue("@DVD", car.DVD);
             command.Parameters.AddWithValue("@Camera", car.Camera);
             command.Parameters.AddWithValue("@Sensor", car.Sensor);
+            command.Parameters.AddWithValue("@id", id);
             int rows = command.ExecuteNonQuery(); 
             if(rows!=1)
             {
