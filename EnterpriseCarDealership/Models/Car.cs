@@ -18,7 +18,7 @@
         {
 
         }
-        public Car(int Id, string Brand, MotorType Type, double PrisPrDag, int Year, int Km, bool aC, bool sunroof, bool screen, bool dVD, bool camera, bool sensor, int nextId, string brand):base(Id, Brand, Type, PrisPrDag, Year, Km)
+        public Car(int Id, string Brand, MotorType Type, double PrisPrDag, int Year, int Km, bool aC, bool sunroof, bool screen, bool dVD, bool camera, bool sensor):base(Id, Brand, Type, PrisPrDag, Year, Km)
         {
 
             
