@@ -1,0 +1,36 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDCar.IndexCarModel
+@{
+}
+<table>
+    <tbody>
+        @if (Model.cars.Count == 0)
+        {
+            <p>Empty list</p>
+        }
+        else
+        {
+            foreach (var s in Model.cars)
+            {
+                <tr>
+                    <td>@s.NextId</td>
+                    <td>@s.Brand</td>
+                    <td>@s.Type</td>
+                    <td>@s.PrisPrDag</td>
+                    <td>@s.Year</td>
+                    <td>@s.Km</td>
+                    <td>@s.AC</td>
+                    <td>@s.Sunroof</td>
+                    <td>@s.Screen</td>
+                    <td>@s.DVD</td>
+                    <td>@s.Camera</td>
+                    <td>@s.Sensor</td>
+
+
+                    <td><form asp-page-handler="Delete" asp-route-id="@s.NextId"><button type="submit" class="btn btn-primary">Delete Car </button></form></td>
+                    <td><a asp-page="UpdateCar" asp-route-id="@s.NextId">Update Car </a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

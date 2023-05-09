@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 
-namespace EnterpriseCarDealership.Pages.Car
+namespace EnterpriseCarDealership.Pages.CRUDCar
 {
     public class CreateCarModel : PageModel
     {
