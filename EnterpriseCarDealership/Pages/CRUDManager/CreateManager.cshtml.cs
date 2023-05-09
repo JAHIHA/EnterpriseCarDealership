@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 
-namespace EnterpriseCarDealership.Pages.Manager
+namespace EnterpriseCarDealership.Pages.CRUDManager
 {
     public class CreateManagerModel : PageModel
     {

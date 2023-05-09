@@ -1,0 +1,28 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDManager.IndexManagerModel
+@{
+}
+<table>
+    <tbody>
+        @if (Model.managers.Count == 0)
+        {
+            <p>Empty list</p>
+        }
+        else
+        {
+            foreach (var s in Model.managers)
+            {
+                <tr>
+                    <td>@s.NextId</td>
+                    <td>@s.Name</td>
+                    <td>@s.Password</td>
+                    <td>@s.IsMedarbejder</td>
+                    <td>@s.IsAdmin</td>
+                    <td>@s.Tlf</td>
+                    <td><form asp-page-handler="Delete" asp-route-id="@s.NextId"><button type="submit"  class="btn btn-primary">Delete Manager </button></form></td>
+                    <td><a asp-page="UpdateManager" asp-route-id="@s.NextId" >Update Manager </a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

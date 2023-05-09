@@ -1,4 +1,5 @@
-﻿using EnterpriseCarDealership.DBContextFolder;
+﻿using DocumentFormat.OpenXml.Spreadsheet;
+using EnterpriseCarDealership.DBContextFolder;
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 using Microsoft.Data.SqlClient;
@@ -10,8 +11,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         List<Manager> _managers = new List<Manager>();
 
-        private readonly string ConString = "Data Source = mssql6.unoeuro.com; User ID = jhhweb_dk; Password = G2ftFgwApBE5ec3Dxn9r; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
-
+        private readonly string ConString = "Server=mssql6.unoeuro.com;Database=jhhweb_dk_db_database;User Id=jhhweb_dk;Password=G2ftFgwApBE5ec3Dxn9r;MultipleActiveResultSets=False;Encrypt=False";
 
 
 
@@ -28,7 +28,11 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             command.Parameters.AddWithValue("@IsMedarbejder", manager.IsMedarbejder);
             command.Parameters.AddWithValue("@IsAdmin", manager.IsAdmin);
             command.Parameters.AddWithValue("@Tlf", manager.Tlf.ToString());
-
+            var rows = command.ExecuteNonQuery();
+            if (rows != 1)
+            {
+                throw new ArgumentException("Manager er ikke oprettet");
+            }
 
             connection.Close();
         }
@@ -36,20 +40,20 @@ namespace EnterpriseCarDealership.service_repository_s.repo
         public async Task DeleteManager(int id)
         {
 
-            string queryString = "Delete from Manager where  id = @NextId";
+            string queryString = "Delete from Manager where  NextId = @NextId";
             SqlConnection connection = new SqlConnection(ConString);
 
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
             command.Parameters.AddWithValue("@NextId", id);
-
+            command.ExecuteNonQuery();
             connection.Close();
             
         }
 
         public Manager GetManagerById(int id)
         {
-            string query = $"select * from Manager where id = @NextId";
+            string query = $"select * from Manager where NextId = @NextId";
             SqlConnection connection = new SqlConnection(ConString);
 
             connection.Open();
