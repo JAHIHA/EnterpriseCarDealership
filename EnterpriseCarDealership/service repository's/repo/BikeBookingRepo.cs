@@ -25,7 +25,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
 
 
-        public async Task UpdateBikebooking(BikeBooking Bikebooking)
+        public async Task UpdateBikebooking(int id, BikeBooking Bikebooking)
         {
             BikeBooking book = GetBikebookingById(Bikebooking.Id);
 

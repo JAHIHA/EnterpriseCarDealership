@@ -20,9 +20,9 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
         public Manager manager { get; set; }
         [BindProperty]
          public Manager existingManager { get; set; }
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPost(int Id)
         {
-            await _service.UpdateManager(manager);
+            await _service.UpdateManager(Id, manager);
             return RedirectToPage("IndexManager"); 
         }
         public void OnGet(int id)

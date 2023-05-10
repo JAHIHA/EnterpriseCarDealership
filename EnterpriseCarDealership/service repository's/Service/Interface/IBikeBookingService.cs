@@ -12,7 +12,7 @@ namespace EnterpriseCarDealership.service_repository_s.Service.Interface
             public Task AddBikebooking(CreateBikeBooking Bbooking);
 
 
-            public Task UpdateBikebooking(BikeBooking Bbooking);
+            public Task UpdateBikebooking(int id, BikeBooking Bbooking);
 
 
             public BikeBooking GetBikebookingById(int id);

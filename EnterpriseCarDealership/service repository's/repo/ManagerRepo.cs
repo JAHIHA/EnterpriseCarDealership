@@ -101,9 +101,9 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             return m;
         }
 
-        public async Task UpdateManager(Manager manager)
+        public async Task UpdateManager(int id, Manager manager)
         {
-            string queryString = "update Manager set NextId=@NextId,Name=@Name,Password=@Password, IsMedArbejder=@IsMedarbejder,IsAdmin=@IsAdmin,Tlf=@Tlf";
+            string queryString = "update Manager set NextId=@NextId,Name=@Name,Password=@Password, IsMedArbejder=@IsMedarbejder,IsAdmin=@IsAdmin,Tlf=@Tlf where NextId =@id";
             SqlConnection connection = new SqlConnection(ConString);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
@@ -113,6 +113,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             command.Parameters.AddWithValue("@IsMedarbejder", manager.IsMedarbejder);
             command.Parameters.AddWithValue("@IsAdmin", manager.IsAdmin);
             command.Parameters.AddWithValue("@Tlf", manager.Tlf.ToString());
+            command.Parameters.AddWithValue("@id", id);
             int rows = command.ExecuteNonQuery();
             if (rows != 1)
             {
