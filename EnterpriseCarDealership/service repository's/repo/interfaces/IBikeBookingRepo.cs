@@ -9,7 +9,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo.interfaces
         public Task AddBikebooking(BikeBooking booking);
 
 
-        public Task UpdateBikebooking(int id,BikeBooking booking);
+        public Task UpdateBikebooking(BikeBooking booking);
 
 
         public BikeBooking GetBikebookingById(int id);
