@@ -1,0 +1,88 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDKunder.CreateKundeModel
+@{
+}
+<div class="container border" style="padding:20px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createKunde.NextId"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createKunde.NextId" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createKunde.NextId"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createKunde.Name"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createKunde.Name" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createKunde.Name"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createKunde.password"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createKunde.password" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createKunde.password"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createKunde.IsMedarbejder"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createKunde.IsMedarbejder" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createKunde.IsMedarbejder"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createKunde.isAdmin"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createKunde.isAdmin" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createKunde.isAdmin"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createKunde.tlf"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createKunde.tlf" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createKunde.tlf"></span>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-2">
+                <label asp-for="createKunde.adress"></label>
+            </div>
+            <div class="col-5">
+                <input type="text" asp-for="createKunde.adress" class="form-control" />
+            </div>
+            <span class="text-danger" asp-validation-for="createKunde.adress"></span>
+        </div>
+
+
+        <div class="form-group row">
+            <div class="col-2">
+                <input type="submit" class="btn btn-primary" value="createKunde"/>
+            </div>
+            <div class="col-5">
+            </div>
+        </div>
+    </form>
+</div>

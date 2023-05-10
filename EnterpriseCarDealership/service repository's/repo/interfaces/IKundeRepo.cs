@@ -1,4 +1,5 @@
 ﻿using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.CRUDKunder;
 using Microsoft.Data.SqlClient;
 
 namespace EnterpriseCarDealership.service_repository_s.repo
@@ -10,7 +11,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
         public Kunde ReadKunde(SqlDataReader reader);
         public List<Kunde> GetKundeList();
 
-        public Task Addkunde(Kunde kunde);
+        public Task Addkunde(CreateKunde createkunde);
 
 
         public Task Updatekunde(Kunde kunde);

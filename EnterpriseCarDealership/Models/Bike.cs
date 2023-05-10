@@ -1,7 +1,7 @@
 ﻿namespace EnterpriseCarDealership.Models
 {
     //KARZAN
-    public class Bike:Vehicle
+    public class Bike :Vehicle
     {
        
         public bool Sidebike { get; set; }

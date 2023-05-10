@@ -1,4 +1,5 @@
 ﻿using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.CRUDBike;
 
 namespace EnterpriseCarDealership.service_repository_s
 {
@@ -7,7 +8,7 @@ namespace EnterpriseCarDealership.service_repository_s
     {
         public List<Bike> GetBikeList();
 
-        public Task Addbike(Bike bike);
+        public Task Addbike(CreateBike createbike);
 
 
         public Task Updatebike(Bike bike);

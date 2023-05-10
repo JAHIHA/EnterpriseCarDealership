@@ -38,8 +38,8 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public async Task Updatebike(Bike bike)
         {
-            Bike newbike = GetBikeById(bike.NextId);
-
+           Bike newbike = GetBikeById(bike.NextId);
+                newbike.NextId= bike.NextId;    
                 newbike.Brand = bike.Brand;
                 newbike.Type = bike.Type;
                 newbike.PrisPrDag = bike.PrisPrDag;
