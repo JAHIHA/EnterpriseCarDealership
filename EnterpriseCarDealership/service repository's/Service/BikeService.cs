@@ -1,5 +1,6 @@
 ﻿using EnterpriseCarDealership.DBContextFolder;
 using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.CRUDBike;
 using EnterpriseCarDealership.service_repository_s.repo;
 using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 using Microsoft.Identity.Client;
@@ -18,8 +19,22 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             _Bikerepo = bikeRepo;   
         }
 
-        public async Task Addbike(Bike bike)
+        public async Task Addbike(CreateBike createbike)
         {
+            Bike bike = new Bike()
+            {
+                NextId=createbike.NextId,
+                Brand = createbike.Brand,
+                Type = createbike.Type,
+                PrisPrDag = createbike.PrisPrDag,
+                Year = createbike.Year,
+                Km = createbike.Km,
+                Sidebike = createbike.Sidebike,
+                LeatherSddle = createbike.LeatherSddle,
+                ExtraStorage = createbike.ExtraStorage,
+            };
+
+
            await _Bikerepo.Addbike(bike);
         }
        
@@ -42,9 +57,9 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
 
         public List<Bike> GetBikeList()
         {
-            return _Bikerepo.GetBikeList(); 
+            return _Bikerepo.GetBikeList();
         }
-        
+
 
         public async Task Updatebike(Bike bike)
         {

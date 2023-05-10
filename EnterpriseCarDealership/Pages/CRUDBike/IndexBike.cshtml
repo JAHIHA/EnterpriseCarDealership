@@ -1,0 +1,31 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDBike.IndexBikeModel
+@{
+}
+<table>
+    <tbody>
+        @if (Model.bikes.Count == 0)
+        {
+            <p>Empty list</p>
+        }
+        else
+        {
+            foreach (var s in Model.bikes)
+            {
+                <tr>
+                    <td>@s.NextId</td>
+                    <td>@s.Brand</td>
+                    <td>@s.Type</td>
+                    <td>@s.PrisPrDag</td>
+                    <td>@s.Year</td>
+                    <td>@s.Km</td>
+                    <td>@s.Sidebike</td>
+                    <td>@s.LeatherSddle</td>
+                    <td>@s.ExtraStorage</td>
+                    <td><form asp-page-handler="Delete" asp-route-id="@s.NextId"><button type="submit" class="btn btn-primary">Delete Bike </button></form></td>
+                    <td><a asp-page="UpdateBike" asp-route-id="@s.NextId">Update Bike </a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

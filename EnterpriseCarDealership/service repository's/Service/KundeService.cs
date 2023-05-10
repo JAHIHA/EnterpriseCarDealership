@@ -1,5 +1,6 @@
 ﻿using DocumentFormat.OpenXml.Office2010.Excel;
 using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.CRUDKunder;
 using EnterpriseCarDealership.service_repository_s.repo;
 using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 
@@ -17,9 +18,9 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
     {
         _Kunderepo = kundeRepo;
     }
-    public async Task Addkunde(Kunde kunde)
+    public async Task Addkunde(CreateKunde createkunde)
         {
-            await _Kunderepo.Addkunde(kunde);
+            await _Kunderepo.Addkunde(createkunde);
         }
 
         public async Task Deletekunde(int id)

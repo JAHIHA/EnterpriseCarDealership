@@ -1,5 +1,6 @@
 ﻿using DocumentFormat.OpenXml.ExtendedProperties;
 using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.CRUDKunder;
 using Microsoft.Data.SqlClient;
 
 namespace EnterpriseCarDealership.service_repository_s.repo
@@ -10,22 +11,23 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         List<Kunde> kunder = new List<Kunde>();
 
-        private readonly string ConString = "Data Source = mssql6.unoeuro.com; User ID = jhhweb_dk; Password = G2ftFgwApBE5ec3Dxn9r; Connect Timeout = 30; Encrypt = False; TrustServerCertificate = False; ApplicationIntent = ReadWrite; MultiSubnetFailover = False";
-
-        public async Task Addkunde(Kunde kunde)
+        private readonly string ConString = "Server=mssql6.unoeuro.com;Database=jhhweb_dk_db_database;User Id=jhhweb_dk;Password=G2ftFgwApBE5ec3Dxn9r;MultipleActiveResultSets=False;Encrypt=False";
+    
+    public async Task Addkunde(CreateKunde createkunde)
         {
-            string queryString = "INSERT INTO Kunde (NextId, Name, Password, IsAdmin, Tlf) VALUES (@NextId, @Name, @Password,@IsAdmin, @Tlf);";
+            string queryString = "INSERT INTO Kunde (NextId, Name, Password, IsMedarbejder, IsAdmin, Tlf, Adress) VALUES (@NextId, @Name, @Password, @IsMedarbejder, @IsAdmin, @Tlf, @Adress);";
 
 
             SqlConnection connection = new SqlConnection(ConString);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
-            command.Parameters.AddWithValue("@NextId", kunde.NextId);
-            command.Parameters.AddWithValue("@Name", kunde.Name.ToString());
-            command.Parameters.AddWithValue("@Password", kunde.Password.ToString());
-            command.Parameters.AddWithValue("@IsAdmin", kunde.IsAdmin);
-            command.Parameters.AddWithValue("@Tlf", kunde.Tlf.ToString());
-            command.Parameters.AddWithValue("@Adress", kunde.Adress.ToString());
+            command.Parameters.AddWithValue("@NextId", createkunde.NextId);
+            command.Parameters.AddWithValue("@Name", createkunde.Name.ToString());
+            command.Parameters.AddWithValue("@Password", createkunde.password.ToString());
+            command.Parameters.AddWithValue("@IsMedarbejder", createkunde.IsMedarbejder);
+            command.Parameters.AddWithValue("@IsAdmin", createkunde.isAdmin);
+            command.Parameters.AddWithValue("@Tlf", createkunde.tlf.ToString());
+            command.Parameters.AddWithValue("@Adress", createkunde.adress.ToString());
 
             int rows = command.ExecuteNonQuery();
             if (rows != 1)
@@ -113,21 +115,24 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             k.NextId = reader.GetInt32(0);
             k.Name = reader.GetString(1);
             k.Password = reader.GetString(2);
+            k.IsMedarbejder = reader.GetBoolean(3);
             k.IsAdmin = reader.GetBoolean(3);
             k.Tlf = reader.GetString(4);
+            k.Adress = reader.GetString(5); 
             return k;
         }
 
 
         public async Task Updatekunde(Kunde kunde)
         {
-            string queryString = "update Kunde set NextId=@NextId,Name=@Name,Password=@Password,IsAdmin=@IsAdmin,Tlf=@Tlf";
+            string queryString = "update Kunde set NextId=@NextId,Name=@Name,Password=@Password, IsMedarbejder=@IsMedarbejder, IsAdmin=@IsAdmin,Tlf=@Tlf, Adress=@Adress";
             SqlConnection connection = new SqlConnection(ConString);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
             command.Parameters.AddWithValue("@NextId", kunde.NextId);
             command.Parameters.AddWithValue("@Name", kunde.ToString());
             command.Parameters.AddWithValue("@Password", kunde.Password.ToString());
+            command.Parameters.AddWithValue("@IsMedarbejder", kunde.IsMedarbejder);
             command.Parameters.AddWithValue("@IsAdmin", kunde.IsAdmin);
             command.Parameters.AddWithValue("@Tlf", kunde.Tlf.ToString());
             command.Parameters.AddWithValue("@Adress", kunde.Adress.ToString()); 

@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace EnterpriseCarDealership.Pages.Bike
+namespace EnterpriseCarDealership.Pages.CRUDKunder
 {
-    public class ReadBikeModel : PageModel
+    public class UpdateKundeModel : PageModel
     {
         public void OnGet()
         {

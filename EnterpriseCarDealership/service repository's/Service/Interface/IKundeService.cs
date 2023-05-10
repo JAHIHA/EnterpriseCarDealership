@@ -1,4 +1,5 @@
 ﻿using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.CRUDKunder;
 using Microsoft.Data.SqlClient;
 
 namespace EnterpriseCarDealership.service_repository_s
@@ -8,7 +9,8 @@ namespace EnterpriseCarDealership.service_repository_s
      //KARZAN
         public List<Kunde> GetKundeList();
 
-        public Task Addkunde(Kunde kunde);
+        public Task Addkunde(CreateKunde createkunde);
+
 
 
         public Task Updatekunde(Kunde kunde);
