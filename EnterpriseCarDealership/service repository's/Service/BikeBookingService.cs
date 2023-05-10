@@ -56,11 +56,11 @@ namespace EnterpriseCarDealership.service_repository_s.Service
                 .Any(a => a.Id != Bbooking.Id && a.StartTime <= Bbooking.EndTime && Bbooking.StartTime <= a.EndTime && a.BikeId == Bbooking.BikeId);
         }
 
-        public async Task UpdateBikebooking(int id, BikeBooking Bbooking)
+        public async Task UpdateBikebooking(BikeBooking Bbooking)
         {
             if (Bbooking != null)
             {
-                await _BbookRep.UpdateBikebooking(id, Bbooking);
+                await _BbookRep.UpdateBikebooking(Bbooking);
             }
 
         }

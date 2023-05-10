@@ -20,9 +20,9 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
         [BindProperty]
         public Car  existingCar { get; set; }
         
-        public async Task<IActionResult>OnPost(int Id)
+        public async Task<IActionResult>OnPost(int id)
         {
-            await _carService.Updatecar(Id, car);
+            await _carService.Updatecar( id, car);
             return RedirectToPage("IndexCar");
         }
         public void OnGet(int id)

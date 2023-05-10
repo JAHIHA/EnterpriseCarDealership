@@ -29,5 +29,37 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
             bikeBookings = _service.GetBikebookingList();
 
         }
+        public void OnPostSort()
+        {
+            bikeBookings = _service.GetBikebookingList();
+            bikeBookings.Sort();
+        }
+        public void OnPostId()
+        {
+            bikeBookings = _service.GetBikebookingList();
+            bikeBookings.OrderBy(h => h.Id);
+
+
+        }
+        public void OnPostStartTime()
+        {
+            bikeBookings = _service.GetBikebookingList();
+            bikeBookings.Sort((x, y) => x.StartTime.CompareTo(y.StartTime));
+        }
+        public void OnPostEndTime()
+        {
+            bikeBookings = _service.GetBikebookingList();
+            bikeBookings.Sort((x, y) => x.EndTime.CompareTo(y.EndTime));
+        }
+        public void OnPostKundeId()
+        {
+            bikeBookings = _service.GetBikebookingList();
+            bikeBookings.OrderBy(h => h.KundeId);
+        }
+        public void OnPostCarId()
+        {
+            bikeBookings = _service.GetBikebookingList();
+            bikeBookings.OrderBy(h => h.BikeId);
+        }
     }
 }
