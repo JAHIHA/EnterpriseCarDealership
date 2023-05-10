@@ -42,10 +42,10 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
         public string password { get; set; }
 
         [Required]
-        public bool IsMedarbejder { get; set; }
+        public Boolean IsMedarbejder { get; set; }
 
         [Required]
-        public bool isAdmin { get; set; }
+        public Boolean isAdmin { get; set; }
 
         [Required]
         public string tlf { get; set; }

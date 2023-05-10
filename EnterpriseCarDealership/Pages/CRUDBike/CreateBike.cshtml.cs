@@ -50,13 +50,13 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
         public int Km { get; set; }
 
         [Required]
-        public bool Sidebike { get; set; }
+        public Boolean Sidebike { get; set; }
 
         [Required]
-        public bool LeatherSddle { get; set; }
+        public Boolean LeatherSddle { get; set; }
 
         [Required]
-        public bool ExtraStorage { get; set; }
+        public Boolean ExtraStorage { get; set; }
 
     }
 }

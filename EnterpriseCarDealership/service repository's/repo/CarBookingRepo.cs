@@ -32,17 +32,17 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
    
 
-        public async Task UpdateCarbooking(int id, CarBooking Carbooking)
+        public async Task UpdateCarbooking(CarBooking Carbooking)
         {
-            CarBooking book = GetCarbookingById(Carbooking.Id);
+            //CarBooking book = GetCarbookingById(Carbooking.Id);
 
-            Carbooking.Id = book.Id;
-            Carbooking.StartTime = book.StartTime;
-            Carbooking.EndTime = book.EndTime;
-            Carbooking.KundeId = book.KundeId;
-            Carbooking.CarId = book.CarId;
+            //Carbooking.Id = book.Id;
+            //Carbooking.StartTime = book.StartTime;
+            //Carbooking.EndTime = book.EndTime;
+            //Carbooking.KundeId = book.KundeId;
+            //Carbooking.CarId = book.CarId;
           
-            _Carbookdb.CarBooking.Update(book);
+            _Carbookdb.CarBooking.Update(Carbooking);
             await _Carbookdb.SaveChangesAsync();
 
         }

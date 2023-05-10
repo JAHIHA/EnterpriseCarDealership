@@ -9,24 +9,24 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddRazorPages();
-builder.Services.AddSingleton<IBikeRepo,
+builder.Services.AddScoped<IBikeRepo,
 BikeRepo>();
-builder.Services.AddSingleton<IBikeService,
+builder.Services.AddScoped<IBikeService,
 BikeService>();
 
-builder.Services.AddSingleton<ICarRepo,
+builder.Services.AddScoped<ICarRepo,
 CarRepo>();
-builder.Services.AddSingleton<ICarService,
+builder.Services.AddScoped<ICarService,
 CarService>();
 
-builder.Services.AddSingleton<IBikeBookingService,
+builder.Services.AddScoped<IBikeBookingService,
 BikeBookingService>();
-builder.Services.AddSingleton<IBikeBookingRepo,
+builder.Services.AddScoped<IBikeBookingRepo,
 BikeBookingRepo>();
 
-builder.Services.AddSingleton<ICarBookingRepo,
+builder.Services.AddScoped<ICarBookingRepo,
 CarBookingRepo>();
-builder.Services.AddSingleton<ICarBookingService,
+builder.Services.AddScoped<ICarBookingService,
 CarBookingService>();
 
 builder.Services.AddSingleton<IKundeRepo,

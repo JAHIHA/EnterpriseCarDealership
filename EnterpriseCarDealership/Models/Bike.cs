@@ -11,7 +11,7 @@
         {
 
         }
-        public Bike(int Id, string Brand, MotorType Type, double PrisPrDag, int Year, int Km, bool sidebike, bool leatherSddle, bool extraStorage):base(Id,Brand,Type,PrisPrDag,Year,Km)
+        public Bike(int Id, string Brand, MotorType Type, double PrisPrDag, int Year, int Km, bool sidebike, bool leatherSddle, bool extraStorage) : base(Id, Brand, Type, PrisPrDag, Year, Km)
         {
             Sidebike = sidebike;
             LeatherSddle = leatherSddle;

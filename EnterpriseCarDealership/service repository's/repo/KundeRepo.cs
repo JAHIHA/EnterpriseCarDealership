@@ -36,8 +36,8 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             }
 
             connection.Close();
-            var val = GetKundeList().Last().NextId;
-            Console.WriteLine($"den nye id er : {val}");
+            //var val = GetKundeList().Last().NextId;
+            //Console.WriteLine($"den nye id er : {val}");
         }
 
         public async Task Deletekunde(int id)
@@ -89,8 +89,6 @@ namespace EnterpriseCarDealership.service_repository_s.repo
         {
             string query = "select * from Kunde";
             SqlConnection connection = new SqlConnection(ConString);
-
-
 
             connection.Open();
             SqlCommand command = new SqlCommand(query, connection);

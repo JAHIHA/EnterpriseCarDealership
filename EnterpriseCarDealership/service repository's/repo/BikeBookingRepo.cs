@@ -27,15 +27,15 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public async Task UpdateBikebooking( BikeBooking Bikebooking)
         {
-            BikeBooking book = GetBikebookingById(Bikebooking.Id);
+            //BikeBooking book = GetBikebookingById(Bikebooking.Id);
 
 
-            Bikebooking.StartTime = book.StartTime;
-            Bikebooking.EndTime = book.EndTime;
-            Bikebooking.KundeId = book.KundeId;
-            Bikebooking.BikeId = book.BikeId;
-           
-            _context.BikeBooking.Update(book);
+            //Bikebooking.StartTime = book.StartTime;
+            //Bikebooking.EndTime = book.EndTime;
+            //Bikebooking.KundeId = book.KundeId;
+            //Bikebooking.BikeId = book.BikeId;
+
+            _context.BikeBooking.Update(Bikebooking);
             await _context.SaveChangesAsync();
 
         }

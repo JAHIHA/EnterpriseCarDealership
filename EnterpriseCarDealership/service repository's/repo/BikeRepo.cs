@@ -33,7 +33,8 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public List<Bike> GetBikeList()
         {
-            return new List<Bike>(dBContext.Bike);
+            var bikes = dBContext.Bike.ToList();
+            return bikes;
         }
 
         public async Task Updatebike(Bike bike)

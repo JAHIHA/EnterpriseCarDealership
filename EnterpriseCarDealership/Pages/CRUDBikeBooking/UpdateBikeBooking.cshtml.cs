@@ -18,17 +18,18 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
 
         [BindProperty]
         public BikeBooking bikeBooking { get; set; }
-        [BindProperty]
-        public BikeBooking existingBikeBooking { get; set; }
+        
+        public IActionResult OnGet(int id)
+        {
+            bikeBooking = _service.GetBikebookingById(id);
+            return Page();
+
+        }
         public async Task<IActionResult> OnPost()
         {
             await _service.UpdateBikebooking(bikeBooking);
             return RedirectToPage("IndexBikeBooking");
         }
-        public void OnGet(int id)
-        {
-            existingBikeBooking = _service.GetBikebookingById(id);
 
-        }
     }
 }
