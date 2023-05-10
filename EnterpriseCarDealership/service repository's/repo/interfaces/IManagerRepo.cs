@@ -12,7 +12,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo.interfaces
         public Task AddManager(Manager manager);
 
 
-        public Task UpdateManager(Manager manager);
+        public Task UpdateManager(int id, Manager manager);
 
 
         public Manager GetManagerById(int id);

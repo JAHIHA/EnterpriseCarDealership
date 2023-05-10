@@ -47,9 +47,9 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             return _managerRepo.GetManagerList();
         }
 
-        public async Task UpdateManager(Manager manager)
+        public async Task UpdateManager(int id, Manager manager)
         {
-            await _managerRepo.UpdateManager(manager);
+            await _managerRepo.UpdateManager(id, manager);
             
         }
     }

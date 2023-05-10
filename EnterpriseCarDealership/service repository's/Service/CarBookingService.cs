@@ -53,11 +53,11 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
                 .Any(a => a.Id != Cbooking.Id && a.StartTime <= Cbooking.EndTime && Cbooking.StartTime <= a.EndTime && a.CarId == Cbooking.CarId);
         }
 
-        public async Task UpdateCarbooking(CarBooking Cbooking)
+        public async Task UpdateCarbooking(int id, CarBooking Cbooking)
         {
             if (Cbooking != null)
             {
-                await _CbookRep.UpdateCarbooking(Cbooking);
+                await _CbookRep.UpdateCarbooking(id, Cbooking);
             }
            
         }
