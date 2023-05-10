@@ -17,17 +17,17 @@ namespace EnterpriseCarDealership.Pages.CRUDCarBooking
 
         [BindProperty]
         public CarBooking carBooking { get; set; }
-        [BindProperty]
-        public CarBooking existingCarBooking { get; set; }
-        public async Task<IActionResult> OnPost(int id)
+      
+        public IActionResult OnGet(int id)
         {
-            await _service.UpdateCarbooking(id, carBooking);
-            return RedirectToPage("IndexCarBooking");
-        }
-        public void OnGet(int id)
-        {
-            existingCarBooking = _service.GetCarbookingById(id);
+            carBooking = _service.GetCarbookingById(id);
+            return Page();
 
+        }
+        public async Task<IActionResult> OnPost()
+        {
+            await _service.UpdateCarbooking(carBooking);
+            return RedirectToPage("IndexCarBooking");
         }
     }
 }

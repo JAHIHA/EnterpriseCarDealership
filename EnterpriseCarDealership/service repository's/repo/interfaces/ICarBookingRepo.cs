@@ -9,7 +9,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo.interfaces
         public Task AddCarbooking(CarBooking carbooking);
 
 
-        public Task UpdateCarbooking(int id, CarBooking carbooking);
+        public Task UpdateCarbooking(CarBooking carbooking);
 
 
         public CarBooking GetCarbookingById(int id);

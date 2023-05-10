@@ -1,4 +1,5 @@
 using EnterpriseCarDealership.service_repository_s;
+using EnterpriseCarDealership.service_repository_s.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -17,7 +18,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
 
         [BindProperty]
         public List<Bike> bikes { get; set; }
-        public async void OnGet()
+        public void OnGet()
         {
             bikes = _service.GetBikeList();
         }
