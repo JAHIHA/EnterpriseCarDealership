@@ -19,9 +19,9 @@ namespace EnterpriseCarDealership.Pages.CRUDCarBooking
         public CarBooking carBooking { get; set; }
         [BindProperty]
         public CarBooking existingCarBooking { get; set; }
-        public async Task<IActionResult> OnPost(int Id)
+        public async Task<IActionResult> OnPost(int id)
         {
-            await _service.UpdateCarbooking(Id, carBooking);
+            await _service.UpdateCarbooking(id, carBooking);
             return RedirectToPage("IndexCarBooking");
         }
         public void OnGet(int id)

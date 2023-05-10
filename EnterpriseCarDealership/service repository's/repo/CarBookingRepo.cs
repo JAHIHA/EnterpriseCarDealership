@@ -36,7 +36,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
         {
             CarBooking book = GetCarbookingById(Carbooking.Id);
 
-
+            Carbooking.Id = book.Id;
             Carbooking.StartTime = book.StartTime;
             Carbooking.EndTime = book.EndTime;
             Carbooking.KundeId = book.KundeId;

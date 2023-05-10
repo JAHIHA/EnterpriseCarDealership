@@ -29,5 +29,28 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
             managers = _service.GetManagerList();
 
         }
+
+        public void OnPostSort()
+        {
+            managers = _service.GetManagerList();
+            managers.Sort();
+        }
+        public void OnPostId()
+        {
+            managers = _service.GetManagerList();
+            managers.OrderBy(h => h.NextId);
+
+
+        }
+        public void OnPostName()
+        {
+            managers = _service.GetManagerList();
+            managers.Sort((x, y) => x.Name.CompareTo(y.Name));
+        }
+        public void OnPosttlf()
+        {
+            managers = _service.GetManagerList();
+            managers.Sort((x, y) => x.Tlf.CompareTo(y.Tlf));
+        }
     }
 }
