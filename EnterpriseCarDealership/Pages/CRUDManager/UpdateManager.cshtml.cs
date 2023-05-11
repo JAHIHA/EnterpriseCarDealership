@@ -1,6 +1,7 @@
 using DocumentFormat.OpenXml.Office2010.Excel;
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -25,9 +26,18 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
             await _service.UpdateManager(Id, manager);
             return RedirectToPage("IndexManager"); 
         }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
            existingManager = _service.GetManagerById(id);
+
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin == true )
+            {
+
+                return Page();
+            }
+            
+            return RedirectToPage("./Index");
 
         }
     }

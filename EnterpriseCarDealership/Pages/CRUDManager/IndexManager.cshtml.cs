@@ -1,6 +1,7 @@
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s;
 using EnterpriseCarDealership.service_repository_s.sercive;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -18,9 +19,19 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
 
         [BindProperty]
         public List<Manager> managers { get; set; }
-        public void OnGet()
+        public IActionResult OnGet()
         {
            managers = _service.GetManagerList();
+
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin == true)
+            {
+
+                return Page();
+            }
+
+            return RedirectToPage("./Index");
+
         }
 
         public async Task OnPostDelete(int id)

@@ -2,3 +2,11 @@
 @model EnterpriseCarDealership.Pages.Login.LoginModel
 @{
 }
+
+<form asp-page-handler="" class="form-horizontal" method="post">
+    <div class="col-sm-offset-2 col-sm-10">
+        <input type="text" class="form-control" name="Name" asp-for="@Model.Name" value="@Model.Name">
+        <input type="text" class="form-control" name="Password" asp-for="@Model.Password" value="@Model.Password">
+        <button type="submit" class="btn btn-primary">Login </button>
+    </div>
+</form>

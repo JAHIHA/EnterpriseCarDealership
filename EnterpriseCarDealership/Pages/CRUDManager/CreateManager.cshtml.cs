@@ -1,4 +1,6 @@
+using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
@@ -22,6 +24,20 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
         public async Task OnPost()
         {
             await _addservice.AddManager(CreateManager);
+        }
+        public IActionResult OnGet()
+        {
+          
+
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin == true)
+            {
+
+                return Page();
+            }
+
+            return RedirectToPage("./Index");
+
         }
     }
 

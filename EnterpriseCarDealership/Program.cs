@@ -1,8 +1,10 @@
+using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s;
 using EnterpriseCarDealership.service_repository_s.repo;
 using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 using EnterpriseCarDealership.service_repository_s.sercive;
 using EnterpriseCarDealership.service_repository_s.Service;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using EnterpriseCarDealership.service_repository_s.Service.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -43,6 +45,9 @@ builder.Services.AddSingleton<IMedarbejderRepo,
 MedarbejderRepo>();
 builder.Services.AddSingleton<IMedarbejderService,
 MedarbejderService>();
+
+builder.Services.AddSingleton<IValidateUser, ValidateUser>();
+builder.Services.AddSession();
 
 var app = builder.Build();
 
