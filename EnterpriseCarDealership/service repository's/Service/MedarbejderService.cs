@@ -1,4 +1,5 @@
 ﻿using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.CRUDMedarbejder;
 using EnterpriseCarDealership.service_repository_s.repo;
 
 namespace EnterpriseCarDealership.service_repository_s.sercive
@@ -13,9 +14,21 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
         }
 
 
-        public async Task Addmedarbejder(Medarbejder medarbejder)
+        public async Task Addmedarbejder(CreateMedarbejder createMedarbejder)
         {
-           await _medarbejderRepo.Addmedarbejder(medarbejder);
+            Medarbejder newmedarbejder = new Medarbejder()
+            {
+                NextId = createMedarbejder.NextId,
+                Name = createMedarbejder.name,
+                Password = createMedarbejder.password,
+                IsMedarbejder = createMedarbejder.isMedarbejder,
+                IsAdmin = createMedarbejder.isAdmin,
+                Tlf = createMedarbejder.tlf,
+                Adress = createMedarbejder.adress,
+                ManagerId = createMedarbejder.managerId
+
+            };
+           await _medarbejderRepo.Addmedarbejder(newmedarbejder);
             
         }
 
@@ -40,12 +53,12 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             return _medarbejderRepo.GetmedarbejderList();
         }
 
-        public async Task Updatemedarbejder(Medarbejder medarbejder)
+        public async Task Updatemedarbejder(int id, Medarbejder medarbejder)
         {
             
             if (medarbejder != null)
             {
-                await _medarbejderRepo.Updatemedarbejder(medarbejder); 
+                await _medarbejderRepo.Updatemedarbejder(id,medarbejder); 
 
             }
 

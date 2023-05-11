@@ -1,4 +1,5 @@
 using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.CRUDMedarbejder;
 
 namespace EnterpriseCarDealership.service_repository_s
 {
@@ -6,10 +7,10 @@ namespace EnterpriseCarDealership.service_repository_s
     {
         public List<Medarbejder> GetmedarbejderList();
 
-        public Task Addmedarbejder(Medarbejder medarbejder);
+        public Task Addmedarbejder(CreateMedarbejder createmedarbejder);
 
 
-        public Task Updatemedarbejder(Medarbejder medarbejder);
+        public Task Updatemedarbejder(int id, Medarbejder medarbejder);
 
 
 
@@ -18,6 +19,7 @@ namespace EnterpriseCarDealership.service_repository_s
         
 
 
-        public Task Deletemedarbejder(int id);
+        public Task Deletemedarbejder(int id );
+      
     }
 }

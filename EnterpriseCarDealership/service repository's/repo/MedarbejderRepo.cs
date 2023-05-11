@@ -1,5 +1,6 @@
 ﻿using EnterpriseCarDealership.DBContextFolder;
 using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.CRUDMedarbejder;
 
 namespace EnterpriseCarDealership.service_repository_s.repo
 {
@@ -7,11 +8,12 @@ namespace EnterpriseCarDealership.service_repository_s.repo
     {
         private DealershipContext _medarbejdercontext = new DealershipContext();  
 
-        public async Task  Addmedarbejder(Medarbejder medarbejder)
+       
+        public async Task Addmedarbejder(Medarbejder medarbejder)
         {
             _medarbejdercontext.Add(medarbejder);
             await _medarbejdercontext.SaveChangesAsync();
-        }
+        } 
 
         public async Task Deletemedarbejder(int id)
         {
@@ -19,21 +21,19 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             _medarbejdercontext.Remove(medarbejder);
             await _medarbejdercontext.SaveChangesAsync();
         }
-
-        public Medarbejder GetmedarbejderById(int id)
-        {
-            Medarbejder medarbejder = GetmedarbejderList().FirstOrDefault(x => x.NextId == id);
-            return medarbejder; 
-
-           
-        }
-
         public List<Medarbejder> GetmedarbejderList()
         {
             return new List<Medarbejder>(_medarbejdercontext.Medarbejder);
         }
 
-        public async Task Updatemedarbejder(Medarbejder medarbejder)
+        public Medarbejder GetmedarbejderById(int id)
+        {
+            Medarbejder medarbejder = GetmedarbejderList().FirstOrDefault(x => x.NextId == id);
+            return medarbejder; 
+        }
+
+    
+        public async Task Updatemedarbejder(int id,  Medarbejder medarbejder)
         {
             Medarbejder existingmedarbejder = GetmedarbejderById(medarbejder.NextId);
                  
@@ -46,8 +46,8 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
             await _medarbejdercontext.SaveChangesAsync(); 
         }
-            
 
-        }
+        
+    }
     }
 
