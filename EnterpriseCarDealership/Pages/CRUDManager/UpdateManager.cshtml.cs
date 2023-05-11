@@ -40,5 +40,6 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
             return RedirectToPage("./Index");
 
         }
+
     }
 }
