@@ -30,13 +30,13 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
           
 
             User us = SessionHelper.GetUser(HttpContext);
-            if (us.IsAdmin == true)
+            if (us.IsAdmin != true)
             {
 
-                return Page();
+                return RedirectToPage("./Index");
             }
 
-            return RedirectToPage("./Index");
+            return Page();
 
         }
     }
