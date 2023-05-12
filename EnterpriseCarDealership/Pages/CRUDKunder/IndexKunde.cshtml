@@ -2,3 +2,28 @@
 @model EnterpriseCarDealership.Pages.CRUDKunder.IndexKundeModel
 @{
 }
+<table>
+    <tbody>
+        @if (Model.kunder.Count == 0)
+        {
+            <p>Empty list</p>
+        }
+        else
+        {
+            foreach (var s in Model.kunder)
+            {
+                <tr>
+                    <td>@s.NextId</td>
+                    <td>@s.Name</td>
+                    <td>@s.Password</td>
+                    <td>@s.IsMedarbejder</td>
+                    <td>@s.IsAdmin</td>
+                    <td>@s.Tlf</td>
+                    <td>@s.Adress</td>
+                    <td><form asp-page-handler="Delete" asp-route-id="@s.NextId"><button type="submit" class="btn btn-primary">Delete Kunde </button></form></td>
+                    <td><a asp-page="UpdateKunde" asp-route-id="@s.NextId">Update Kunde </a></td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

@@ -11,12 +11,11 @@ namespace EnterpriseCarDealership.service_repository_s
         public Task Addbike(CreateBike createbike);
 
 
-        public Task Updatebike(Bike bike);
+        public Task Updatebike( Bike bike);
 
 
         public Bike GetBikeById(int id);
 
         public Task Deletebike(int id);
-
     }
 }
