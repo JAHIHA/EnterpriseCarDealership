@@ -1,5 +1,6 @@
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -16,9 +17,18 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
         [BindProperty]
         public List<Kunde> kunder { get; set; }
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
             kunder = _kundeService.GetKundeList();
+
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin != true)
+            {
+                return RedirectToPage("./Index");
+
+            }
+
+            return Page();
         }
         public async Task OnPostDelete(int id)
         {

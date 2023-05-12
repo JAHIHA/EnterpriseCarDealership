@@ -1,5 +1,6 @@
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -24,9 +25,17 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
             await _kundeService.Updatekunde(id, kunde);
             return RedirectToPage("IndexKunde");
         }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             existingkunde = _kundeService.GetKundeById(id);
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin != true)
+            {
+                return RedirectToPage("./Index");
+
+            }
+
+            return Page();
         }
 
     }

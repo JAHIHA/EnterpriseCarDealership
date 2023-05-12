@@ -3,6 +3,7 @@ using EnterpriseCarDealership.service_repository_s;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 
 namespace EnterpriseCarDealership.Pages.CRUDCar
 {
@@ -25,11 +26,21 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
             await _carService.Updatecar( id, car);
             return RedirectToPage("IndexCar");
         }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             
             existingCar=_carService.GetCarById(id);
-           
+        
+            
+                User us = SessionHelper.GetUser(HttpContext);
+                if (us.IsAdmin != true && us.IsMedarbejder != true)
+                {
+                    return RedirectToPage("./Index");
+
+                }
+
+                return Page();
+            
         }
     }
 }

@@ -1,6 +1,7 @@
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.Pages.CRUDBikeBooking;
 using EnterpriseCarDealership.service_repository_s;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using EnterpriseCarDealership.service_repository_s.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -25,6 +26,17 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
         public async Task OnPost()
         {
             await _addservice.Addbike(createBike);
+        }
+        public IActionResult OnGet()
+        {
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin != true)
+            {
+                return RedirectToPage("./Index");
+
+            }
+
+            return Page();
         }
     }
 

@@ -1,5 +1,6 @@
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -21,9 +22,17 @@ namespace EnterpriseCarDealership.Pages.CRUDMedarbejder
             await _medarbejderService.Updatemedarbejder(id,medarbejder);
             return RedirectToPage("IndexMedarbejder");
         }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             existingmedarbejder = _medarbejderService.GetmedarbejderById(id);
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin != true )
+            {
+                return RedirectToPage("./Index");
+
+            }
+
+            return Page();
         }
     }
 }

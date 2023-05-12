@@ -1,5 +1,8 @@
+using DocumentFormat.OpenXml.Office2010.Excel;
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s;
+using EnterpriseCarDealership.service_repository_s.sercive;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
@@ -14,11 +17,22 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
             _carService = carService;
         }
         [BindProperty]
-        public CreateCar createCar { get; set; }  
-
+        public CreateCar createCar { get; set; }
         public async Task OnPost()
         {
             await _carService.Addcar(createCar); 
+        }
+        public IActionResult OnGet()
+        {
+            
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin != true && us.IsMedarbejder != true)
+            {
+                return RedirectToPage("./Index");
+
+            }
+
+            return Page();
         }
         
     }
