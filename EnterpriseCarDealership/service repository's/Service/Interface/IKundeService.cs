@@ -13,11 +13,12 @@ namespace EnterpriseCarDealership.service_repository_s
 
 
 
-        public Task Updatekunde(Kunde kunde);
+        public Task Updatekunde(int id, Kunde kunde);
 
 
         public Kunde GetKundeById(int id);
 
         public Task Deletekunde(int id);
+        
     }
 }

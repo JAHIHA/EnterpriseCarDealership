@@ -64,12 +64,10 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
         public async Task Updatebike(Bike bike)
         {
  
-            if (bike != null)
-            {
 
                 await _Bikerepo.Updatebike(bike);
 
-            }
+            
 
         }
     }

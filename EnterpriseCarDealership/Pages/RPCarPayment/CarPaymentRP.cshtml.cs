@@ -11,10 +11,8 @@ namespace EnterpriseCarDealership.Pages.RPCarPayment
         public CarPaymentRPModel(ICarPyamentService carPyamentService)
         {
             _carPyamentService = carPyamentService;
-        }
-        [BindProperty]
-        public 
 
+        }
             public void OnGet()
         {
         }

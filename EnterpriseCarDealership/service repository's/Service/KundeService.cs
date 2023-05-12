@@ -14,11 +14,15 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
 
      private IKundeRepo _Kunderepo;
 
-    public KundeService(IKundeRepo kundeRepo)
-    {
+        public KundeService()
+        {
+        }
+
+        public KundeService(IKundeRepo kundeRepo)
+        {
         _Kunderepo = kundeRepo;
-    }
-    public async Task Addkunde(CreateKunde createkunde)
+        }
+        public async Task Addkunde(CreateKunde createkunde)
         {
             await _Kunderepo.Addkunde(createkunde);
         }
@@ -27,6 +31,8 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
         {
             await _Kunderepo.Deletekunde(id);   
         }
+
+      
 
         public Kunde GetKundeById(int id)
         {
@@ -40,10 +46,12 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             return _Kunderepo.GetKundeList();   
         }
 
-        public async Task Updatekunde(Kunde kunde)
+        public async Task Updatekunde(int id, Kunde kunde)
         {
-            await _Kunderepo.Updatekunde(kunde);    
+            await _Kunderepo.Updatekunde(id, kunde);    
         }
+
+      
     }
 }
 
