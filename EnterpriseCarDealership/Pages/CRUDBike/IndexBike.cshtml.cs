@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
+
 namespace EnterpriseCarDealership.Pages.CRUDBike
 {
     public class IndexBikeModel : PageModel
@@ -18,9 +20,18 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
 
         [BindProperty]
         public List<Bike> bikes { get; set; }
-        public void OnGet()
+        public IActionResult OnGet()
         {
             bikes = _service.GetBikeList();
+
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin != true)
+            {
+                return RedirectToPage("./Index");
+
+            }
+
+            return Page();
         }
 
         public async Task OnPostDelete(int id)

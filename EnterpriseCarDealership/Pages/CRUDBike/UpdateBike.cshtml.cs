@@ -1,5 +1,6 @@
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -26,9 +27,17 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
             await _service.Updatebike(bike);
             return RedirectToPage("IndexBike");
         }
-        public void OnGet(int id)
+        public IActionResult OnGet(int id)
         {
             bike = _service.GetBikeById(id);
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin != true)
+            {
+                return RedirectToPage("./Index");
+
+            }
+
+            return Page();
 
         }
        
