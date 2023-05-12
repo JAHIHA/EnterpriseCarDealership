@@ -14,12 +14,11 @@ namespace EnterpriseCarDealership.service_repository_s.repo
         }
    
         
-        public decimal CalculateCarPayment(Car PrisPrDag, int TotalDag, decimal TotalPayment)
+        public decimal CalculateCarPayment(int PrisPrDag, int TotalDag, double TotalPayment)
         {
 
-            decimal totalPayment =  
-
-            return TotalPayment = PrisPrDag*TotalDag;
+          double Totalpayment= PrisPrDag*TotalDag;
+            return (decimal)TotalPayment;
         }
 
        
