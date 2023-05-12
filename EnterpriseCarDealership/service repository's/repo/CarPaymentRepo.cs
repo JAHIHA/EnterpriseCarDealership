@@ -13,23 +13,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             throw new NotImplementedException();
         }
 
-        public List<CarPayment> getCarPayments()
-        {
-            throw new NotImplementedException();
-        }
-    }
 
-    //public decimal CalculateCarPayment(Car PrisPrDag, int TotalDag, decimal TotalPayment)
-    //{
 
-        
-
-    //        return TotalPayment;
-    //}
-
-        //public CarPayment getCarPayment(int id)
-        //{
-        //    return new List<CarPayment>(_db.CarPayment);
-        //}
     
 }
