@@ -26,6 +26,7 @@ namespace EnterpriseCarDealership.DBContextFolder
         public virtual DbSet<CarPayment> CarPayment { get; set; }
         public virtual DbSet<BikePayment> BikePayment { get; set; }
 
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -85,6 +86,16 @@ namespace EnterpriseCarDealership.DBContextFolder
                 .Property(b => b.NextId)
                 .ValueGeneratedOnAdd()
                 .UseIdentityColumn();
+
+
+
+            modelBuilder
+                .Entity<Bike>()
+                .Property(b => b.Type)
+                .HasConversion(
+                    v => v.ToString(),
+                    v => (MotorType)Enum.Parse(typeof(MotorType), v));
+
 
         }
     }

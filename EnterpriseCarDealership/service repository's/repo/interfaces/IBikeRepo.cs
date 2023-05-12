@@ -11,7 +11,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo.interfaces
         public Task Addbike(Bike bike);
 
 
-        public Task Updatebike(Bike bike);
+        public Task Updatebike( Bike bike);
 
 
         public Bike GetBikeById(int id);

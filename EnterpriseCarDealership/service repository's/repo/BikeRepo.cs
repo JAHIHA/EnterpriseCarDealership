@@ -39,20 +39,20 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public async Task Updatebike(Bike bike)
         {
-           Bike newbike = GetBikeById(bike.NextId);
-                newbike.NextId= bike.NextId;    
-                newbike.Brand = bike.Brand;
-                newbike.Type = bike.Type;
-                newbike.PrisPrDag = bike.PrisPrDag;
-                newbike.Year = bike.Year;
-                newbike.Km = bike.Km;
-                newbike.Sidebike = bike.Sidebike;
-                newbike.LeatherSddle = bike.LeatherSddle;
-                newbike.ExtraStorage = bike.ExtraStorage;
+           //Bike newbike = GetBikeById(bike.NextId);
+           //     newbike.NextId = bike.NextId;    
+           //     newbike.Brand = bike.Brand;
+           //     newbike.Type = bike.Type;
+           //     newbike.PrisPrDag = bike.PrisPrDag;
+           //     newbike.Year = bike.Year;
+           //     newbike.Km = bike.Km;
+           //     newbike.Sidebike = bike.Sidebike;
+           //     newbike.LeatherSddle = bike.LeatherSddle;
+           //     newbike.ExtraStorage = bike.ExtraStorage;
 
 
             
-            dBContext.Bike.Update(newbike);
+            dBContext.Bike.Update(bike);
             await dBContext.SaveChangesAsync();
         }
     }

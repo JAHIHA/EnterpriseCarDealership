@@ -12,7 +12,7 @@ namespace EnterpriseCarDealership.service_repository_s.Service
         {
             _carPaymentRepo = carPaymentRepo;
         }
-    
+
         public List<CarPayment> getListOfCarPayments()
         {
             return _carPaymentRepo.getCarPayments();
@@ -20,10 +20,13 @@ namespace EnterpriseCarDealership.service_repository_s.Service
 
         public CarPayment GetCarPayment(int id)
         {
-            return _carPaymentRepo.getCarPayment(id); 
+            return _carPaymentRepo.getCarPayment(id);
         }
 
-        
+        public CarPayment PaymentCalculater(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 }
