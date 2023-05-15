@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s.Service.cookies;
+using EnterpriseCarDealership.Pages.CRUDKunder.Filters;
+using EnterpriseCarDealership.Pages.CRUDBike.Filters;
 
 namespace EnterpriseCarDealership.Pages.CRUDBike
 {
@@ -20,6 +22,8 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
 
         [BindProperty]
         public List<Bike> bikes { get; set; }
+
+
         public IActionResult OnGet()
         {
             bikes = _service.GetBikeList();
@@ -41,6 +45,23 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
 
         }
 
-    }
 
+        public class IndexModel : PageModel
+        {
+            private readonly IbikeFilters _bikeFilters;
+
+            public IndexModel(IbikeFilters bikeFilters)
+            {
+                _bikeFilters = bikeFilters;
+            }
+
+            public IActionResult OnGet()
+            {
+                List<Bike> filteredBike = _bikeFilters.Filter();
+
+                return Page();
+            }
+
+        }
+    }
 }
