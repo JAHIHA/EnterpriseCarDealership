@@ -1,4 +1,5 @@
 using EnterpriseCarDealership.Models;
+using EnterpriseCarDealership.Pages.CRUDKunder.Filters;
 using EnterpriseCarDealership.service_repository_s;
 using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -35,6 +36,25 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
             await _kundeService.Deletekunde(id);
             kunder = _kundeService.GetKundeList();
         }
-        
+
+
+        public class IndexModel : PageModel
+        {
+            private readonly IKundeFilters _kundeFilters;
+
+            public IndexModel(IKundeFilters kundeFilters)
+            {
+                _kundeFilters = kundeFilters;
+            }
+
+            public IActionResult OnGet()
+            {
+                List<Kunde> filteredKunder = _kundeFilters.Filter();
+
+                return Page();
+            }
+
+        }
+
     }
 }
