@@ -8,6 +8,9 @@ namespace EnterpriseCarDealership.service_repository_s.repo
     {
         private DealershipContext _Carbookdb = new DealershipContext();
 
+
+        private readonly CarRepo _CarRepo = new CarRepo(); 
+
         public async Task Addcarbooking(CarBooking Carbooking)
         {
             Carbooking.StartTime = DateTime.Now.AddDays(1);
@@ -30,18 +33,10 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             return Carbooking;
         }
 
-   
+
 
         public async Task UpdateCarbooking(CarBooking Carbooking)
         {
-            //CarBooking book = GetCarbookingById(Carbooking.Id);
-
-            //Carbooking.Id = book.Id;
-            //Carbooking.StartTime = book.StartTime;
-            //Carbooking.EndTime = book.EndTime;
-            //Carbooking.KundeId = book.KundeId;
-            //Carbooking.CarId = book.CarId;
-          
             _Carbookdb.CarBooking.Update(Carbooking);
             await _Carbookdb.SaveChangesAsync();
 
@@ -56,8 +51,29 @@ namespace EnterpriseCarDealership.service_repository_s.repo
         {
             _Carbookdb.CarBooking.Add(carbooking);
             await _Carbookdb.SaveChangesAsync();
+        }
 
+          
+        public double CalculatePayment(Car car, CarBooking booking)
+        {
+            var res = GetCarbookingById(booking.Id);
+            var result = _CarRepo.GetCarById(car.NextId);
+
+            if (res != null && result != null)
+            {
+                TimeSpan duration = booking.EndTime - booking.StartTime;
+                int numberOfDays = duration.Days + 1; // Include both the start and end dates
+
+                double totalPayment = (numberOfDays * car.PrisPrDag);
+                return totalPayment;
+            }
+            else
+            {
+                // Handle case where car or booking is not found
+                throw new Exception("Car or booking not found.");
+            }
         }
     }
+
 }
 
