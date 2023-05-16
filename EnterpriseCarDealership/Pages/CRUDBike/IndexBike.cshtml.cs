@@ -5,13 +5,15 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s.Service.cookies;
-using EnterpriseCarDealership.Pages.CRUDKunder.Filters;
 using EnterpriseCarDealership.Pages.CRUDBike.Filters;
 
 namespace EnterpriseCarDealership.Pages.CRUDBike
 {
     public class IndexBikeModel : PageModel
     {
+        [BindProperty]
+        public int MinPris { get; set; }
+        private readonly IbikeFilters _bikeFilters;
         private IBikeService _service;
 
         public IndexBikeModel(IBikeService bikeService)
@@ -28,13 +30,13 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
         {
             bikes = _service.GetBikeList();
 
-            User us = SessionHelper.GetUser(HttpContext);
-            if (us.IsAdmin != true)
-            {
-                return RedirectToPage("./Index");
+            //User us = SessionHelper.GetUser(HttpContext);
+            //if (us.IsAdmin != true)
+            //{
+            //    return RedirectToPage("./Index");
 
-            }
-
+            //}
+            //List<Bike> filteredBike = _bikeFilters.Filter();
             return Page();
         }
 
@@ -44,24 +46,15 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
             bikes = _service.GetBikeList();
 
         }
-
-
-        public class IndexModel : PageModel
+        public void OnPostId()
         {
-            private readonly IbikeFilters _bikeFilters;
+            bikes= _service.GetBikeList();
+            bikes.OrderBy(b => b.NextId);
+        }
 
-            public IndexModel(IbikeFilters bikeFilters)
-            {
-                _bikeFilters = bikeFilters;
-            }
-
-            public IActionResult OnGet()
-            {
-                List<Bike> filteredBike = _bikeFilters.Filter();
-
-                return Page();
-            }
-
+        public void OnPostFilterMin()
+        {
+            bikes = _service.GetBikeList().Where(s => s.PrisPrDag >= MinPris).ToList();
         }
     }
 }
