@@ -26,35 +26,33 @@ namespace EnterpriseCarDealership.Pages.Login
         public void OnGet()
         {
 
-            User us = SessionHelper.GetUser(HttpContext);
-
-
+            //User us = SessionHelper.GetUser(HttpContext);
 
         }
 
-        public IActionResult OnPost()
-        {
-            User us = SessionHelper.GetUser(HttpContext);
-            //User us = new User();
+        //public IActionResult OnPost()
+        //{
+        //    User us = SessionHelper.GetUser(HttpContext);
+        //    //User us = new User();
 
 
-            if (Name is not null && Password is not null)
-            {
-                us.Name = Name;
+        //    if (Name is not null && Password is not null)
+        //    {
+        //        us.Name = Name;
 
-                us.Password = Password;
+        //        us.Password = Password;
 
-                if (_validateService.Validate(us))
-                {
-                   
-                    SessionHelper.SetUser(us, HttpContext);
-                    return RedirectToPage("./Index");
-                }
+        //        if (_validateService.Validate(us))
+        //        {
 
-            }
-            return Page();
+        //            SessionHelper.SetUser(us, HttpContext);
+        //            return RedirectToPage("./Index");
+        //        }
 
-        }
+        //    }
+        //    return Page();
+
+        //}
     }
 }
 
