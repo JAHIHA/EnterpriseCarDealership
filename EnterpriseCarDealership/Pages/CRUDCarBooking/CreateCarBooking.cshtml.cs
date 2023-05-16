@@ -25,7 +25,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBooking
             await _addservice.AddCarbooking(CreateCar);
         }
     }
-
+     
     
     public class CreateCarBooking
     {
