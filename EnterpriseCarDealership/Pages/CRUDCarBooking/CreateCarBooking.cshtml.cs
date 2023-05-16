@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using EnterpriseCarDealership.Models;
 using System.ComponentModel.DataAnnotations;
+using EnterpriseCarDealership.service_repository_s.Service.Interface;
 
 namespace EnterpriseCarDealership.Pages.CRUDBooking
 {
@@ -19,7 +20,6 @@ namespace EnterpriseCarDealership.Pages.CRUDBooking
         [BindProperty]
         public CreateCarBooking CreateCar { get; set; }
 
-        
         public async Task OnPost()
         {
             await _addservice.AddCarbooking(CreateCar);
