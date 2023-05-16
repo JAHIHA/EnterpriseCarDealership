@@ -8,25 +8,28 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
     public class CarBookingService : ICarBookingService
     {
         private ICarBookingRepo _CbookRep;
-        public CarBookingService(ICarBookingRepo CbookRep)
+        private ICarRepo _carRep; 
+        public CarBookingService(ICarBookingRepo CbookRep, ICarRepo carRep)
         {
             _CbookRep = CbookRep;
+            _carRep = carRep;
         }
 
         public async Task AddCarbooking(CreateCarBooking Cbooking)
         {
             CarBooking newCarBooking = new CarBooking()
             {
-                
+
                 StartTime = Cbooking.StartTime,
                 EndTime = Cbooking.EndTime,
                 KundeId = Cbooking.KundeId,
                 CarId = Cbooking.CarId,
-      
+
             };
             await _CbookRep.AddCarbooking(newCarBooking);
         }
 
+      
         public async Task DeleteCarbooking(int id)
         {
             await _CbookRep.DeleteCarbooking(id);
@@ -59,7 +62,25 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             {
                 await _CbookRep.UpdateCarbooking(Cbooking);
             }
-           
+
         }
+
+        public (Car car, CarBooking booking) CalculatePayment(int carId, int bookingId)
+        {
+            var car = _carRep.GetCarById(carId);
+            var booking = _CbookRep.GetCarbookingById(bookingId);
+
+            if (car != null && booking != null)
+            {
+                return (car, booking);
+            }
+            else
+            {
+                throw new Exception("Car or booking not found.");
+            }
+        }
+
+
+
     }
 }
