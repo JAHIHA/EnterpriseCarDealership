@@ -1,5 +1,6 @@
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using EnterpriseCarDealership.service_repository_s.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -22,6 +23,13 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
         public IActionResult OnGet(int id)
         {
             bikeBooking = _service.GetBikebookingById(id);
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin != true && us.IsMedarbejder != true)
+            {
+
+                return RedirectToPage("./Index");
+            }
+
             return Page();
 
         }

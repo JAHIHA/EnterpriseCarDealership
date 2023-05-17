@@ -3,6 +3,59 @@
 @{
 }
 <table>
+    <thead>
+        <tr>
+            <th>
+                <form asp-page-handler="Id" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">ID </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        <tr>
+            <th>
+                <form asp-page-handler="StartTime" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">StartTime </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        <tr>
+            <th>
+                <form asp-page-handler="EndTime" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">EndTime </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        <tr>
+            <th>
+                <form asp-page-handler="KundeId" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Kunde ID </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        <tr>
+            <th>
+                <form asp-page-handler="BikeId" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Bike ID </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+        </tr>
+    </thead>
     <tbody>
         @if (Model.bikeBookings.Count == 0)
         {

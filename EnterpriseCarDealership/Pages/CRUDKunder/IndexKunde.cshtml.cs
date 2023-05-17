@@ -1,5 +1,4 @@
 using EnterpriseCarDealership.Models;
-using EnterpriseCarDealership.Pages.CRUDKunder.Filters;
 using EnterpriseCarDealership.service_repository_s;
 using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +14,20 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
         {
             _kundeService = kundeService;
         }
+
+
+        [BindProperty]
+        public int NextId { get; set; }
+
+        [BindProperty]
+        public string Name { get; set; }
+
+        [BindProperty]
+        public string Adress { get; set; }
+
+        [BindProperty]
+        public string Tlf { get; set; }
+
         [BindProperty]
         public List<Kunde> kunder { get; set; }
 
@@ -22,14 +35,14 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
         {
             kunder = _kundeService.GetKundeList();
 
-            User us = SessionHelper.GetUser(HttpContext);
-            if (us.IsAdmin != true)
-            {
-                return RedirectToPage("./Index");
+            //User us = SessionHelper.GetUser(HttpContext);
+            //if (us.IsAdmin != true)
+            //{
+            //    return RedirectToPage("./Index");
 
-            }
-
+            //}
             return Page();
+
         }
         public async Task OnPostDelete(int id)
         {
@@ -37,24 +50,28 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
             kunder = _kundeService.GetKundeList();
         }
 
-
-        public class IndexModel : PageModel
+        public void OnPostId()
         {
-            private readonly IKundeFilters _kundeFilters;
-
-            public IndexModel(IKundeFilters kundeFilters)
-            {
-                _kundeFilters = kundeFilters;
-            }
-
-            public IActionResult OnGet()
-            {
-                List<Kunde> filteredKunder = _kundeFilters.Filter();
-
-                return Page();
-            }
-
+            kunder = _kundeService.GetKundeList();
+            kunder.OrderBy(k => k.NextId);
         }
 
+        public void OnPostName()
+        {
+            kunder = _kundeService.GetKundeList();
+            kunder.Sort((x, y) => x.Name.ToString().CompareTo(y.Name.ToString()));
+        }
+
+        public void OnPostAdress()
+        {
+            kunder = _kundeService.GetKundeList();
+            kunder.Sort((x, y) => x.Adress.ToString().CompareTo(y.Adress.ToString()));
+        }
+
+        public void OnPostTlf()
+        {
+            kunder = _kundeService.GetKundeList();
+            kunder.Sort((x, y) => x.Tlf.ToString().CompareTo(y.Tlf.ToString()));
+        }
     }
 }

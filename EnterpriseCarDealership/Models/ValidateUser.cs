@@ -1,23 +1,36 @@
 ﻿using DocumentFormat.OpenXml.Spreadsheet;
+using EnterpriseCarDealership.DBContextFolder;
 using EnterpriseCarDealership.service_repository_s.Service.cookies;
+using Microsoft.EntityFrameworkCore;
 
 namespace EnterpriseCarDealership.Models
 {
     public class ValidateUser : IValidateUser
     {
-        public bool Validate(User u)
+        public User? Validate(string navn, string password)
         {
-            List<User> users = new List<User>();
 
-            foreach (var user in users)
+            DealershipContext  _db =new DealershipContext();
+            User user = null;
+            if (navn != null && password != null)
             {
-                if (u.Name == user.Name && user.Password== u.Password)
+                user =  _db.Kunde.FirstOrDefault(u => u.Name == navn && u.Password == password);
+                if (user == null)
                 {
-                    Console.WriteLine(u.Password);
-                    return true;
+                    user = _db.Medarbejder.FirstOrDefault(u => u.Name == navn && u.Password == password);
                 }
+                if (user == null)
+                {
+                    user = _db.Manager.FirstOrDefault(u => u.Name == navn && u.Password == password);
+                }
+                if (user != null)
+                {
+                    return user;
+                }
+                return null;
             }
-            return false;
+            return null;
+          
         }
     }
 }

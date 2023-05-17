@@ -1,5 +1,6 @@
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -21,7 +22,16 @@ namespace EnterpriseCarDealership.Pages.CRUDCarBooking
         public IActionResult OnGet(int id)
         {
             carBooking = _service.GetCarbookingById(id);
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin != true && us.IsMedarbejder != true)
+            {
+
+                return RedirectToPage("./Index");
+            }
+
             return Page();
+
+
 
         }
         public async Task<IActionResult> OnPost()
