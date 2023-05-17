@@ -26,7 +26,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
             if (us.IsAdmin != true && us.IsMedarbejder != true)
             {
 
-                return RedirectToPage("./Index");
+                return RedirectToPage("/Index");
             }
 
             return Page();

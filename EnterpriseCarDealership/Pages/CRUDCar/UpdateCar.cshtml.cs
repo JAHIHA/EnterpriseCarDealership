@@ -35,7 +35,7 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
                 User us = SessionHelper.GetUser(HttpContext);
                 if (us.IsAdmin != true && us.IsMedarbejder != true)
                 {
-                    return RedirectToPage("./Index");
+                    return RedirectToPage("/Index");
 
                 }
 

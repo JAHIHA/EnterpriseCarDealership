@@ -35,12 +35,12 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
         {
             kunder = _kundeService.GetKundeList();
 
-            //User us = SessionHelper.GetUser(HttpContext);
-            //if (us.IsAdmin != true)
-            //{
-            //    return RedirectToPage("./Index");
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin != true)
+            {
+                return RedirectToPage("/Index");
 
-            //}
+            }
             return Page();
 
         }
