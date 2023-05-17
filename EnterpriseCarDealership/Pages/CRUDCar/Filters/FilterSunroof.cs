@@ -8,7 +8,7 @@ namespace EnterpriseCarDealership.Pages.CRUDCar.Filters
         UdenFilter uden= new UdenFilter();
         public List<Car> Filter()
         {
-
+            return null;
         }
     }
 }

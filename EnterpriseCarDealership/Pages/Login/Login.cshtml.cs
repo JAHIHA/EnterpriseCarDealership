@@ -8,7 +8,7 @@ namespace EnterpriseCarDealership.Pages.Login
 {
     public class LoginModel : PageModel
     {
-        
+
         private IManagerService _services;
         private IValidateUser _validateService;
 
@@ -23,36 +23,35 @@ namespace EnterpriseCarDealership.Pages.Login
         public string Name { get; set; }
         [BindProperty]
         public string Password { get; set; }
-        public void OnGet()
-        {
-
-            //User us = SessionHelper.GetUser(HttpContext);
-
-        }
-
-        //public IActionResult OnPost()
+        //public void OnGet()
         //{
+
         //    User us = SessionHelper.GetUser(HttpContext);
-        //    //User us = new User();
-
-
-        //    if (Name is not null && Password is not null)
-        //    {
-        //        us.Name = Name;
-
-        //        us.Password = Password;
-
-        //        if (_validateService.Validate(us))
-        //        {
-
-        //            SessionHelper.SetUser(us, HttpContext);
-        //            return RedirectToPage("./Index");
-        //        }
-
-        //    }
-        //    return Page();
 
         //}
+
+        public IActionResult OnPost()
+        {
+            User us = SessionHelper.GetUser(HttpContext);
+            //User us = new User();
+
+            if (us == null)
+            {
+                us = new Kunde();
+            }
+
+            us = _validateService.Validate(Name, Password);
+            if (us != null)
+            {
+
+                SessionHelper.SetUser(us, HttpContext);
+                return RedirectToPage("/Index");
+            }
+
+        
+            return Page();
     }
+    }
+    
 }
 

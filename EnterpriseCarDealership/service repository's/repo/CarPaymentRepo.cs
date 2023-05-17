@@ -13,11 +13,11 @@ using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 //            throw new NotImplementedException();
 //        }
 
-        public List<CarPayment> getCarPayments()
-        {
-            throw new NotImplementedException();
-        }
-    }
+    //    public List<CarPayment> getCarPayments()
+    //    {
+    //        throw new NotImplementedException();
+    //    }
+    //}
 
     
 //}

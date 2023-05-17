@@ -3,6 +3,64 @@
 @{
 }
 <table>
+     <thead>
+            <tr>
+                <th> <form asp-page-handler ="Id" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">ID </button>
+                        </div>
+                    </div> 
+                    </form>
+                </th>
+                <tr>
+                <th> <form asp-page-handler ="Name" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Name </button>
+                        </div>
+                    </div> 
+                    </form>
+                </th>
+                <tr>
+                <th> 
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Password </button>
+                        </div>
+                    </div> 
+                    
+                </th>
+                <tr>
+                <th> 
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Administrator </button>
+                        </div>
+                    </div> 
+                    
+                </th>
+                <tr>
+                <th> 
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Medarbejder </button>
+                        </div>
+                    </div> 
+                    
+                </th>
+        <tr>
+            <th>
+                <form asp-page-handler="tlf" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">tlf </button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+            </tr>
+            </thead>
     <tbody>
         @if (Model.managers.Count == 0)
         {
