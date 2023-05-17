@@ -5,20 +5,66 @@
 <table>
     <thead>
         <tr>
-            <th>
-                <form asp-page-handler="Id" class="form-horizontal" method="post">
+            <form asp-page-handler="FilterMax" class="form-horizontal" method="post">
+            <div class="form-group">
+            <div class="col-2">
+            <input type="number" class="form-control" name="MaxPris" asp-for="@Model.MaxPris" value="@Model.MaxPris">
+            </div>
+
+            <br />
+            <input type="checkbox"  value=true  asp-for="Sidebike" />SideBike
+            <br />
+            <input type="checkbox" value=true asp-for="LeatherSddle" />LeatherSddle
+            <br />
+            <input type="checkbox" value=true asp-for="ExtraStorage" />ExtraStprage
+            <br />
+
+            </div>
+            <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Max Pris</button>
+            </div>
+            </div>
+            </form>
+        </tr>
+        <tr>
+            <form asp-page-handler="FilterMin" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-2">
+                        <input type="number" class="form-control" name="MinPris" asp-for="@Model.MinPris" value="@Model.MinPris">
+                    </div>
+
+                    <br />
+                    <input type="checkbox"  value=true asp-for="Sidebike" />SideBike
+                    <br />
+                    <input type="checkbox" value=true asp-for="LeatherSddle" />LeatherSddle
+                    <br />
+                    <input type="checkbox" value=true asp-for="ExtraStorage" />ExtraStprage
+                    <br />
+
+                </div>
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Id</button>
+                        <button type="submit" class="btn btn-primary">Min Pris</button>
                     </div>
                 </div>
-                </form>
-            </th>
+            </form>
         </tr>
     </thead>
 
     <thead>
         <tr>
+            <th>
+                <form asp-page-handler="NextId" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Id</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+      
+       
             <th>
                 <form asp-page-handler="Brand" class="form-horizontal" method="post">
                 <div class="form-group">
@@ -28,11 +74,7 @@
                 </div>
                 </form>
             </th>
-        </tr>
-    </thead>
-
-    <thead>
-        <tr>
+      
             <th>
                 <form asp-page-handler="Type" class="form-horizontal" method="post">
                 <div class="form-group">
@@ -42,39 +84,17 @@
                 </div>
                 </form>
             </th>
-        </tr>
-    </thead>
-
-    <thead>
-        <tr>
+        
             <th>
-                <form asp-page-handler="MaxPris" class="form-horizontal" method="post">
+                <form asp-page-handler="PrisPrDag" class="form-horizontal" method="post">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">MaxPris</button>
+                        <button type="submit" class="btn btn-primary">PrisPrDag</button>
                     </div>
                 </div>
                 </form>
             </th>
-        </tr>
-    </thead>
-     
-    <thead>
-        <tr>
-            <th>
-                <form asp-page-handler="MiniumPris" class="form-horizontal" method="post">
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">MinimumPris</button>
-                    </div>
-                </div>
-                </form>
-            </th>
-        </tr>
-    </thead>
-
-    <thead>
-        <tr>
+       
             <th>
                 <form asp-page-handler="Year" class="form-horizontal" method="post">
                 <div class="form-group">
@@ -84,11 +104,7 @@
                 </div>
                 </form>
             </th>
-        </tr>
-    </thead>
-
-    <thead>
-        <tr>
+      
             <th>
                 <form asp-page-handler="Km" class="form-horizontal" method="post">
                 <div class="form-group">
@@ -98,11 +114,7 @@
                 </div>
                 </form>
             </th>
-        </tr>
-    </thead>
-
-    <thead>
-        <tr>
+      
             <th>
                 <form asp-page-handler="SideBike" class="form-horizontal" method="post">
                     <div class="form-group">
@@ -112,11 +124,7 @@
                     </div>
                 </form>
             </th>
-        </tr>
-    </thead>
-
-    <thead>
-        <tr>
+     
             <th>
                 <form asp-page-handler="LeatherSdlle" class="form-horizontal" method="post">
                 <div class="form-group">
@@ -126,11 +134,7 @@
                 </div>
                 </form>
             </th>
-        </tr>
-    </thead>
-
-    <thead>
-        <tr>
+        
             <th>
                 <form asp-page-handler="ExtraStorage" class="form-horizontal" method="post">
                 <div class="form-group">

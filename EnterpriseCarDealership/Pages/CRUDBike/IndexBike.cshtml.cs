@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using EnterpriseCarDealership.Pages.CRUDBike.Filters;
+using System;
 
 namespace EnterpriseCarDealership.Pages.CRUDBike
 {
@@ -13,6 +14,20 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
     {
         [BindProperty]
         public int MinPris { get; set; }
+
+        [BindProperty]
+        public int MaxPris { get; set; }
+
+        [BindProperty]
+        public bool Sidebike { get; set; }
+
+        [BindProperty]
+        public bool LeatherSddle { get; set; }
+
+        [BindProperty]
+        public bool ExtraStorage { get; set; }
+
+
         private readonly IbikeFilters _bikeFilters;
         private IBikeService _service;
 
@@ -52,9 +67,49 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
             bikes.OrderBy(b => b.NextId);
         }
 
+
+        public void OnPostFilterMax()
+        {
+            bikes = _service.GetBikeList().Where((b) => b.PrisPrDag <= MaxPris).ToList();
+
+
+
+            if (Sidebike == true)
+            {
+                bikes = bikes.Where((b) => (b.PrisPrDag <= MaxPris) && b.Sidebike).ToList();
+
+            }
+            if (LeatherSddle == true)
+            {
+                bikes = bikes.Where((b) => (b.PrisPrDag <= MaxPris) && b.LeatherSddle).ToList();
+
+            }
+            if (ExtraStorage == true)
+            {
+                bikes = bikes.Where((b) => (b.PrisPrDag <= MaxPris) && b.ExtraStorage).ToList();
+
+            }
+            
+        }
         public void OnPostFilterMin()
         {
             bikes = _service.GetBikeList().Where(s => s.PrisPrDag >= MinPris).ToList();
+
+            if (Sidebike == true)
+            {
+                bikes = bikes.Where((b) => (b.PrisPrDag <= MinPris) && b.Sidebike).ToList();
+
+            }
+            if (LeatherSddle == true)
+            {
+                bikes = bikes.Where((b) => (b.PrisPrDag <= MinPris) && b.LeatherSddle).ToList();
+
+            }
+            if (ExtraStorage == true)
+            {
+                bikes = bikes.Where((b) => (b.PrisPrDag <= MinPris) && b.ExtraStorage).ToList();
+
+            }
         }
     }
 }
