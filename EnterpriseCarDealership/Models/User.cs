@@ -2,7 +2,7 @@
 
 namespace EnterpriseCarDealership.Models
 {
-    public abstract class User
+    public class User
     {
         public  int NextId { get; set; }
         public string Name { get; set; }
@@ -11,28 +11,7 @@ namespace EnterpriseCarDealership.Models
         public bool IsAdmin { get; set; }
         public string? Tlf { get; set; }
 
-        public User()
-        {
-            NextId = -1;
-            Name = "dummy";
-            Password = "dummy";
-            IsMedarbejder = false;
-            IsAdmin = false;
-            Tlf = "00000000";
-            
-        }
-        //[JsonConstructor]
-        //public User(int id, string name, string password, bool isMedarbejder, bool isAdmin, string tlf)
-        //{
-        //    id = NextId++;
-        //    Name = name;
-        //    Password = password;
-        //    IsMedarbejder = isMedarbejder;
-        //    IsAdmin = isAdmin;
-        //    Tlf = tlf;
-            
-        //}
-
+    
         [JsonConstructor]
         public User(int NextId, string Name, string Password, bool isMedarbejder, bool isAdmin, string Tlf)
         {
@@ -44,6 +23,28 @@ namespace EnterpriseCarDealership.Models
             this.Tlf = Tlf;
 
         }
+        public User()
+        {
+            NextId = -1;
+            Name = "dummy";
+            Password = "dummy";
+            IsMedarbejder = false;
+            IsAdmin = false;
+            Tlf = "00000000";
+
+        }
+        //[JsonConstructor]
+        //public User(int id, string name, string password, bool isMedarbejder, bool isAdmin, string tlf)
+        //{
+        //    id = NextId++;
+        //    Name = name;
+        //    Password = password;
+        //    IsMedarbejder = isMedarbejder;
+        //    IsAdmin = isAdmin;
+        //    Tlf = tlf;
+
+        //}
+
 
         public override string ToString()
         {

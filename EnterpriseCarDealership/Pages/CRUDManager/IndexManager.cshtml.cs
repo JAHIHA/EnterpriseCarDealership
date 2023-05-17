@@ -24,10 +24,10 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
            managers = _service.GetManagerList();
 
             User us = SessionHelper.GetUser(HttpContext);
-            if (us.IsAdmin != true)
+            if (us.IsAdmin != true || us == null)
             {
 
-                return RedirectToPage("./Index");
+                return RedirectToPage("/Index");
             }
 
             return Page();
