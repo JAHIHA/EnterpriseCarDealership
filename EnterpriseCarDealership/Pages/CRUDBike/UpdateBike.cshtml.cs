@@ -33,7 +33,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
             User us = SessionHelper.GetUser(HttpContext);
             if (us.IsAdmin != true)
             {
-                return RedirectToPage("./Index");
+                return RedirectToPage("/Index");
 
             }
 

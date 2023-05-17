@@ -45,13 +45,13 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
         {
             bikes = _service.GetBikeList();
 
-            //User us = SessionHelper.GetUser(HttpContext);
-            //if (us.IsAdmin != true)
-            //{
-            //    return RedirectToPage("./Index");
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin != true)
+            {
+                return RedirectToPage("/Index");
 
-            //}
-            //List<Bike> filteredBike = _bikeFilters.Filter();
+            }
+            List<Bike> filteredBike = _bikeFilters.Filter();
             return Page();
         }
 

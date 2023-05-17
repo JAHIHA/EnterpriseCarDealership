@@ -31,7 +31,7 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
             User us = SessionHelper.GetUser(HttpContext);
             if (us.IsAdmin != true)
             {
-                return RedirectToPage("./Index");
+                return RedirectToPage("/Index");
 
             }
 

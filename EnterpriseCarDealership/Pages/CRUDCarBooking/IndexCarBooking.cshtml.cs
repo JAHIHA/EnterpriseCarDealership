@@ -21,13 +21,13 @@ namespace EnterpriseCarDealership.Pages.CRUDCarBooking
         public List<CarBooking> carBookings { get; set; }
         public IActionResult OnGet()
         {
-            //carBookings = _service.GetCarbookingList();
-            //User us = SessionHelper.GetUser(HttpContext);
-            //if (us.IsAdmin != true && us.IsMedarbejder != true)
-            //{
+            carBookings = _service.GetCarbookingList();
+            User us = SessionHelper.GetUser(HttpContext);
+            if (us.IsAdmin != true && us.IsMedarbejder != true)
+            {
 
-            //    return RedirectToPage("./Index");
-            //}
+                return RedirectToPage("/Index");
+            }
 
             return Page();
         }

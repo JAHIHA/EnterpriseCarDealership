@@ -33,7 +33,7 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
             if (us.IsAdmin != true)
             {
 
-                return RedirectToPage("./Index");
+                return RedirectToPage("/Index");
             }
 
             return Page();
