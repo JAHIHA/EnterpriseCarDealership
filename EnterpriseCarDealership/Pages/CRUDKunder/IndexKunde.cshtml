@@ -2,7 +2,77 @@
 @model EnterpriseCarDealership.Pages.CRUDKunder.IndexKundeModel
 @{
 }
-<table>
+<div>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                <form asp-page-handler="NextId" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Id</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+
+            <th>
+                <form asp-page-handler="Name" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Name</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Password</button>
+                        </div>
+                </div>
+            </th>
+
+            <th>
+                <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">IsMedarbejder</button>
+                        </div>
+                </div>
+            </th>
+
+            <th>
+                <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">IsAdmin</button>
+                        </div>
+                </div>
+            </th>
+
+            <th>
+                <form asp-page-handler="Tlf" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Tlf</button>
+                        </div>
+                    </div>
+                </form>
+            </th>
+
+            <th>
+                <form asp-page-handler="Adress" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Adress</button>
+                        </div>
+                    </div>
+                </form>
+            </th> 
+        </tr>
+    </thead>
+
     <tbody>
         @if (Model.kunder.Count == 0)
         {
@@ -27,3 +97,4 @@
         }
     </tbody>
 </table>
+</div>
