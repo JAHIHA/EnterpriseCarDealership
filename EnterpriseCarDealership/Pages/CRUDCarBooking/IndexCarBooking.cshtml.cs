@@ -1,6 +1,7 @@
 using DocumentFormat.OpenXml.ExtendedProperties;
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s;
+using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
@@ -18,9 +19,17 @@ namespace EnterpriseCarDealership.Pages.CRUDCarBooking
 
         [BindProperty]
         public List<CarBooking> carBookings { get; set; }
-        public void OnGet()
+        public IActionResult OnGet()
         {
-            carBookings = _service.GetCarbookingList();
+            //carBookings = _service.GetCarbookingList();
+            //User us = SessionHelper.GetUser(HttpContext);
+            //if (us.IsAdmin != true && us.IsMedarbejder != true)
+            //{
+
+            //    return RedirectToPage("./Index");
+            //}
+
+            return Page();
         }
 
         public async Task OnPostDelete(int id)

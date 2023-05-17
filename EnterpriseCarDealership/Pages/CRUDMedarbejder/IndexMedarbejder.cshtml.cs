@@ -23,7 +23,7 @@ namespace EnterpriseCarDealership.Pages.CRUDMedarbejder
             User us = SessionHelper.GetUser(HttpContext);
             if (us.IsAdmin != true)
             {
-                return RedirectToPage("./Index");
+                return RedirectToPage("/Index");
 
             }
 
