@@ -73,5 +73,11 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
             kunder = _kundeService.GetKundeList();
             kunder.Sort((x, y) => x.Tlf.ToString().CompareTo(y.Tlf.ToString()));
         }
+
+        public void OnPostSort()
+        {
+            kunder = _kundeService.GetKundeList();
+            kunder.Sort();
+        }
     }
 }

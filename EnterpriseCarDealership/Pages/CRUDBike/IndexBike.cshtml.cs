@@ -67,8 +67,13 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
             bikes.OrderBy(b => b.NextId);
         }
 
+        public void OnPostSort()
+        {
+            bikes = _service.GetBikeList();
+            bikes.Sort();
+        }
 
-        public void OnPostFilterMax()
+            public void OnPostFilterMax()
         {
             bikes = _service.GetBikeList().Where((b) => b.PrisPrDag <= MaxPris).ToList();
 
