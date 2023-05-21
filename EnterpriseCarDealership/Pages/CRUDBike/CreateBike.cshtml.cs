@@ -23,9 +23,10 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
         [BindProperty]
         public CreateBike createBike { get; set; }
 
-        public async Task OnPost()
+        public async Task<IActionResult> OnPost()
         {
             await _addservice.Addbike(createBike);
+           return RedirectToPage("IndexBike");
         }
         public IActionResult OnGet()
         {

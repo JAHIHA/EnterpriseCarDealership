@@ -15,5 +15,6 @@ namespace EnterpriseCarDealership.service_repository_s.repo.interfaces
         public BikeBooking GetBikebookingById(int id);
 
         public Task DeleteBikebooking(int id);
+        public double CalculatePayment(Bike bike, BikeBooking booking);
     }
 }

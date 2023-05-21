@@ -5,6 +5,15 @@
 <div>
 <table class="table table-hover">
     <thead>
+            <form asp-page-handler="Sort" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">View List</button>
+                    </div>
+                </div>
+            </form>
+    </thead>
+    <thead>
         <tr>
             <th>
                 <form asp-page-handler="Id" class="form-horizontal" method="post">

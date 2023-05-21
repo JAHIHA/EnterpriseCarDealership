@@ -20,10 +20,12 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
         public CreateBikeBooking CreateBike {get; set; }
 
 
-        public async Task OnPost()
+        public async Task<IActionResult> OnPost()
         {
             await _addservice.AddBikebooking(CreateBike);
+            return RedirectToPage("IndexBikeBooking");
         }
+    }
     }
 
 

@@ -20,6 +20,6 @@ namespace EnterpriseCarDealership.service_repository_s.Service.Interface
             public Task DeleteBikebooking(int id);
 
 
-        
+        public double CalculatePayment(int carId, int bookingId);
     }
 }

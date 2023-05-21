@@ -46,17 +46,17 @@
                         </div>
 
                         <br />
-                        <input type="checkbox"  value=true asp-for ="AC" />AC
+                    <input type="radio"  value=true asp-for ="AC" />AC
                         <br />
-                        <input type="checkbox" value=true asp-for="Sunroof" />Sunroof
+                    <input type="radio" value=true asp-for="Sunroof" />Sunroof
                         <br />
-                        <input type="checkbox" value=true asp-for="Screen" />Screen
+                    <input type="radio" value=true asp-for="Screen" />Screen
                         <br />
-                        <input type="checkbox" value=true asp-for="DVD" />DVD
+                    <input type="radio" value=true asp-for="DVD" />DVD
                         <br />
-                        <input type="checkbox" value=true asp-for="Camera" />Camera
+                        <input type="radio" value=true asp-for="Camera" />Camera
                         <br />
-                        <input type="checkbox" value=true asp-for="Sensor" />Sensor
+                        <input type="radio" value=true asp-for="Sensor" />Sensor
                         <br />
 
                     </div>
@@ -82,7 +82,7 @@
         <thead>
             <tr>
                 <th>
-                    <form asp-page-handler="NextId" class="form-horizontal" method="post">
+                    <form asp-page-handler="Id" class="form-horizontal" method="post">
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
                                 <button type="submit" class="btn btn-primary">Id</button>

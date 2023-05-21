@@ -1,5 +1,6 @@
 ﻿using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.Pages.CRUDBikeBooking;
+using EnterpriseCarDealership.service_repository_s.repo;
 using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 using EnterpriseCarDealership.service_repository_s.Service.Interface;
 
@@ -9,9 +10,11 @@ namespace EnterpriseCarDealership.service_repository_s.Service
     {
          
         private readonly IBikeBookingRepo _BbookRep;
-        public BikeBookingService(IBikeBookingRepo BbookRep)
+        private IBikeRepo _bikeRep;
+        public BikeBookingService(IBikeBookingRepo BbookRep, IBikeRepo bikeRep)
         {
             _BbookRep = BbookRep;
+            _bikeRep = bikeRep;
         }
 
         public async Task AddBikebooking(CreateBikeBooking Bbooking)
@@ -63,6 +66,20 @@ namespace EnterpriseCarDealership.service_repository_s.Service
                 await _BbookRep.UpdateBikebooking(Bbooking);
             }
 
+        }
+        public double CalculatePayment(int bookingId, int bikeId)
+        {
+            var bike = _bikeRep.GetBikeById(bikeId);
+            var booking = _BbookRep.GetBikebookingById(bookingId);
+
+            if (bike != null && booking != null)
+            {
+                return _BbookRep.CalculatePayment(bike, booking);
+            }
+            else
+            {
+                throw new Exception("Bike or booking not found.");
+            }
         }
     }
 }

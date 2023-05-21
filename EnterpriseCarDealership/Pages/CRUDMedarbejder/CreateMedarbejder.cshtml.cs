@@ -18,9 +18,10 @@ namespace EnterpriseCarDealership.Pages.CRUDMedarbejder
         [BindProperty]
         public CreateMedarbejder createMedarbejder { get; set;}
 
-        public async Task OnPost()
+        public async Task<IActionResult> OnPost()
         {
             await _service.Addmedarbejder(createMedarbejder);
+            return RedirectToPage("IndexMedarbejder");
         }
         public IActionResult OnGet()
         {

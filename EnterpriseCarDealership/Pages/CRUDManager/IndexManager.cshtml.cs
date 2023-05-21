@@ -44,7 +44,7 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
         public void OnPostSort()
         {
             managers = _service.GetManagerList();
-            managers.Sort();
+            
         }
         public void OnPostId()
         {

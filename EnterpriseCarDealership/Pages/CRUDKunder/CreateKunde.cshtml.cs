@@ -22,9 +22,10 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
         public CreateKunde createKunde { get; set; }
 
 
-        public async Task OnPost()
+        public async Task<IActionResult> OnPost()
         {
             await _addservice.Addkunde(createKunde);
+            return RedirectToPage("/Login");
         }
     }
 

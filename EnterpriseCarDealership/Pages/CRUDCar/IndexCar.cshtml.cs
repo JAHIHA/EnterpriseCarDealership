@@ -54,6 +54,8 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
             await _carService.Deletecar(id);
             cars = _carService.GetCarList(); 
         }
+
+       
         public void OnPostId()
         {
             cars = _carService.GetCarList();

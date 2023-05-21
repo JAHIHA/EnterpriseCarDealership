@@ -18,9 +18,10 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
         }
         [BindProperty]
         public CreateCar createCar { get; set; }
-        public async Task OnPost()
+        public async Task<IActionResult> OnPost()
         {
-            await _carService.Addcar(createCar); 
+            await _carService.Addcar(createCar);
+            return RedirectToPage("IndexCar");
         }
         public IActionResult OnGet()
         {

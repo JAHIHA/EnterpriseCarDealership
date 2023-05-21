@@ -13,7 +13,7 @@ namespace EnterpriseCarDealership.Models
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
         public int? KundeId { get; set; }
-        public int? BikeId { get; set; }
+        public int BikeId { get; set; }
         public Bike? Bike { get; set; }
         public Kunde? Kunde { get; set; }
 

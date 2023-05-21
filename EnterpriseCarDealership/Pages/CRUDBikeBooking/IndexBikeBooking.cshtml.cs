@@ -41,7 +41,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
         public void OnPostSort()
         {
             bikeBookings = _service.GetBikebookingList();
-            bikeBookings.Sort();
+           
         }
         public void OnPostId()
         {
