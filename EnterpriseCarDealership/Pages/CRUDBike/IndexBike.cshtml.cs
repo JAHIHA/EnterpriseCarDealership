@@ -51,7 +51,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
                 return RedirectToPage("/Index");
 
             }
-            List<Bike> filteredBike = _bikeFilters.Filter();
+            //List<Bike> filteredBike = _bikeFilters.Filter();
             return Page();
         }
 

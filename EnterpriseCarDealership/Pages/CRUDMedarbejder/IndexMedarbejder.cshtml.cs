@@ -14,7 +14,17 @@ namespace EnterpriseCarDealership.Pages.CRUDMedarbejder
             _medarbejderService = medarbejderService;
         }
         [BindProperty]
-        public List<Medarbejder> medarbejders { get; set; } 
+        public List<Medarbejder> medarbejders { get; set; }
+        [BindProperty]
+        public int Id { get; set; }
+        [BindProperty]
+        public string Name { get; set; }
+        [BindProperty]
+        public string tlf { get; set; }
+        [BindProperty]
+        public string Adress { get; set; }
+        [BindProperty]
+        public int ManagerId { get; set; }
 
         public IActionResult OnGet()
         {
@@ -36,5 +46,32 @@ namespace EnterpriseCarDealership.Pages.CRUDMedarbejder
             await _medarbejderService.Deletemedarbejder(id);
             medarbejders = _medarbejderService.GetmedarbejderList();
         }
+
+        public void OnPostId()
+        {
+            medarbejders = _medarbejderService.GetmedarbejderList();
+            medarbejders.OrderBy(I => I.NextId);
+        }
+
+        public void OnPostName()
+        {
+            medarbejders = _medarbejderService.GetmedarbejderList();
+            medarbejders.Sort((x, y) => x.Name.ToString().CompareTo(y.Name.ToString()));
+        }
+        public void OnPostTlf()
+        {
+            medarbejders = _medarbejderService.GetmedarbejderList();
+            medarbejders.Sort((x, y) => x.Tlf.ToString().CompareTo(y.Tlf.ToString()));
+        }
+        public void OnPostAdress()
+        {
+            medarbejders = _medarbejderService.GetmedarbejderList();
+            medarbejders.Sort((x, y) => x.Adress.ToString().CompareTo(y.Adress.ToString()));
+        }
+        public void OnPostManagerId()
+        {
+            medarbejders = _medarbejderService.GetmedarbejderList();
+            medarbejders.OrderBy(M => M.ManagerId);
+        }
     }
-}
+    }

@@ -57,7 +57,7 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
         public void OnPostId()
         {
             cars = _carService.GetCarList();
-            cars.OrderBy(I => I.NextId);
+            cars.OrderBy(I => I.NextId); 
         }
 
         public void OnPostBrand()
@@ -74,23 +74,29 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
         public void OnPostPrisPrDag()
         {
             cars = _carService.GetCarList();
-            cars.OrderBy(p => p.PrisPrDag);
+            cars.Sort((x, y) => x.PrisPrDag.CompareTo(y.PrisPrDag));
         }
         public void OnPostYear()
         {
             cars = _carService.GetCarList();
-            cars.OrderBy(Y => Y.Year);
+            cars.Sort((x, y) => x.Year.CompareTo(y.Year));
         }
         public void OnPostKm()
         {
             cars = _carService.GetCarList();
-            cars.OrderBy(k => k.Km);
+            cars.Sort((x, y) => x.Km.CompareTo(y.Km));
         }
         public void OnPostAC()
         {
             cars = _carService.GetCarList();
             var Ac = cars.Select(A => A).Where(A => A.AC == true).ToList();
             cars = Ac; 
+        }
+        public void OnPostSunroof()
+        {
+            cars = _carService.GetCarList();
+            var Sunroof = cars.Select(R => R).Where(R => R.Sunroof == true).ToList();
+            cars = Sunroof;
         }
         public void OnPostScreen()
         {
@@ -115,6 +121,10 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
             cars = _carService.GetCarList();
             var Sensor = cars.Select(s => s).Where(s =>s.Sensor == true).ToList();
             cars = Sensor;
+        }
+        public void OnPostAll()
+        {
+            cars=_carService.GetCarList();
         }
         public void OnPostMaxPris()
         {
@@ -146,30 +156,30 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
         }
         public void OnPostMinPris()
         {
-            cars = _carService.GetCarList().Where((m) => m.PrisPrDag <= MinPris).ToList();
+            cars = _carService.GetCarList().Where((n) => n.PrisPrDag >= MinPris).ToList();
             if (AC == true)
             {
-                cars = _carService.GetCarList().Where((m) => (m.PrisPrDag <= MinPris) && m.AC).ToList();
+                cars = _carService.GetCarList().Where((n) => (n.PrisPrDag >= MinPris) && n.AC).ToList();
             }
             if (Sunroof == true)
             {
-                cars = _carService.GetCarList().Where((m) => (m.PrisPrDag <= MinPris) && m.Sunroof).ToList();
+                cars = _carService.GetCarList().Where((n) => (n.PrisPrDag >= MinPris) && n.Sunroof).ToList();
             }
             if (Screen == true)
             {
-                cars = _carService.GetCarList().Where((m) => (m.PrisPrDag <= MinPris) && m.Screen).ToList();
+                cars = _carService.GetCarList().Where((n) => (n.PrisPrDag >= MinPris) && n.Screen).ToList();
             }
             if (DVD == true)
             {
-                cars = _carService.GetCarList().Where((m) => (m.PrisPrDag <= MinPris) && m.DVD).ToList();
+                cars = _carService.GetCarList().Where((n) => (n.PrisPrDag >= MinPris) && n.DVD).ToList();
             }
             if (Camera == true)
             {
-                cars = _carService.GetCarList().Where((m) => (m.PrisPrDag <= MinPris) && m.Camera).ToList();
+                cars = _carService.GetCarList().Where((n) => (n.PrisPrDag >= MinPris) && n.Camera).ToList();
             }
             if (Sensor == true)
             {
-                cars = _carService.GetCarList().Where((m) => (m.PrisPrDag <= MinPris) && m.Sensor).ToList();
+                cars = _carService.GetCarList().Where((n) => (n.PrisPrDag >= MinPris) && n.Sensor).ToList();
             }
 
         }
