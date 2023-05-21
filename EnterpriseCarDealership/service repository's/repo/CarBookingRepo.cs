@@ -29,8 +29,8 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public CarBooking GetCarbookingById(int id)
         {
-            CarBooking Carbooking = GetCarbookingList().FirstOrDefault(x => x.Id == id);
-            return Carbooking;
+           return _Carbookdb.CarBooking.FirstOrDefault(x => x.Id == id);
+           
         }
 
 

@@ -102,17 +102,17 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
 
             if (Sidebike == true)
             {
-                bikes = bikes.Where((b) => (b.PrisPrDag <= MinPris) && b.Sidebike).ToList();
+                bikes = bikes.Where((b) => (b.PrisPrDag >= MinPris) && b.Sidebike).ToList();
 
             }
             if (LeatherSddle == true)
             {
-                bikes = bikes.Where((b) => (b.PrisPrDag <= MinPris) && b.LeatherSddle).ToList();
+                bikes = bikes.Where((b) => (b.PrisPrDag >= MinPris) && b.LeatherSddle).ToList();
 
             }
             if (ExtraStorage == true)
             {
-                bikes = bikes.Where((b) => (b.PrisPrDag <= MinPris) && b.ExtraStorage).ToList();
+                bikes = bikes.Where((b) => (b.PrisPrDag >= MinPris) && b.ExtraStorage).ToList();
 
             }
         }

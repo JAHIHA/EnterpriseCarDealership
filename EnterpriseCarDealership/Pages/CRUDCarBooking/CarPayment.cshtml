@@ -1,0 +1,19 @@
+﻿@page
+@model EnterpriseCarDealership.Pages.CRUDCarBooking.CarPaymentModel
+@{
+}
+
+
+<h1>Payment</h1>
+
+<p>Car ID: @Model.carbooking.CarId</p>
+<p>Booking ID: @Model.carbooking.Id</p>
+
+@if (Model.TotalPrice > 0)
+{
+    <p>Total price: @Model.TotalPrice</p>
+}
+else
+{
+    <p>No payment calculation available.</p>
+}

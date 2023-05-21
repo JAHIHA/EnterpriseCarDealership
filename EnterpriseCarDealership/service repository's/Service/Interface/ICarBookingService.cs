@@ -17,7 +17,7 @@ namespace EnterpriseCarDealership.service_repository_s
 
         public Task DeleteCarbooking(int id);
 
-        public (Car car, CarBooking booking) CalculatePayment(int carId, int bookingId); 
+        public double CalculatePayment(int carId, int bookingId); 
 
 
     }
