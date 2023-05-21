@@ -73,5 +73,9 @@ namespace EnterpriseCarDealership.Pages.CRUDMedarbejder
             medarbejders = _medarbejderService.GetmedarbejderList();
             medarbejders.OrderBy(M => M.ManagerId);
         }
+        public void OnPostSort()
+        {
+            medarbejders = _medarbejderService.GetmedarbejderList();
+        }
     }
     }

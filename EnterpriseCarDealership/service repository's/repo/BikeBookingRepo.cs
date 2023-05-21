@@ -8,7 +8,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
     {
         private readonly DealershipContext _context = new DealershipContext();
 
-        
+        private readonly BikeRepo _BikeRepo = new BikeRepo();
 
         public async Task DeleteBikebooking(int id)
         {
@@ -53,7 +53,25 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             await _context.SaveChangesAsync();
         }
 
- 
-    
-}
+        public double CalculatePayment(Bike bike, BikeBooking booking)
+        {
+            var res = GetBikebookingById(booking.Id);
+            var result = _BikeRepo.GetBikeById(bike.NextId);
+
+            if (res != null && result != null)
+            {
+                TimeSpan duration = booking.EndTime - booking.StartTime;
+                int numberOfDays = duration.Days + 1; // Include both the start and end dates
+
+                double totalPayment = (numberOfDays * bike.PrisPrDag);
+                return totalPayment;
+            }
+            else
+            {
+                // Handle case where car or booking is not found
+                throw new Exception("Bike or booking not found.");
+            }
+        }
+
+    }
 }

@@ -70,7 +70,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
         public void OnPostSort()
         {
             bikes = _service.GetBikeList();
-            bikes.Sort();
+           
         }
 
             public void OnPostFilterMax()

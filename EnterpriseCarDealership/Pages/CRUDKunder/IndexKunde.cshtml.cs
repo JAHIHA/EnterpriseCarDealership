@@ -77,7 +77,7 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
         public void OnPostSort()
         {
             kunder = _kundeService.GetKundeList();
-            kunder.Sort();
+            
         }
     }
 }

@@ -20,9 +20,10 @@ namespace EnterpriseCarDealership.Pages.CRUDBooking
         [BindProperty]
         public CreateCarBooking CreateCar { get; set; }
 
-        public async Task OnPost()
+        public async Task<IActionResult> OnPost()
         {
             await _addservice.AddCarbooking(CreateCar);
+            return RedirectToPage("IndexCarBooking");
         }
 
     }

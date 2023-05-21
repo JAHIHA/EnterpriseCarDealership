@@ -21,9 +21,10 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
         public CreateManager CreateManager { get; set; }
 
 
-        public async Task OnPost()
+        public async Task<IActionResult> OnPost()
         {
             await _addservice.AddManager(CreateManager);
+            return RedirectToPage("IndexManager");
         }
         public IActionResult OnGet()
         {

@@ -26,5 +26,9 @@ namespace EnterpriseCarDealership.Pages.CRUDCarBooking
                 TotalPrice = _service.CalculatePayment(carbooking.Id, carbooking.CarId);
             
         }
+        public void OnPostBack()
+        {
+            RedirectToPage("IndexCarBooking");
+        }
     }
 }
