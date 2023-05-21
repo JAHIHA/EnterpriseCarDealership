@@ -46,7 +46,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
         public void OnPostId()
         {
             bikeBookings = _service.GetBikebookingList();
-            bikeBookings.OrderBy(h => h.Id);
+            bikeBookings.Sort((x, y) => x.Id.CompareTo(y.Id));
 
 
         }
@@ -63,12 +63,12 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
         public void OnPostKundeId()
         {
             bikeBookings = _service.GetBikebookingList();
-            bikeBookings.OrderBy(h => h.KundeId);
+            bikeBookings.Sort((x, y) => x.KundeId.ToString().CompareTo(y.KundeId.ToString()));
         }
-        public void OnPostCarId()
+        public void OnPostBikeId()
         {
             bikeBookings = _service.GetBikebookingList();
-            bikeBookings.OrderBy(h => h.BikeId);
+            bikeBookings.Sort((x, y) => x.BikeId.ToString().CompareTo(y.BikeId.ToString()));
         }
     }
 }

@@ -65,14 +65,14 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
 
         }
 
-        public (Car car, CarBooking booking) CalculatePayment(int carId, int bookingId)
+        public double CalculatePayment(int bookingId, int carId)
         {
             var car = _carRep.GetCarById(carId);
             var booking = _CbookRep.GetCarbookingById(bookingId);
 
             if (car != null && booking != null)
             {
-                return (car, booking);
+                return _CbookRep.CalculatePayment(car, booking);
             }
             else
             {
