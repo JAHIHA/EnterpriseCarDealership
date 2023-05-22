@@ -51,7 +51,7 @@ namespace EnterpriseCarDealership.Pages.CRUDCarBooking
         public void OnPostSort()
         {
             carBookings = _service.GetCarbookingList();
-            carBookings.Sort();
+          
         }
         public void OnPostId()
         {
