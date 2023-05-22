@@ -16,7 +16,7 @@ namespace EnterpriseCarDealership.Models
         private Regex r = new Regex(@"^((\+)?\d{2}(\s|\-)?)?\d{8}$");
         
         private string _tlf = "";
-        public string Tlf
+        public string? Tlf
         {
             get => _tlf;
             set
