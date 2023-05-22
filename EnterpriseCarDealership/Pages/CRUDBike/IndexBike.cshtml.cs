@@ -7,6 +7,8 @@ using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using EnterpriseCarDealership.Pages.CRUDBike.Filters;
 using System;
+using DocumentFormat.OpenXml.Wordprocessing;
+using EnterpriseCarDealership.service_repository_s.sercive;
 
 namespace EnterpriseCarDealership.Pages.CRUDBike
 {
@@ -70,10 +72,54 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
         public void OnPostSort()
         {
             bikes = _service.GetBikeList();
-           
         }
 
-            public void OnPostFilterMax()
+        public void OnPostBrand()
+        {
+            bikes = _service.GetBikeList();
+            bikes.Sort((x, y) => x.Brand.ToString().CompareTo(y.Brand.ToString()));
+
+        }
+        public void OnPostType()
+        {
+            bikes = _service.GetBikeList();
+            bikes.Sort((x, y) => x.Type.ToString().CompareTo(y.Type.ToString()));
+        }
+        public void OnPostPrisPrDag()
+        {
+            bikes = _service.GetBikeList();
+            bikes.Sort((x, y) => x.PrisPrDag.CompareTo(y.PrisPrDag));
+        }
+        public void OnPostYear()
+        {
+            bikes = _service.GetBikeList();
+            bikes.Sort((x, y) => x.Year.CompareTo(y.Year));
+        }
+        public void OnPostKm()
+        {
+            bikes = _service.GetBikeList();
+            bikes.Sort((x, y) => x.Km.CompareTo(y.Km));
+        }
+        public void OnPostSidebike()
+        {
+            bikes = _service.GetBikeList();
+            var Sidebike = bikes.Select(S => S).Where(S => S.Sidebike == true).ToList();
+            bikes = Sidebike;
+        }
+        public void OnPostLeatherSddle()
+        {
+            bikes = _service.GetBikeList();
+            var LeatherSddle = bikes.Select(L => L).Where(L => L.LeatherSddle == true).ToList();
+            bikes = LeatherSddle;
+        }
+        public void OnPostExtraStorage()
+        {
+            bikes = _service.GetBikeList();
+            var ExtraStorage = bikes.Select(E => E).Where(E => E.ExtraStorage == true).ToList();
+            bikes = ExtraStorage;
+        }
+
+        public void OnPostFilterMax()
         {
             bikes = _service.GetBikeList().Where((b) => b.PrisPrDag <= MaxPris).ToList();
 
