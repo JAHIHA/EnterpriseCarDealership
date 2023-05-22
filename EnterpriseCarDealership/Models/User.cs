@@ -10,27 +10,26 @@ namespace EnterpriseCarDealership.Models
         public string Password {get; set; }
         public bool IsMedarbejder { get; set; }
         public bool IsAdmin { get; set; }
-        public string? Tlf { get; set; }
+        //public string? Tlf { get; set; }
 
 
-        //Regex r = new Regex(@"^((\+)?\d{2}(\s|\-)?)?\d{8}$");
-        //string[] phone = { "+45-88888888", "+45 88888888", "45 88888888", "45-88888888", "88888888" };
+        private Regex r = new Regex(@"^((\+)?\d{2}(\s|\-)?)?\d{8}$");
+        
+        private string _tlf = "";
+        public string Tlf
+        {
+            get => _tlf;
+            set
+            {
 
-        //public string Tlf
-        //{
-        //    get => _mobil;
-        //    set
-        //    {
-        //        foreach (string numbers in phone)
-        //        {
-        //            if (!(r.IsMatch(value)))
-        //            {
-        //                throw new ArgumentException("Mobil skal have mellem 8 og 12 tegn");
-        //            }
-        //        }
-        //        _mobil = value;
-        //    }
-        //}
+                if (!(r.IsMatch(value)))
+                {
+                    throw new ArgumentException("Mobil skal have mellem 8 og 12 tegn");
+                }
+
+                _tlf = value;
+            }
+        }
 
         [JsonConstructor]
         public User(int NextId, string Name, string Password, bool isMedarbejder, bool isAdmin, string Tlf)
