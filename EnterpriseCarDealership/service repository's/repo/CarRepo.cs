@@ -16,12 +16,12 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public async Task Addcar(Car car)
         {
-            String queryString = "INSERT INTO Car(NextId,Brand,Type,PrisPrDag,Year,Km,AC,Sunroof,Screen,DVD,Camera,Sensor) VALUES (@NextId,@Brand,@Type,@PrisPrDag,@Year,@Km,@AC,@Sunroof,@Screen,@DVD,@Camera,@Sensor)";
+            String queryString = "INSERT INTO Car(Brand,Type,PrisPrDag,Year,Km,AC,Sunroof,Screen,DVD,Camera,Sensor) VALUES (@Brand,@Type,@PrisPrDag,@Year,@Km,@AC,@Sunroof,@Screen,@DVD,@Camera,@Sensor)";
 
             SqlConnection connection = new SqlConnection(ConString);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
-            command.Parameters.AddWithValue("@NextId", car.NextId);
+            //command.Parameters.AddWithValue("@NextId", car.NextId);
             command.Parameters.AddWithValue("@Brand", car.Brand.ToString());
             command.Parameters.AddWithValue("@Type", car.Type);
             command.Parameters.AddWithValue("@PrisPrDag", car.PrisPrDag);
@@ -119,11 +119,11 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public async Task Updatecar(int id, Car car)
         {
-            string queryString = "Update Car set NextId=@NextId, Brand=@Brand,Type=@Type,PrisPrDag=@PrisPrDag,Year=@Year, Km=@Km, Ac=@AC, Sunroof=@Sunroof, Screen=@Screen, DVD=@DVD, Camera=@Camera, Sensor=@Sensor where NextId=@id";
+            string queryString = "Update Car set  Brand=@Brand,Type=@Type,PrisPrDag=@PrisPrDag,Year=@Year, Km=@Km, Ac=@AC, Sunroof=@Sunroof, Screen=@Screen, DVD=@DVD, Camera=@Camera, Sensor=@Sensor where NextId=@id";
             SqlConnection connection = new SqlConnection(ConString);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
-            command.Parameters.AddWithValue("@NextId", car.NextId);
+            //command.Parameters.AddWithValue("@NextId", car.NextId);
             command.Parameters.AddWithValue("@Brand", car.Brand.ToString());
             command.Parameters.AddWithValue("@Type", car.Type);
             command.Parameters.AddWithValue("@PrisPrDag", car.PrisPrDag);

@@ -1,4 +1,5 @@
-﻿using EnterpriseCarDealership.DBContextFolder;
+﻿using DocumentFormat.OpenXml.Presentation;
+using EnterpriseCarDealership.DBContextFolder;
 using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.Pages.CRUDMedarbejder;
 
@@ -35,14 +36,15 @@ namespace EnterpriseCarDealership.service_repository_s.repo
     
         public async Task Updatemedarbejder(int id,  Medarbejder medarbejder)
         {
-            Medarbejder existingmedarbejder = GetmedarbejderById(medarbejder.NextId);
-                 
-                existingmedarbejder.Name = medarbejder.Name;
-                existingmedarbejder.Tlf = medarbejder.Tlf;
-                existingmedarbejder.Adress = medarbejder.Adress;
-                existingmedarbejder.Password = medarbejder.Password;
-                existingmedarbejder.ManagerId = medarbejder.ManagerId;
-                existingmedarbejder.IsAdmin = medarbejder.IsAdmin;
+            Medarbejder existingmedarbejder = GetmedarbejderById(id);
+
+            existingmedarbejder.Name = medarbejder.Name;
+            existingmedarbejder.Tlf = medarbejder.Tlf;
+            existingmedarbejder.Adress = medarbejder.Adress;
+            existingmedarbejder.Password = medarbejder.Password;
+            existingmedarbejder.ManagerId = medarbejder.ManagerId;
+            existingmedarbejder.IsAdmin = medarbejder.IsAdmin;
+            _medarbejdercontext.Medarbejder.Update(existingmedarbejder);
 
             await _medarbejdercontext.SaveChangesAsync(); 
         }

@@ -19,7 +19,7 @@ namespace EnterpriseCarDealership.Pages.CRUDMedarbejder
         public Medarbejder existingmedarbejder { get; set; } 
         public async Task<IActionResult>OnPost(int id)
         {
-            await _medarbejderService.Updatemedarbejder(id,medarbejder);
+            await _medarbejderService.Updatemedarbejder(id, medarbejder);
             return RedirectToPage("IndexMedarbejder");
         }
         public IActionResult OnGet(int id)

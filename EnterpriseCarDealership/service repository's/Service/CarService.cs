@@ -22,16 +22,16 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             {
                 NextId = createCar.NextId,
                 Brand = createCar.Brand,
-                Type = createCar.type,
+                Type = createCar.Type,
                 PrisPrDag = createCar.PrisPrDag,
                 Year = createCar.Year,
                 Km = createCar.Km,
-                AC = createCar.aC,
-                Sunroof = createCar.sunroof,
-                Screen = createCar.screen,
-                DVD = createCar.dVD,
-                Camera = createCar.camera,
-                Sensor = createCar.sensor,
+                AC = createCar.AC,
+                Sunroof = createCar.Sunroof,
+                Screen = createCar.Screen,
+                DVD = createCar.DVD,
+                Camera = createCar.Camera,
+                Sensor = createCar.Sensor,
 
             };
             
