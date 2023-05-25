@@ -34,7 +34,7 @@ namespace EnterpriseCarDealership.Models
         [JsonConstructor]
         public User(int NextId, string Name, string Password, bool isMedarbejder, bool isAdmin, string Tlf)
         {
-            this.NextId = NextId;
+            this.NextId=NextId;
             this.Name = Name;
             this.Password = Password;
             this.IsMedarbejder = isMedarbejder;

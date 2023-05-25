@@ -61,11 +61,11 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
         }
 
 
-        public async Task Updatebike(Bike bike)
+        public async Task Updatebike(int id,Bike bike)
         {
  
 
-                await _Bikerepo.Updatebike(bike);
+                await _Bikerepo.Updatebike(id, bike);
 
             
 
