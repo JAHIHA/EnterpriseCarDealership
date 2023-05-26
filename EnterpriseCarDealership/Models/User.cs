@@ -11,7 +11,7 @@ namespace EnterpriseCarDealership.Models
         public bool IsMedarbejder { get; set; }
         public bool IsAdmin { get; set; }
         //public string? Tlf { get; set; }
-
+         
 
         private Regex r = new Regex(@"^((\+)?\d{2}(\s|\-)?)?\d{8}$");
         
