@@ -17,12 +17,12 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public async Task AddManager(Manager manager)
         {
-            string queryString = "INSERT INTO Manager (NextId, Name, Password, IsMedarbejder, IsAdmin, Tlf) VALUES (@NextId, @Name, @Password,@IsMedarbejder,@IsAdmin, @Tlf);";
+            string queryString = "INSERT INTO Manager ( Name, Password, IsMedarbejder, IsAdmin, Tlf) VALUES ( @Name, @Password,@IsMedarbejder,@IsAdmin, @Tlf);";
 
             SqlConnection connection = new SqlConnection(ConString);
             await  connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
-            command.Parameters.AddWithValue("@NextId", manager.NextId);
+            //command.Parameters.AddWithValue("@NextId", manager.NextId);
             command.Parameters.AddWithValue("@Name", manager.Name.ToString());
             command.Parameters.AddWithValue("@Password", manager.Password.ToString());
             command.Parameters.AddWithValue("@IsMedarbejder", manager.IsMedarbejder);
@@ -103,11 +103,11 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
         public async Task UpdateManager(int id, Manager manager)
         {
-            string queryString = "update Manager set NextId=@NextId,Name=@Name,Password=@Password, IsMedArbejder=@IsMedarbejder,IsAdmin=@IsAdmin,Tlf=@Tlf where NextId =@id";
+            string queryString = "update Manager set Name=@Name,Password=@Password, IsMedArbejder=@IsMedarbejder,IsAdmin=@IsAdmin,Tlf=@Tlf where NextId =@id";
             SqlConnection connection = new SqlConnection(ConString);
             await connection.OpenAsync();
             SqlCommand command = new SqlCommand(queryString, connection);
-            command.Parameters.AddWithValue("@NextId", manager.NextId);
+            //command.Parameters.AddWithValue("@NextId", manager.NextId);
             command.Parameters.AddWithValue("@Name", manager.Name.ToString());
             command.Parameters.AddWithValue("@Password", manager.Password.ToString());
             command.Parameters.AddWithValue("@IsMedarbejder", manager.IsMedarbejder);

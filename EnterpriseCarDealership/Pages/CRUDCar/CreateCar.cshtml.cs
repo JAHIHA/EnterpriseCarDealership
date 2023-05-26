@@ -44,7 +44,7 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
         [Required]
         public string Brand { get; set; }
         [Required]
-        public MotorType type { get;set; }
+        public MotorType Type { get;set; }
         [Required]
         public double PrisPrDag { get;set;}
         [Required]
@@ -52,17 +52,17 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
         [Required]
         public int Km { get; set; }
         [Required]
-        public bool aC { get; set; }
+        public bool AC { get; set; }
         [Required]
-        public bool sunroof { get; set; }
+        public bool Sunroof { get; set; }
         [Required]
-        public bool screen { get; set; }
+        public bool Screen { get; set; }
         [Required]
-        public bool dVD { get; set; }
+        public bool DVD { get; set; }
         [Required]
-        public bool camera { get; set; }
+        public bool Camera { get; set; }
         [Required]
-        public bool sensor { get; set; }
+        public bool Sensor { get; set; }
        
          
 

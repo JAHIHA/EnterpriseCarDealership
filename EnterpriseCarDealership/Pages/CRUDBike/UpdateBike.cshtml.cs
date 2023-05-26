@@ -22,9 +22,9 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
 
         //[BindProperty]
         //public Bike existingBike { get; set; }
-        public async Task<IActionResult> OnPost()
+        public async Task<IActionResult> OnPost(int id)
         {
-            await _service.Updatebike(bike);
+            await _service.Updatebike(id, bike);
             return RedirectToPage("IndexBike");
         }
         public IActionResult OnGet(int id)

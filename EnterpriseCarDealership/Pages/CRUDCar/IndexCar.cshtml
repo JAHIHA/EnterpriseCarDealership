@@ -215,7 +215,10 @@
         {
             foreach (var s in Model.cars)
             {
+                <div class="wrapper">
+
                 <tr>
+
                     <td>@s.NextId</td>
                     <td>@s.Brand</td>
                     <td>@s.Type</td>
@@ -232,8 +235,9 @@
 
                     <td><form asp-page-handler="Delete" asp-route-id="@s.NextId"><button type="submit" class="btn btn-primary">Delete Car </button></form></td>
                     <td><a asp-page="UpdateCar" asp-route-id="@s.NextId">Update Car </a></td>
-                </tr>
 
+                </tr>
+                </div>
             }
         }
     </tbody>
