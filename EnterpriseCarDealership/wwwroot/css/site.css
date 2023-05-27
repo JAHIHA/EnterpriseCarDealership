@@ -21,7 +21,7 @@ html {
     background-color: transparent;
 }
 .back-video {
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
     z-index: -1;
@@ -47,17 +47,7 @@ html {
     left: 15px;
 }
 
-.wrapper {
-    float: left;
-    width: 30%;
-    min-width: 300px;
-    background-color: whitesmoke;
-    margin: 1.5%;
-    padding: 2em 1em;
-    box-sizing: border-box;
-    box-shadow: 0 1px 30px rgba(0, 0, 0, 0.12), 0 3px 5px rgba(0, 0, 0, 0.24);
-    text-align: center;
-}
+
 *{
     font-family:"poppins", sans-serif;
 
@@ -161,20 +151,26 @@ label{
 
 
 
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 .card {
+    flex: 0 0 calc(20% - 10px); /* Adjust the width of each card as needed */
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 5px;
-    margin-bottom: 10px;
+    padding: 10px;
+    margin: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    width: 200px;
-    text-decoration-style: solid;
+    background-color:transparent;
+    max-width: 200%; /* Set the maximum width to ensure responsiveness */
 }
 
 .card-header {
     font-weight: bold;
-    font-size: 18px;
+    font-size: 16px;
     margin-bottom: 5px;
 }
 
@@ -204,7 +200,13 @@ label{
 .btn-primary {
     display: block;
     width: 100%;
-    order-radius: 5px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .card {
+        flex-basis: calc(100% - 20px); /* Adjust the card width for smaller screens */
+    }
 }
 
 
