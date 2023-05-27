@@ -3,234 +3,233 @@
 @{
 }
 <table>
-           <thead>
-            <tr>
-                <form asp-page-handler="FilterMax" class="form-horizontal" method="post">
-                    <div class="form-group">
-                        <div class="col-2">
-                            <input type="number" class="form-control" name="MaxPris" asp-for="@Model.MaxPris" value="@Model.MaxPris">
-                        </div>
-
-                        <br />
-                        <input type="checkbox"  value=true asp-for="AC" />AC
-                        <br />
-                        <input type="checkbox" value=true asp-for="Sunroof" />Sunroof
-                        <br />
-                        <input type="checkbox" value=true asp-for="Screen" />Screen
-                        <br />
-                        <input type="checkbox" value=true asp-for="DVD" />DVD
-                        <br <br />
-                        <input type="checkbox" value=true asp-for="Screen" />Screen
-                        <br />
-                        <input type="checkbox" value=true asp-for="Camera" />Camera
-                        <br />
-                        <input type="checkbox" value=true asp-for="Sensor" />Sensor
-                        <br />
-
-
-
+    <thead>
+        <tr>
+            <form asp-page-handler="FilterMax" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-2">
+                        <input type="number" class="form-control" name="MaxPris" asp-for="@Model.MaxPris" value="@Model.MaxPris">
                     </div>
-                    <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Max Pris</button>
-                        </div>
+                    <br />
+                    <input type="checkbox"  value=true asp-for ="AC" />AC
+                    <br />
+                    <input type="checkbox" value=true asp-for="Sunroof" />Sunroof
+                    <br />
+                    <input type="checkbox" value=true asp-for="Screen" />Screen
+                    <br />
+                    <input type="checkbox" value=true asp-for="DVD" />DVD
+                    <br />
+                    <input type="checkbox" value=true asp-for="Screen" />Screen
+                    <br />
+                    <input type="checkbox" value=true asp-for="Camera" />Camera
+                    <br />
+                    <input type="checkbox" value=true asp-for="Sensor" />Sensor
+                    <br />
+
+
+
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Max Pris</button>
                     </div>
-                </form>
-            </tr>
+                </div>
+            </form>
+        </tr>
 
-            <tr>
-                <form asp-page-handler="FilterMin" class="form-horizontal" method="post">
-                    <div class="form-group">
-                        <div class="col-2">
-                            <input type="number" class="form-control" name="MinPris" asp-for="@Model.MinPris" value="@Model.MinPris">
-                        </div>
+        <tr>
+            <form asp-page-handler="FilterMin" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-2">
+                        <input type="number" class="form-control" name="MinPris" asp-for="@Model.MinPris" value="@Model.MinPris">
+                    </div>
 
-                        <br />
+                    <br />
                     <input type="radio"  value=true asp-for ="AC" />AC
-                        <br />
+                    <br />
                     <input type="radio" value=true asp-for="Sunroof" />Sunroof
-                        <br />
+                    <br />
                     <input type="radio" value=true asp-for="Screen" />Screen
-                        <br />
+                    <br />
                     <input type="radio" value=true asp-for="DVD" />DVD
-                        <br />
-                        <input type="radio" value=true asp-for="Camera" />Camera
-                        <br />
-                        <input type="radio" value=true asp-for="Sensor" />Sensor
-                        <br />
+                    <br />
+                    <input type="radio" value=true asp-for="Camera" />Camera
+                    <br />
+                    <input type="radio" value=true asp-for="Sensor" />Sensor
+                    <br />
 
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">Min Pris</button>
                     </div>
+                </div>
+            </form>
+        </tr>
+
+        <tr>
+            <form asp-page-handler="All" class="form-horizontal" method="post">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary">All</button>
+                    </div>
+                </div>
+            </form>
+        </tr>
+    </thead>
+
+    <thead>
+        <tr>
+            <th>
+                <form asp-page-handler="Id" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Min Pris</button>
+                            <button type="submit" class="btn btn-primary">Id</button>
                         </div>
                     </div>
                 </form>
-            </tr>
+            </th>
 
-            <tr>
-                <form asp-page-handler="All" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">All</button>
-                            </div>
+
+            <th>
+                <form asp-page-handler="Brand" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Brand</button>
                         </div>
-                    </form>
-            </tr>
-        </thead>
+                    </div>
+                </form>
+            </th>
 
-        <thead>
-            <tr>
-                <th>
-                    <form asp-page-handler="Id" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Id</button>
-                            </div>
+            <th>
+                <form asp-page-handler="Type" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Type</button>
                         </div>
-                    </form>
-                </th>
+                    </div>
+                </form>
+            </th>
 
-
-                <th>
-                    <form asp-page-handler="Brand" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Brand</button>
-                            </div>
+            <th>
+                <form asp-page-handler="PrisPrDag" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">PrisPrDag</button>
                         </div>
-                    </form>
-                </th>
+                    </div>
+                </form>
+            </th>
 
-                <th>
-                    <form asp-page-handler="Type" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Type</button>
-                            </div>
+            <th>
+                <form asp-page-handler="Year" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Year</button>
                         </div>
-                    </form>
-                </th>
+                    </div>
+                </form>
+            </th>
 
-                <th>
-                    <form asp-page-handler="PrisPrDag" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">PrisPrDag</button>
-                            </div>
+            <th>
+                <form asp-page-handler="Km" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Km</button>
                         </div>
-                    </form>
-                </th>
+                    </div>
+                </form>
+            </th>
 
-                <th>
-                    <form asp-page-handler="Year" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Year</button>
-                            </div>
+            <th>
+                <form asp-page-handler="AC" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">AC</button>
                         </div>
-                    </form>
-                </th>
+                    </div>
+                </form>
+            </th>
 
-                <th>
-                    <form asp-page-handler="Km" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Km</button>
-                            </div>
+            <th>
+                <form asp-page-handler="Sunroof" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Sunroof</button>
                         </div>
-                    </form>
-                </th>
+                    </div>
+                </form>
+            </th>
 
-                <th>
-                    <form asp-page-handler="AC" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">AC</button>
-                            </div>
+            <th>
+                <form asp-page-handler="Screen" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Screen</button>
                         </div>
-                    </form>
-                </th>
+                    </div>
+                </form>
+            </th>
 
-                <th>
-                    <form asp-page-handler="Sunroof" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Sunroof</button>
-                            </div>
+            <th>
+                <form asp-page-handler="DVD" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">DVD</button>
                         </div>
-                    </form>
-                </th>
+                    </div>
+                </form>
+            </th>
 
-                <th>
-                    <form asp-page-handler="Screen" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Screen</button>
-                            </div>
+
+
+            <th>
+                <form asp-page-handler="Camera" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Camera</button>
                         </div>
-                    </form>
-                </th>
+                    </div>
+                </form>
+            </th>
 
-         <th>
-                    <form asp-page-handler="DVD" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">DVD</button>
-                            </div>
+            <th>
+                <form asp-page-handler="Sensor" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-primary">Sensor</button>
                         </div>
-                    </form>
-                </th>
-
-
-
-         <th>
-                    <form asp-page-handler="Camera" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Camera</button>
-                            </div>
-                        </div>
-                    </form>
-                </th>
-
-         <th>
-                    <form asp-page-handler="Sensor" class="form-horizontal" method="post">
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Sensor</button>
-                            </div>
-                        </div>
-                    </form>
-                </th>
-            </tr>
-        </thead>
+                    </div>
+                </form>
+            </th>
+        </tr>
+    </thead>
 
     <tbody>
         @if (Model.cars.Count == 0)
         {
-                <p>Empty list</p>
+            <p>NO Car found </p>
         }
         else
         {
             foreach (var s in Model.cars)
             {
-                        <tr>
-                            <td>@s.NextId</td>
-                            <td>@s.Brand</td>
-                            <td>@s.Type</td>
-                            <td>@s.PrisPrDag</td>
-                            <td>@s.Year</td>
-                            <td>@s.Km</td>
-                            <td>@s.AC</td>
-                            <td>@s.Sunroof</td>
-                            <td>@s.Screen</td>
-                            <td>@s.DVD</td>
-                            <td>@s.Camera</td>
-                            <td>@s.Sensor</td>
+                <tr>
+                    <td>@s.NextId</td>
+                    <td>@s.Brand</td>
+                    <td>@s.Type</td>
+                    <td>@s.PrisPrDag</td>
+                    <td>@s.Year</td>
+                    <td>@s.Km</td>
+                    <td>@s.AC</td>
+                    <td>@s.Sunroof</td>
+                    <td>@s.Screen</td>
+                    <td>@s.DVD</td>
+                    <td>@s.Camera</td>
+                    <td>@s.Sensor</td>
 
-                            <td><a asp-page="/CRUDCarBooking/CreateCarBooking" asp-route-id="@s.NextId">Go to Booking </a></td>
-                        </tr>
+                    <td><a asp-page="CreateCarBooking" asp-route-id="@s.NextId">Go to Booking </a></td>
+                </tr>
 
             }
         }

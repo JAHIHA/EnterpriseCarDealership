@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark nav" >
   <div class="container-fluid">
                 <a class="navbar-brand" asp-page="/Index"><img class="logo" src="~/css/image/enterprise.png" /></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
@@ -19,12 +19,7 @@
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         
-        <li class="nav-item">
-        <a class="nav-link"  asp-page="/CRUDKunder/CreateKunde">Sign up</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" asp-page="/login/login">My account</a>
-        </li>
+        
  
                 
         <li class="nav-item">
@@ -40,6 +35,13 @@
                                 <li><hr class="dropdown-divider"</li>
                                 <li><a class="dropdown-item" asp-page="/CRUDCarBooking/CreateCarBooking">Car Booking</a></li>
                             </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/CRUDKunder/CreateKunde">Sign up</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-page="/login/login">My account</a>
                         </li>
       </ul>
     </div>

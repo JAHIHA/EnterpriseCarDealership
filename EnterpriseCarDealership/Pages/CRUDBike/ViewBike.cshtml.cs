@@ -117,7 +117,6 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
             if (Sidebike == true)
             {
                 bikes = bikes.Where((b) => (b.PrisPrDag <= MaxPris) && b.Sidebike).ToList();
-
             }
             if (LeatherSddle == true)
             {
