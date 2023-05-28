@@ -23,7 +23,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBooking
         public async Task<IActionResult> OnPost()
         {
             await _addservice.AddCarbooking(CreateCar);
-            return RedirectToPage("IndexCarBooking");
+            return RedirectToPage("CarPayment");
         }
 
     }

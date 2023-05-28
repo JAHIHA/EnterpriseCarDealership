@@ -86,7 +86,9 @@
         </div>
     </form>
 </div>*@
-
+<div class="container border" style="padding:20px">
+    <form method="post">
+        <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -119,7 +121,7 @@
             </div>
 
             <div class="input-field">
-                <input type="text" placeholder="Phone Number" class="form-control" name="Adress" asp-for="createKunde.tlf" value="Phone Number">
+                <input type="text" placeholder="Phone Number" class="form-control" name="tlf" asp-for="createKunde.tlf" value="Phone Number">
                 <i class="bx bx-lock-alt"> </i>
             </div>
 
@@ -138,3 +140,5 @@
         </div>
     </div>
 </body>
+</form>
+</div>

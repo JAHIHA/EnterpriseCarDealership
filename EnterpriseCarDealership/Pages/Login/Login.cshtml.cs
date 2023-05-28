@@ -45,7 +45,14 @@ namespace EnterpriseCarDealership.Pages.Login
             {
 
                 SessionHelper.SetUser(us, HttpContext);
-                return RedirectToPage("/Index");
+                if (us.IsAdmin == true || us.IsMedarbejder == true)
+                {
+                    return RedirectToPage("/Management/Management");
+                }
+                else
+                {
+                    return RedirectToPage("/Index");
+                }
             }
 
         

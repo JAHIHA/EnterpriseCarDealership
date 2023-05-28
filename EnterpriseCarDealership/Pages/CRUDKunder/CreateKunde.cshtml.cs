@@ -25,7 +25,7 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
         public async Task<IActionResult> OnPost()
         {
             await _addservice.Addkunde(createKunde);
-            return RedirectToPage("/Login");
+            return RedirectToPage("/Index");
         }
     }
 
@@ -49,10 +49,10 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
         public Boolean isAdmin { get; set; }
 
         [Required]
-        public string tlf { get; set; }
+        public string? tlf { get; set; }
 
         [Required]
-        public string adress { get; set; }
+        public string? adress { get; set; }
 
     }
 }
