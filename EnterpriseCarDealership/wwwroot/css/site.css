@@ -95,7 +95,7 @@ flex-direction:column;
     border:none;
     outline:none;
     border-radius:30px;
-    color:#fff;
+    color:black;
     padding:0 0 0 42px;
     background: rgba(255,255,255,0.1);
 }
@@ -184,6 +184,12 @@ label{
     border-radius: 5px;
     margin-bottom: 5px;
 }
+.bike-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
 
 .car-details {
     list-style: none;
@@ -208,8 +214,6 @@ label{
         flex-basis: calc(100% - 20px); /* Adjust the card width for smaller screens */
     }
 }
-
-
 
 
 
