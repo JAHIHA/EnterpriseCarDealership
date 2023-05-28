@@ -1,4 +1,5 @@
 ﻿@page
+
 @model EnterpriseCarDealership.Pages.CRUDBike.ViewBikeModel
 @{
 }
@@ -12,7 +13,7 @@
                     </div>
 
                     <br />
-                    <input type="checkbox"  value=true asp-for="Sidebike" />SideBike
+                    <input type="checkbox"  value=true asp-for ="Sidebike" />SideBike
                     <br />
                     <input type="checkbox" value=true asp-for="LeatherSddle" />LeatherSddle
                     <br />
@@ -21,8 +22,8 @@
 
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Max Pris</button>
+                    <div class="input-field">
+                        <button style="width: 200px" type="submit" class="btn btn-dark">Max Price</button>
                     </div>
                 </div>
             </form>
@@ -44,15 +45,15 @@
 
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Min Pris</button>
+                    <div class="input-field">
+                        <button type="submit" style="width: 200px; margin-bottom: 10px" class="btn btn-dark">Min Price </button>
                     </div>
                 </div>
             </form>
             <form asp-page-handler="Sort" class="form-horizontal" method="post">
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">View List</button>
+                    <div class="input-field">
+                        <button style="width: 200px;" type="submit" class="btn btn-dark">All </button>
                     </div>
                 </div>
             </form>
@@ -64,8 +65,8 @@
             <th>
                 <form asp-page-handler="Id" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Id</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Id</button>
                         </div>
                     </div>
                 </form>
@@ -75,8 +76,8 @@
             <th>
                 <form asp-page-handler="Brand" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Brand</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Brand</button>
                         </div>
                     </div>
                 </form>
@@ -85,8 +86,8 @@
             <th>
                 <form asp-page-handler="Type" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Type</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Type</button>
                         </div>
                     </div>
                 </form>
@@ -95,8 +96,8 @@
             <th>
                 <form asp-page-handler="PrisPrDag" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">PrisPrDag</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">PrisPrDag</button>
                         </div>
                     </div>
                 </form>
@@ -105,8 +106,8 @@
             <th>
                 <form asp-page-handler="Year" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Year</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Year</button>
                         </div>
                     </div>
                 </form>
@@ -115,8 +116,8 @@
             <th>
                 <form asp-page-handler="Km" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Km</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">KM</button>
                         </div>
                     </div>
                 </form>
@@ -125,8 +126,8 @@
             <th>
                 <form asp-page-handler="SideBike" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">SideBike</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">SideBike</button>
                         </div>
                     </div>
                 </form>
@@ -135,8 +136,8 @@
             <th>
                 <form asp-page-handler="LeatherSdlle" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">LeatherSdlle</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">LeatherSdlle</button>
                         </div>
                     </div>
                 </form>
@@ -145,8 +146,8 @@
             <th>
                 <form asp-page-handler="ExtraStorage" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">ExtraStorage</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">ExtraStorage</button>
                         </div>
                     </div>
                 </form>
@@ -155,29 +156,44 @@
     </thead>
 
     <tbody>
+        <div class="container-fluid">
+            <div class="row">
         @if (Model.bikes.Count == 0)
         {
             <p>Empty list</p>
         }
         else
         {
-            foreach (var s in Model.bikes)
-            {
-                <tr>
-                    <td>@s.NextId</td>
-                    <td>@s.Brand</td>
-                    <td>@s.Type</td>
-                    <td>@s.PrisPrDag</td>
-                    <td>@s.Year</td>
-                    <td>@s.Km</td>
-                    <td>@s.Sidebike</td>
-                    <td>@s.LeatherSddle</td>
-                    <td>@s.ExtraStorage</td>
-                    
-                    <td><a asp-page="CreateBikeBooking" asp-route-id="@s.NextId">Go to Booking </a></td>
-                </tr>
-            }
-        }
+           
+                    foreach (var s in Model.bikes)
+                    {
+                    <div class="card">
+                        <div class="card-header">
+                            @s.Brand - @s.Type
+                        </div>
 
+                        <div class="card-body"style="font-size:small">
+                            <img class="bike-image" src="~/css/image/8-2-motorcycle-transparent.png" alt="bike Image">
+                            <ul>
+                                <li>@s.NextId</li>
+                                <li>Brand:@s.Brand</li>
+                                <li>Type:@s.Type</li>
+                                <li>Price per day:@s.PrisPrDag</li>
+                                <li>Year:@s.Year</li>
+                                <li>KM:@s.Km</li>
+                                <li>Side Bike:@s.Sidebike</li>
+                                <li>Leather Saddle:@s.LeatherSddle</li>
+                                <li>Extra Storage:@s.ExtraStorage</li>
+                            </ul>
+
+                            <a class="btn btn-dark" href="/CRUDBikeBooking/CreateBikeBooking?id=@s.NextId">Go to Booking</a>
+                        </div>
+                    </div>
+                    }
+                
+            
+        }
+        </div>
+        </div>
     </tbody>
-</table>
+</table> 

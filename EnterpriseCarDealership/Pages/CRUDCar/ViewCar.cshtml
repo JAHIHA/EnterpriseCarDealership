@@ -3,12 +3,15 @@
 @{
 }
 <table>
-    <thead>
+    <thead >
+        
         <tr>
+             
             <form asp-page-handler="FilterMax" class="form-horizontal" method="post">
-                <div class="form-group">
+                
+                    <div class="form-group">
                     <div class="col-2">
-                        <input type="number" class="form-control" name="MaxPris" asp-for="@Model.MaxPris" value="@Model.MaxPris">
+                    <input type="number" class="form-control" name="MaxPris" asp-for="@Model.MaxPris" value="@Model.MaxPris">
                     </div>
                     <br />
                     <input type="checkbox"  value=true asp-for ="AC" />AC
@@ -19,8 +22,6 @@
                     <br />
                     <input type="checkbox" value=true asp-for="DVD" />DVD
                     <br />
-                    <input type="checkbox" value=true asp-for="Screen" />Screen
-                    <br />
                     <input type="checkbox" value=true asp-for="Camera" />Camera
                     <br />
                     <input type="checkbox" value=true asp-for="Sensor" />Sensor
@@ -30,15 +31,20 @@
 
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Max Pris</button>
+                <div class="input-field">
+                <button style="width: 200px" type="submit" class="btn btn-dark">Max Price</button>
+                </div>
+                </div>
                     </div>
                 </div>
             </form>
+            
         </tr>
 
         <tr>
-            <form asp-page-handler="FilterMin" class="form-horizontal" method="post">
+
+            <form  asp-page-handler="FilterMin"  class="form-horizontal" method="post">
+                
                 <div class="form-group">
                     <div class="col-2">
                         <input type="number" class="form-control" name="MinPris" asp-for="@Model.MinPris" value="@Model.MinPris">
@@ -60,9 +66,11 @@
 
                 </div>
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">Min Pris</button>
-                    </div>
+                  <div class="input-field">
+                <button type="submit" style="width: 200px; margin-bottom: 10px"   class="btn btn-dark">Min Price </button>
+            </div>
+                </div>
+                </div>
                 </div>
             </form>
         </tr>
@@ -70,8 +78,8 @@
         <tr>
             <form asp-page-handler="All" class="form-horizontal" method="post">
                 <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">All</button>
+                    <div class="input-field">
+                        <button style="width: 200px;" type="submit" class="btn btn-dark">All </button>
                     </div>
                 </div>
             </form>
@@ -83,8 +91,8 @@
             <th>
                 <form asp-page-handler="Id" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Id</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Id </button>
                         </div>
                     </div>
                 </form>
@@ -94,8 +102,8 @@
             <th>
                 <form asp-page-handler="Brand" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Brand</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Brand </button>
                         </div>
                     </div>
                 </form>
@@ -104,8 +112,8 @@
             <th>
                 <form asp-page-handler="Type" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Type</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Type</button>
                         </div>
                     </div>
                 </form>
@@ -114,8 +122,8 @@
             <th>
                 <form asp-page-handler="PrisPrDag" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">PrisPrDag</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Pris</button>
                         </div>
                     </div>
                 </form>
@@ -124,8 +132,8 @@
             <th>
                 <form asp-page-handler="Year" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Year</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Year</button>
                         </div>
                     </div>
                 </form>
@@ -134,9 +142,9 @@
             <th>
                 <form asp-page-handler="Km" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Km</button>
-                        </div>
+                <div class="input-field">
+                <button type="submit" class="btn btn-dark">KM</button>
+            </div>
                     </div>
                 </form>
             </th>
@@ -144,8 +152,8 @@
             <th>
                 <form asp-page-handler="AC" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">AC</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">AC</button>
                         </div>
                     </div>
                 </form>
@@ -154,9 +162,9 @@
             <th>
                 <form asp-page-handler="Sunroof" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Sunroof</button>
-                        </div>
+                      <div class="input-field">
+                <button type="submit" class="btn btn-dark">Sunroof</button>
+            </div>
                     </div>
                 </form>
             </th>
@@ -164,8 +172,8 @@
             <th>
                 <form asp-page-handler="Screen" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Screen</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Screen</button>
                         </div>
                     </div>
                 </form>
@@ -174,9 +182,9 @@
             <th>
                 <form asp-page-handler="DVD" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">DVD</button>
-                        </div>
+                   <div class="input-field">
+                <button type="submit" class="btn btn-dark">DVD</button>
+            </div>
                     </div>
                 </form>
             </th>
@@ -186,8 +194,8 @@
             <th>
                 <form asp-page-handler="Camera" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Camera</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Camera</button>
                         </div>
                     </div>
                 </form>
@@ -196,8 +204,8 @@
             <th>
                 <form asp-page-handler="Sensor" class="form-horizontal" method="post">
                     <div class="form-group">
-                        <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Sensor</button>
+                        <div class="input-field">
+                            <button type="submit" class="btn btn-dark">Sensor</button>
                         </div>
                     </div>
                 </form>
@@ -223,7 +231,7 @@
                             <div class="card-header">
                                 @s.Brand - @s.Type
                             </div>
-                            <div class="card-body">
+                            <div class="card-body" style="font-size:small">
                                 <img class="car-image" src="~/css/image/bmw-7-series-mp-modellfinder.png" alt="Car Image">
                                 <ul>
                                     <li>Price per Day: @s.PrisPrDag</li>
@@ -236,10 +244,10 @@
                                     <li>Camera: @s.Camera</li>
                                     <li>Sensor: @s.Sensor</li>
                                 </ul>
-                                <a class="btn btn-primary" href="/CRUDCarBooking/CreateCarBooking?id=@s.NextId">Go to Booking</a>
+                                <a class="btn btn-dark" href="/CRUDCarBooking/CreateCarBooking?id=@s.NextId">Go to Booking</a>
                             </div>
                         </div>
-
+                     
 
                     }
                 </div>
