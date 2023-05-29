@@ -5,6 +5,7 @@
 <div>
 <table class="table table-hover">
     <thead>
+            @*de følgende knapper er forbundet med sorterings etoder i controller delen*@
             <form asp-page-handler="Sort" class="form-horizontal" method="post">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
@@ -91,6 +92,7 @@
         {
             foreach (var s in Model.kunder)
             {
+                    @*den følgende foreach loop henter attributter for hver attribut af bike model. de knapper har delete funktionen og redirect til update page *@
                 <tr>
                     <td>@s.NextId</td>
                     <td>@s.Name</td>

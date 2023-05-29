@@ -6,17 +6,7 @@
     <form method="post">
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
-        @*<div class="form-group row">
-            <div class="col-2">
-                <label asp-for="medarbejder.NextId"></label>
-            </div>
-            <div class="col-5">
-                <input type="text" value="@Model.existingmedarbejder.NextId" asp-for="medarbejder.NextId" class="form-control" />
-            
-               
-            </div>
-            <span class="text-danger" asp-validation-for="medarbejder.NextId"></span>
-        </div>*@
+        @*de følgende input fields tager de tilsvarende attributter af klassen Medarbejder*@
 
         <div class="form-group row">
             <div class="col-2">
@@ -88,6 +78,7 @@
 
 
 
+        @*den følgende knap er forbundet til metoden op post i controller delen som opdaterer*@
         <div class="form-group row">
             <div class="col-2">
                 <input type="submit" class="btn btn-dark" value="Updatemedarbejder" />

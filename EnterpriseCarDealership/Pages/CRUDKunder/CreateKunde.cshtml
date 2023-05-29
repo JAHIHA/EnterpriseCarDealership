@@ -15,6 +15,7 @@
 
     <title>Login </title>
 </head>
+        @* de følgende input fields er forbundet med de relaterede attributter i controller delen*@
 <body>
     <div class="box">
         <div class="Container">
@@ -41,6 +42,7 @@
                 <input type="text" placeholder="Phone Number" class="form-control" name="tlf" asp-for="createKunde.tlf" value="Phone Number">
                 <i class="bx bx-lock-alt"> </i>
             </div>
+                    @*knappen er forbundet med funktionen oppost i controller delen*@
 
             <div class="input-field">
                 <button type="submit" class="btn btn-dark">Create </button>
