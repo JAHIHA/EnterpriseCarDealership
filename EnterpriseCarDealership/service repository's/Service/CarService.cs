@@ -10,12 +10,19 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
 {
     public class CarService :ICarService
     {
+        /// <summary>
+        /// Injektioner og KOnstruktører
+        /// </summary>
         private ICarRepo _carRepo; 
      public CarService(ICarRepo carRepo)
         {
             _carRepo = carRepo; 
         }
-
+        /// <summary>
+        ///  Add Metoden som kalder metoden fra repo for at gemme informationer
+        /// </summary>
+        /// <param name="createCar"></param>
+        /// <returns></returns>
         public async Task Addcar(CreateCar createCar)
         {
             Car car = new Car()
@@ -37,23 +44,40 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             
             await _carRepo.Addcar(car); 
         }
-
+        /// <summary>
+        /// Delete metoden som kalder metoden fra repo til at fjerne noget.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task Deletecar(int id)
         {
             await _carRepo.Deletecar(id);   
         }
-
+        /// <summary>
+        /// FindeviaId metoden som kalder metoden fra repo til at finde på noget
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Car GetCarById(int id)
         {
             Car car = _carRepo.GetCarById(id); 
             return car; 
         }
+        /// <summary>
+        /// hent listen metoden som kalder for Listen fra repos
+        /// </summary>
+        /// <returns></returns>
 
         public List<Car> GetCarList()
         {
             return _carRepo.GetCarList();
         }
-
+        /// <summary>
+        /// vi bruger denne metode for at kalde opdater metoden fra repo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="car"></param>
+        /// <returns></returns>
         public async Task Updatecar(int id, Car car)
         {
             await _carRepo.Updatecar(id,car); 
