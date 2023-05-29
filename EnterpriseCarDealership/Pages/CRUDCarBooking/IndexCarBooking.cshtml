@@ -75,8 +75,8 @@
                     <td>@s.CarId</td>
                    
                     <td><form asp-page-handler="Delete" asp-route-id="@s.Id"><button type="submit" class="btn btn-dark">Delete Car Booking </button></form></td>
-                    <td><a asp-page="UpdateCarBooking" asp-route-id="@s.Id">Update Car Booking </a></td>
-                    <td><a asp-page="CarPayment" asp-route-id="@s.Id">See Payment </a></td>
+                    <td><a asp-page="UpdateCarBooking" asp-route-id="@s.Id"><button type="submit" class="btn btn-dark">Update Car Booking </button></a></td>
+                    <td><a asp-page="CarPayment" asp-route-id="@s.Id"><button type="submit" class="btn btn-dark">See Payment</button> </a></td>
                 </tr>
             }
         }

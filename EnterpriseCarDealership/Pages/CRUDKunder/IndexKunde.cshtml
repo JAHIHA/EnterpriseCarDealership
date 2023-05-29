@@ -8,7 +8,7 @@
             <form asp-page-handler="Sort" class="form-horizontal" method="post">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-primary">View List</button>
+                        <button type="submit" class="btn btn-dark">View List</button>
                     </div>
                 </div>
             </form>
@@ -19,7 +19,7 @@
                 <form asp-page-handler="Id" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Id</button>
+                            <button type="submit" class="btn btn-dark">Id</button>
                         </div>
                     </div>
                 </form>
@@ -30,7 +30,7 @@
                 <form asp-page-handler="Name" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Name</button>
+                            <button type="submit" class="btn btn-dark">Name</button>
                         </div>
                     </div>
                 </form>
@@ -39,7 +39,7 @@
             <th>
                 <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Password</button>
+                            <button type="submit" class="btn btn-dark">Password</button>
                         </div>
                 </div>
             </th>
@@ -47,7 +47,7 @@
             <th>
                 <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">IsMedarbejder</button>
+                            <button type="submit" class="btn btn-dark">IsMedarbejder</button>
                         </div>
                 </div>
             </th>
@@ -55,7 +55,7 @@
             <th>
                 <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">IsAdmin</button>
+                            <button type="submit" class="btn btn-dark">IsAdmin</button>
                         </div>
                 </div>
             </th>
@@ -64,7 +64,7 @@
                 <form asp-page-handler="Tlf" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Tlf</button>
+                            <button type="submit" class="btn btn-dark">Tlf</button>
                         </div>
                     </div>
                 </form>
@@ -74,7 +74,7 @@
                 <form asp-page-handler="Adress" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Adress</button>
+                            <button type="submit" class="btn btn-dark">Adress</button>
                         </div>
                     </div>
                 </form>
@@ -99,8 +99,8 @@
                     <td>@s.IsAdmin</td>
                     <td>@s.Tlf</td>
                     <td>@s.Adress</td>
-                    <td><form asp-page-handler="Delete" asp-route-id="@s.NextId"><button type="submit" class="btn btn-primary">Delete Kunde </button></form></td>
-                    <td><a asp-page="UpdateKunde" asp-route-id="@s.NextId">Update Kunde </a></td>
+                    <td><form asp-page-handler="Delete" asp-route-id="@s.NextId"><button type="submit" class="btn btn-dark">Delete Kunde </button></form></td>
+                    <td><a asp-page="UpdateKunde" asp-route-id="@s.NextId"><button type="submit" class="btn btn-dark">Update Kunde </button></a></td>
                 </tr>
             }
         }
