@@ -3,10 +3,15 @@
     //KARZAN
     public class Bike :Vehicle
     {
-       
+       /// <summary>
+       /// here har vi tre ekstra attributter, rester er arved gennem Vehicle
+       /// </summary>
         public bool Sidebike { get; set; }
         public bool LeatherSddle { get; set; }
         public bool ExtraStorage { get; set; }
+        /// <summary>
+        /// konstruktører
+        /// </summary>
         public Bike()
         {
 
@@ -17,7 +22,10 @@
             LeatherSddle = leatherSddle;
             ExtraStorage = extraStorage;
         }
-
+        /// <summary>
+        /// To string metode
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{{{nameof(Sidebike)}={Sidebike.ToString()}, {nameof(LeatherSddle)}={LeatherSddle.ToString()}, " +

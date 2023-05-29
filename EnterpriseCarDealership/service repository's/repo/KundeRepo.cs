@@ -8,16 +8,24 @@ namespace EnterpriseCarDealership.service_repository_s.repo
     public class KundeRepo : IKundeRepo
     {
         //KARZAN
-
+        /// <summary>
+        /// her har vi en liste med kunder
+        /// </summary>
         List<Kunde> _kunde = new List<Kunde>();
 
+        /// <summary>
+        /// her bygger vi vores connection string til serveren
+        /// </summary>
         private readonly string ConString = "Server=mssql6.unoeuro.com;Database=jhhweb_dk_db_database;User Id=jhhweb_dk;Password=G2ftFgwApBE5ec3Dxn9r;MultipleActiveResultSets=False;Encrypt=False";
 
 
 
-       
 
-       
+
+        /// <summary>
+        /// For denne metode vi bygger vores query , efter det vores connection, åbner for vores connection, sætter vi vores command,
+        /// vi efter bruger vi vores reader til at læse den og efter lukker vi connection
+        /// </summary>
 
         public Kunde GetKundeById(int id)
         {
@@ -37,6 +45,11 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             connection.Close();
             return k;
         }
+        /// <summary>
+        /// For denne metode vi bygger vores query , efter det vores connection, åbner for vores connection, sætter vi vores command,
+        /// vi efter bruger vi vores reader til at læse den og efter lukker vi connection
+        /// </summary>
+        /// <returns></returns>
 
         public List<Kunde> GetKundeList()
         {
@@ -56,7 +69,11 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
             return _kunde;
         }
-
+        /// <summary>
+        /// den metode læser bare de forskellige attributter for vores klasse
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
         public Kunde ReadKunde(SqlDataReader reader)
         {
             Kunde k = new Kunde();
@@ -70,8 +87,11 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             return k;
         }
 
-        
 
+        /// <summary>
+        /// For Add vi bygger vores query string , laver en sql connection med den constring, åbner for connection,
+        /// execute vores query sætter values ind og lukker connection til sidst
+        /// </summary>
         public async Task Addkunde(CreateKunde kunde)
         {
             string queryString = "INSERT INTO Kunde ( Name, Password, IsMedarbejder, IsAdmin, Tlf, Adress) VALUES ( @Name, @Password,@IsMedarbejder,@IsAdmin, @Tlf, @Adress);";
@@ -94,7 +114,10 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
             connection.Close();
         }
-
+        /// <summary>
+        /// For Update vi bygger vores query string , laver en sql connection med den constring, åbner for connection,
+        /// execute vores query opdaterer values ind og lukker connection til sidst
+        /// </summary>
         public async Task Updatekunde(int id, Kunde kunde)
         {
             string queryString = "update Kunde set Name=@Name,Password=@Password, IsMedArbejder=@IsMedarbejder,IsAdmin=@IsAdmin,Tlf=@Tlf, Adress=@Adress where NextId =@id";
@@ -116,7 +139,10 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             }
             connection.Close();
         }
-
+        /// <summary>
+        /// For denne metode vi bygger vores query , efter det vores connection, åbner for vores connection, sætter vi vores command,
+        /// og lukker connection
+        /// </summary>
         public async Task Deletekunde(int id)
         {
             string queryString = "Delete from Kunde where  NextId = @NextId";

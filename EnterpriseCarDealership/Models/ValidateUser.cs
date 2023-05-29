@@ -9,7 +9,8 @@ namespace EnterpriseCarDealership.Models
     {
         public User? Validate(string navn, string password)
         {
-
+            /// den metode som arver fra Validate User forbinder med databasen og tjekker hvis navn og password 
+            /// svar til en af listene fra kunde, medarbejder eller manager og returnerer user.
             DealershipContext  _db =new DealershipContext();
             User user = null;
             if (navn != null && password != null)

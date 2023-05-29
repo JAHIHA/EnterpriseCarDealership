@@ -2,8 +2,14 @@
 {
     public class Medarbejder : User
     {
+        /// <summary>
+        /// Unikke attributter for Medarbejder resten er arvet fra User
+        /// </summary>
         public string Adress { get; set; }
         public int ManagerId { get; set; }      
+        /// <summary>
+        /// Konstroktører
+        /// </summary>
         public Medarbejder()
         {
             Adress = "nowhere";
@@ -14,6 +20,10 @@
             Adress = adress;
             ManagerId = managerId;
         }
+        /// <summary>
+        /// To string Metode
+        /// </summary>
+        /// <returns></returns>
 
         public override string ToString()
         {

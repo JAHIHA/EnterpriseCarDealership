@@ -10,7 +10,10 @@ using EnterpriseCarDealership.service_repository_s.Service.Interface;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+///først er for Razor Pages
 builder.Services.AddRazorPages();
+///De næste builders er for bike, car og bookinger, vi bruger scoped i stedet for singleton fordi der var problemmer når vi skulle reload 
+///vores sider
 builder.Services.AddScoped<IBikeRepo,
 BikeRepo>();
 builder.Services.AddScoped<IBikeService,
@@ -30,7 +33,7 @@ builder.Services.AddScoped<ICarBookingRepo,
 CarBookingRepo>();
 builder.Services.AddScoped<ICarBookingService,
 CarBookingService>();
-
+///builders for kunder managers og medarbejder med singleton
 builder.Services.AddSingleton<IKundeRepo,
 KundeRepo>();
 builder.Services.AddSingleton<IKundeService,
@@ -45,7 +48,7 @@ builder.Services.AddSingleton<IMedarbejderRepo,
 MedarbejderRepo>();
 builder.Services.AddSingleton<IMedarbejderService,
 MedarbejderService>();
-
+/// builder for vores validate user og session
 builder.Services.AddSingleton<IValidateUser, ValidateUser>();
 builder.Services.AddSession();
 

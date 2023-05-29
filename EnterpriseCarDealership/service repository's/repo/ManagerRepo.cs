@@ -8,13 +8,20 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 {
     public class ManagerRepo : IManagerRepo
     {
-
+        /// <summary>
+        /// her har vi en liste med managers
+        /// </summary>
         List<Manager> _managers = new List<Manager>();
-
+        /// <summary>
+        /// her bygger vi vores connection string til serveren
+        /// </summary>
         private readonly string ConString = "Server=mssql6.unoeuro.com;Database=jhhweb_dk_db_database;User Id=jhhweb_dk;Password=G2ftFgwApBE5ec3Dxn9r;MultipleActiveResultSets=False;Encrypt=False";
 
 
-
+        /// <summary>
+        /// For Add vi bygger vores query string , laver en sql connection med den constring, åbner for connection,
+        /// execute vores query sætter values ind og lukker connection til sidst
+        /// </summary>
         public async Task AddManager(Manager manager)
         {
             string queryString = "INSERT INTO Manager ( Name, Password, IsMedarbejder, IsAdmin, Tlf) VALUES ( @Name, @Password,@IsMedarbejder,@IsAdmin, @Tlf);";
@@ -36,7 +43,10 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
             connection.Close();
         }
-
+        /// <summary>
+        /// For denne metode vi bygger vores query , efter det vores connection, åbner for vores connection, sætter vi vores command,
+        /// og lukker connection
+        /// </summary>
         public async Task DeleteManager(int id)
         {
 
@@ -50,7 +60,10 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             connection.Close();
             
         }
-
+        /// <summary>
+        /// For denne metode vi bygger vores query , efter det vores connection, åbner for vores connection, sætter vi vores command,
+        /// vi efter bruger vi vores reader til at læse den og efter lukker vi connection
+        /// </summary>
         public Manager GetManagerById(int id)
         {
             string query = $"select * from Manager where NextId = @NextId";
@@ -69,7 +82,11 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             connection.Close();
             return m;
         }
-
+        /// <summary>
+        /// For denne metode vi bygger vores query , efter det vores connection, åbner for vores connection, sætter vi vores command,
+        /// vi efter bruger vi vores reader til at læse den og efter lukker vi connection
+        /// </summary>
+        /// <returns></returns>
         public List<Manager> GetManagerList()
         {
             string query = "select * from Manager";
@@ -88,7 +105,11 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
             return _managers;
         }
-
+        /// <summary>
+        /// den metode læser bare de forskellige attributter for vores klasse
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
         public Manager ReadManager(SqlDataReader reader)
         {
             Manager m = new Manager();
@@ -100,7 +121,10 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             m.Tlf = reader.GetString(5);
             return m;
         }
-
+        /// <summary>
+        /// For Update vi bygger vores query string , laver en sql connection med den constring, åbner for connection,
+        /// execute vores query opdaterer values ind og lukker connection til sidst
+        /// </summary>
         public async Task UpdateManager(int id, Manager manager)
         {
             string queryString = "update Manager set Name=@Name,Password=@Password, IsMedArbejder=@IsMedarbejder,IsAdmin=@IsAdmin,Tlf=@Tlf where NextId =@id";

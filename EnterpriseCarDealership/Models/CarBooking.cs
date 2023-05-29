@@ -8,7 +8,9 @@ namespace EnterpriseCarDealership.Models
     public class CarBooking
     {
 
-
+        /// <summary>
+        /// Her har vi attributter for vores CarBooking
+        /// </summary>
         public int Id { get; set; }
         public DateTime StartTime { get; set; }
         public DateTime EndTime { get; set; }
@@ -19,6 +21,9 @@ namespace EnterpriseCarDealership.Models
 
         private readonly ICarBookingService BookingService;
 
+        /// <summary>
+        /// konstroktører
+        /// </summary>
 
         public CarBooking()
         {
@@ -65,6 +70,14 @@ namespace EnterpriseCarDealership.Models
             BookingService = _services;
 
 
+        }
+        /// <summary>
+        /// Tostring metode
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return $"{{{nameof(Id)}={Id.ToString()}, {nameof(StartTime)}={StartTime.ToString()}, {nameof(EndTime)}={EndTime.ToString()}, {nameof(KundeId)}={KundeId.ToString()}, {nameof(CarId)}={CarId.ToString()}, {nameof(Car)}={Car}, {nameof(Kunde)}={Kunde}}}";
         }
     }
 }
