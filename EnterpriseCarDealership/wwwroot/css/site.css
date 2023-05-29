@@ -41,11 +41,29 @@ html {
         height: 100%;
     }
 }
-.logo {
-    position: relative;
-    width: 170px;
-    left: 15px;
+.contentIndex{
+    text-align:center;
 }
+    .contentIndex h1{
+        font-size:130px;
+        color:#fff;
+        font-weight:600;
+    }
+    .contentIndex a{
+        text-decoration:none;
+        display:inline-block;
+        color:#fff;
+        font-size:24px;
+        border:2px solid #fff;
+        padding: 14px 70px;
+        border-radius: 50px;
+        margin-top: 40px;
+    }
+    .logo {
+        position: relative;
+        width: 170px;
+        left: 15px;
+    }
 
 
 *{
@@ -215,8 +233,91 @@ label{
     }
 }
 
+///
+#AboutUsBody {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+#AboutUsHtml {
+    box-sizing: border-box;
+}
 
 
+#AboutUsColumn {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+
+#AboutUsCard {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+}
+
+.about-section {
+    padding: 50px;
+    text-align: center;
+    background-color: #474e5d;
+    color: white;
+}
+
+#AboutUsContainer {
+    padding: 0 16px;
+}
+
+    #AboutUsColumn::after, #AboutUsRow::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+#AboutUsTitle {
+    color: grey;
+}
+
+#AboutUsButton {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+    #AboutUsButton:hover {
+        background-color: #555;
+    }
+
+@media screen and (max-width: 650px) {
+    #AboutUsColumn {
+        width: 100%;
+        display: block;
+    }
+}
+.containermap{
+    width:100%;
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+}
+    .containermap h1 {
+        color: #fff;
+        margin-bottom: 60px;
+        font-size: 100px;
+        font-weight: 500;
+    }
+iframe{
+width:80%;
+height:500px;
+filter:invert(100%);
+}
 
    
 
