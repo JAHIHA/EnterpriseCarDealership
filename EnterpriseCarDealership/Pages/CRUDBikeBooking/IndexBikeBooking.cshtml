@@ -7,7 +7,7 @@
         <form asp-page-handler="Sort" class="form-horizontal" method="post">
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary">View List</button>
+                    <button type="submit" class="btn btn-dark">View List</button>
                 </div>
             </div>
         </form>
@@ -18,7 +18,7 @@
                 <form asp-page-handler="Id" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">ID </button>
+                            <button type="submit" class="btn btn-dark">ID </button>
                         </div>
                     </div>
                 </form>
@@ -28,7 +28,7 @@
                 <form asp-page-handler="StartTime" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">StartTime </button>
+                            <button type="submit" class="btn btn-dark">StartTime </button>
                         </div>
                     </div>
                 </form>
@@ -38,7 +38,7 @@
                 <form asp-page-handler="EndTime" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">EndTime </button>
+                            <button type="submit" class="btn btn-dark">EndTime </button>
                         </div>
                     </div>
                 </form>
@@ -48,7 +48,7 @@
                 <form asp-page-handler="KundeId" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Kunde ID </button>
+                            <button type="submit" class="btn btn-dark">Kunde ID </button>
                         </div>
                     </div>
                 </form>
@@ -58,7 +58,7 @@
                 <form asp-page-handler="BikeId" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
-                            <button type="submit" class="btn btn-primary">Bike ID </button>
+                            <button type="submit" class="btn btn-dark">Bike ID </button>
                         </div>
                     </div>
                 </form>
@@ -83,9 +83,9 @@
                             <td>@s.KundeId</td>
                             <td>@s.BikeId</td>
 
-                            <td><form asp-page-handler="Delete" asp-route-id="@s.Id"><button type="submit" class="btn btn-primary">Delete Bike Booking </button></form></td>
-                            <td><a asp-page="UpdateBikeBooking" asp-route-id="@s.Id">Update Bike Booking </a></td>
-                            <td><a asp-page="BikePayment" asp-route-id="@s.Id">See Payment </a></td>
+                            <td><form asp-page-handler="Delete" asp-route-id="@s.Id"><button type="submit" class="btn btn-dark">Delete Bike Booking </button></form></td>
+                            <td><a asp-page="UpdateBikeBooking" asp-route-id="@s.Id"><button type="submit" class="btn btn-dark">Update Bike Booking</button> </a></td>
+                    <td><a asp-page="BikePayment" asp-route-id="@s.Id"><button type="submit" class="btn btn-dark">See Payment</button> </a></td>
                         </tr>
             }
         }

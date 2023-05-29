@@ -2,10 +2,19 @@
 @model EnterpriseCarDealership.Pages.ManagementModel
 @{
 }
-<a asp-page="/CRUDMedarbejder/IndexMedarbejder" class="button">Go to Medarbejder Page</a>
-<a asp-page="/CRUDManager/IndexManager" class="button">Go to Manager Page</a>
-<a asp-page="/CRUDCar/IndexCar" class="button">Go to Car Page</a>
-<a asp-page="/CRUDBike/IndexBike" class="button">Go to Bike Page</a>
-<a asp-page="/CRUDBikeBooking/IndexBikeBooking" class="button">Go to Bike Booking Page</a>
-<a asp-page="/CRUDCarBooking/IndexCarBooking" class="button">Go to Car Booking Page</a>
-<a asp-page="/CRUDKunder/IndexKunde" class="button">Go to Kunde Page</a>
+<table>
+    <div class="ContainerManagement"><h1>Management Controller</h1></div>
+    <div class="BoxManagement">
+    
+    <div class="">
+<a asp-page="/CRUDMedarbejder/IndexMedarbejder" class="buttonmanagement"><button type="submit" class="btn btn-dark">Go to Medarbejder Page</button></a>
+<a asp-page="/CRUDManager/IndexManager" class="buttonmanagement"><button type="submit" class="btn btn-dark">Go to Manager Page</button></a>
+<a asp-page="/CRUDCar/IndexCar" class="buttonmanagement"><button type="submit" class="btn btn-dark">Go to Car Page</button></a>
+<a asp-page="/CRUDBike/IndexBike" class="buttonmanagement"><button type="submit" class="btn btn-dark">Go to Bike Page</button></a>
+<a asp-page="/CRUDBikeBooking/IndexBikeBooking" class="buttonmanagement"><button type="submit" class="btn btn-dark">Go to Bike Booking Page</button></a>
+<a asp-page="/CRUDCarBooking/IndexCarBooking" class="buttonmanagement"><button type="submit" class="btn btn-dark">Go to Car Booking Page</button></a>
+<a asp-page="/CRUDKunder/IndexKunde" class="buttonmanagement"><button type="submit" class="btn btn-dark">Go to Kunde Page</button></a>
+</div>
+
+</div>
+</table>

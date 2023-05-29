@@ -7,7 +7,7 @@
         <form asp-page-handler="Sort" class="form-horizontal" method="post">
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-primary">View List</button>
+                    <button type="submit" class="btn btn-dark">View List</button>
                 </div>
             </div>
         </form>
@@ -20,7 +20,7 @@
                         <form asp-page-handler="Id" class="form-horizontal" method="post">
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Id</button>
+                                    <button type="submit" class="btn btn-dark">Id</button>
                                 </div>
                             </div>
                         </form>
@@ -31,7 +31,7 @@
                         <form asp-page-handler="Name" class="form-horizontal" method="post">
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Name</button>
+                                    <button type="submit" class="btn btn-dark">Name</button>
                                 </div>
                             </div>
                         </form>
@@ -39,21 +39,21 @@
                     <th>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Password</button>
+                                <button type="submit" class="btn btn-dark">Password</button>
                             </div>
                         </div>
                     </th>
                     <th>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Medarbejder</button>
+                                <button type="submit" class="btn btn-dark">Medarbejder</button>
                             </div>
                         </div>
                     </th>
                     <th>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="submit" class="btn btn-primary">Admin</button>
+                                <button type="submit" class="btn btn-dark">Admin</button>
                             </div>
                         </div>
                     </th>
@@ -63,7 +63,7 @@
                         <form asp-page-handler="Tlf" class="form-horizontal" method="post">
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Tlf</button>
+                                    <button type="submit" class="btn btn-dark">Tlf</button>
                                 </div>
                             </div>
                         </form>
@@ -73,7 +73,7 @@
                         <form asp-page-handler="Adress" class="form-horizontal" method="post">
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary">Adress</button>
+                                    <button type="submit" class="btn btn-dark">Adress</button>
                                 </div>
                             </div>
                         </form>
@@ -83,7 +83,7 @@
                         <form asp-page-handler="ManagerId" class="form-horizontal" method="post">
                             <div class="form-group">
                                 <div class="col-sm-offset-2 col-sm-10">
-                                    <button type="submit" class="btn btn-primary">ManagerId</button>
+                                    <button type="submit" class="btn btn-dark">ManagerId</button>
                                 </div>
                             </div>
                         </form>
@@ -110,8 +110,8 @@
                     <td>@s.Adress</td>
                     <td>@s.ManagerId</td>
 
-                    <td><form asp-page-handler="Delete" asp-route-id="@s.NextId"><button type="submit" class="btn btn-primary">Delete Medarbejder </button></form></td>
-                    <td><a asp-page="UpdateMedarbejder" asp-route-id="@s.NextId">Update Medarbejder </a></td>
+                    <td><form asp-page-handler="Delete" asp-route-id="@s.NextId"><button type="submit" class="btn btn-dark">Delete Medarbejder </button></form></td>
+                    <td><a asp-page="UpdateMedarbejder" asp-route-id="@s.NextId"><button type="submit" class="btn btn-dark">Update Medarbejder</button> </a></td>
                 </tr>
             }
 
