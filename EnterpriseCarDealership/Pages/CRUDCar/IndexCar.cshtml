@@ -8,6 +8,8 @@
                 <form asp-page-handler="FilterMax" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-2">
+                            @*den Følgende metode er forbundet med methoden Filter max og de checkboxes er forbundet med filterings metoder for nogle af attributter*@
+
                             <input type="number" class="form-control" name="MaxPris" asp-for="@Model.MaxPris" value="@Model.MaxPris">
                         </div>
 
@@ -42,6 +44,7 @@
                 <form asp-page-handler="FilterMin" class="form-horizontal" method="post">
                     <div class="form-group">
                         <div class="col-2">
+                        @*den Følgende metode er forbundet med methoden Filter min og de radio er forbundet med filterings metoder for nogle af attributter*@
                             <input type="number" class="form-control" name="MinPris" asp-for="@Model.MinPris" value="@Model.MinPris">
                         </div>
 
@@ -78,7 +81,7 @@
                     </form>
             </tr>
         </thead>
-        
+    @*de følgende knapper er forbundet med sorterings etoder i controller delen*@
         <thead>
             <tr>
                 <th>
@@ -207,6 +210,7 @@
         </thead>
 
     <tbody>
+        @*den følgende foreach loop henter attributter for hver attribut af bike model. de knapper har delete funktionen og redirect til update page *@
         @if (Model.cars.Count == 0)
         {
             <p>Empty list</p>

@@ -4,6 +4,7 @@
 }
 <table>
     <thead>
+          @*de følgende knapper er forbundet med sorterings etoder i controller delen*@
         <form asp-page-handler="Sort" class="form-horizontal" method="post">
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
@@ -68,6 +69,7 @@
         </tr>
     </thead>
     <tbody>
+        @*den følgende foreach loop henter attributter for hver attribut af bikebooking model. de knapper har delete funktionen og redirect til update page og see payment page*@
         @if (Model.bikeBookings.Count == 0)
         {
                 <p>Empty list</p>

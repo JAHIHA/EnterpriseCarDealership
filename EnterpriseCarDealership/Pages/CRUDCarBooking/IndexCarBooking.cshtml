@@ -4,7 +4,7 @@
 }
 <table>
     <thead>
-    
+        @*de følgende knapper er forbundet med sorterings etoder i controller delen*@
         <tr>
             <th>
                 <form asp-page-handler="Id" class="form-control" method="post">
@@ -64,6 +64,7 @@
             <p>Empty list</p>
         }
         else
+        @*den følgende foreach loop henter attributter for hver attribut af carbooking model. de knapper har delete funktionen og redirect til update page og see payment page*@
         {
             foreach (var s in Model.carBookings)
             {
