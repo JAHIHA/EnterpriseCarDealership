@@ -7,15 +7,7 @@
         <div class="text-danger" asp-validation-summary="ModelOnly"></div>
 
 
-       @* <div class="form-group row">
-            <div class="col-2">
-                <label asp-for="createBike.NextId"></label>
-            </div>
-            <div class="col-5">
-                <input type="text" asp-for="createBike.NextId" class="form-control" />
-            </div>
-            <span class="text-danger" asp-validation-for="createBike.NextId"></span>
-        </div>*@
+       @* de følgende input fields er forbundet med de relaterede attributter i controller delen*@
         <div class="form-group row">
             <div class="col-2">
                 <label asp-for="createBike.Brand"></label>
@@ -92,7 +84,7 @@
             <span class="text-danger" asp-validation-for="createBike.ExtraStorage"></span>
         </div>
 
-
+        @*knappen er forbundet med funktionen oppost i controller delen*@
         <div class="form-group row">
             <div class="col-2">
                 <input type="submit" class="btn btn-dark" value="createBike" />

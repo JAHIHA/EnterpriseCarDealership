@@ -11,9 +11,10 @@
           <i class="fa fa-shopping-cart"></i>
           <b>4</b>
         </span>
-      </h1>
+        </h1>@*følgende modeller henter id'er fra booking*@
             <p>Car ID: @Model.carbooking.CarId</p>
             <p>Booking ID: @Model.carbooking.Id</p>
+        @*den del kalder og kalkulerer prisen*@
             @if (Model.TotalPrice > 0)
             {
                 <p>Total price: @Model.TotalPrice <span class="=Price" style="color:black"> </span></p>
@@ -22,6 +23,7 @@
             {
                 <p>No payment calculation available.</p>
             }
+        @*knap til at go til index*@
             <form asp-page-handler="Back" class="form-horizontal" method="post">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
