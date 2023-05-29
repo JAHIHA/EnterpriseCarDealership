@@ -2,6 +2,9 @@
 {
     public static class Secret
     {
+        /// <summary>
+        /// Her vi har vores forbindelses-string til vores database.
+        /// </summary>
         public static String GetConnectionString
         {
             get

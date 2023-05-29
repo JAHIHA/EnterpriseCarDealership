@@ -5,11 +5,18 @@ namespace EnterpriseCarDealership.DBContextFolder
 {
     public class DealershipContext : DbContext
     {
+        /// <summary>
+        /// i denne metode vi prøver at bygge vores connection string til databasen.
+        /// </summary>
+        /// <param name="optionsBuilder"></param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(Secret.GetConnectionString);
 
         }
+        /// <summary>
+        /// i denne del vi sætter vores modeller som sets i databasen dvs tabellerne.
+        /// </summary>
         public virtual DbSet<Bike> Bike
         {
             get; set;
@@ -27,7 +34,11 @@ namespace EnterpriseCarDealership.DBContextFolder
         public virtual DbSet<BikePayment> BikePayment { get; set; }
 
        
-
+        /// <summary>
+        /// Pga vi havde problemmer med nextid fordi vores database kan ikke finde en id
+        /// den forstå ikke at nextid er vores primært nøgle, så vi sætter at hver af vores entities har en nøgle.
+        /// </summary>
+        /// <param name="modelBuilder"></param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 

@@ -11,6 +11,9 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
     public class BikeService : IBikeService
     {
         //KARZAN
+        /// <summary>
+        /// Injektioner og KOnstruktører
+        /// </summary>
 
         private IBikeRepo _Bikerepo;    
 
@@ -18,7 +21,11 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
         {
             _Bikerepo = bikeRepo;   
         }
-
+        /// <summary>
+        ///  Add Metoden som kalder metoden fra repo for at gemme informationer
+        /// </summary>
+        /// <param name="createbike"></param>
+        /// <returns></returns>
         public async Task Addbike(CreateBike createbike)
         {
             Bike bike = new Bike()
@@ -37,13 +44,22 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
 
            await _Bikerepo.Addbike(bike);
         }
-       
+        /// <summary>
+        /// Delete metoden som kalder metoden fra repo til at fjerne noget.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
         public async Task Deletebike(int id)
         {
             await _Bikerepo.Deletebike(id);  
         }
-        
+        /// <summary>
+        /// FindeviaId metoden som kalder metoden fra repo til at finde på noget
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        /// <exception cref="KeyNotFoundException"></exception>
 
         public Bike GetBikeById(int id)
         {
@@ -54,12 +70,21 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             }
             return bike; 
         }
+        /// <summary>
+        /// hent listen metoden som kalder for Listen fra repos
+        /// </summary>
+        /// <returns></returns>
 
         public List<Bike> GetBikeList()
         {
             return  _Bikerepo.GetBikeList();
         }
-
+        /// <summary>
+        /// vi bruger denne metode for at kalde opdater metoden fra repo
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="bike"></param>
+        /// <returns></returns>
 
         public async Task Updatebike(int id,Bike bike)
         {

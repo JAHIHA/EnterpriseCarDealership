@@ -4,7 +4,9 @@
 
     public class Car:Vehicle
     {
-        
+        /// <summary>
+        /// Her har vi attributter som er unikke for car og resten er arvet gennem Vehicle klassen
+        /// </summary>
         public bool AC { get; set; }
         public bool Sunroof { get; set; }
 
@@ -13,7 +15,9 @@
         public bool DVD { get; set; }
         public bool Camera { get; set; }
         public bool Sensor { get; set; }
-
+        /// <summary>
+        /// Konstruktører
+        /// </summary>
         public Car()
         {
 
@@ -34,7 +38,10 @@
         {
            
         }
-
+        /// <summary>
+        /// To string metode
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{{{nameof(AC)}={AC.ToString()}, {nameof(Sunroof)}={Sunroof.ToString()}," +

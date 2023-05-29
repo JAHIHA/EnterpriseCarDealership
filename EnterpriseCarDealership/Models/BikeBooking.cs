@@ -5,7 +5,9 @@ using EnterpriseCarDealership.service_repository_s.Service.Interface;
 namespace EnterpriseCarDealership.Models
 {
 
-
+    /// <summary>
+    /// Her ligger attributter for vores Bike booking
+    /// </summary>
 
     public class BikeBooking
     {
@@ -19,6 +21,9 @@ namespace EnterpriseCarDealership.Models
 
         private readonly IBikeBookingService BookingService;
 
+        /// <summary>
+        /// Konstroktører
+        /// </summary>
         public BikeBooking()
 
         {
@@ -69,5 +74,12 @@ namespace EnterpriseCarDealership.Models
 
 
         }
-
+        /// <summary>
+        /// To string metode
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return $"{{{nameof(Id)}={Id.ToString()}, {nameof(StartTime)}={StartTime.ToString()}, {nameof(EndTime)}={EndTime.ToString()}, {nameof(KundeId)}={KundeId.ToString()}, {nameof(BikeId)}={BikeId.ToString()}, {nameof(Bike)}={Bike}, {nameof(Kunde)}={Kunde}}}";
+        }
     } }

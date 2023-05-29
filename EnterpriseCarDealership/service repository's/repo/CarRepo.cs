@@ -8,11 +8,23 @@ namespace EnterpriseCarDealership.service_repository_s.repo
     public class CarRepo : ICarRepo
 
     {
+        /// <summary>
+        /// her har vi en liste med cars
+        /// </summary>
         List<Car> _cars = new List<Car>(); 
+        /// <summary>
+        /// her bygger vi vores connection string til serveren
+        /// </summary>
 
         private readonly string ConString = "Server=mssql6.unoeuro.com;Database=jhhweb_dk_db_database;User Id=jhhweb_dk;Password=G2ftFgwApBE5ec3Dxn9r;MultipleActiveResultSets=False;Encrypt=False";
 
-
+        /// <summary>
+        /// For Add vi bygger vores query string , laver en sql connection med den constring, åbner for connection,
+        /// execute vores query sætter values ind og lukker connection til sidst
+        /// </summary>
+        /// <param name="car"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
 
         public async Task Addcar(Car car)
         {
@@ -43,7 +55,12 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             
         }
 
-
+        /// <summary>
+        /// For denne metode vi bygger vores query , efter det vores connection, åbner for vores connection, sætter vi vores command,
+        /// og lukker connection
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task Deletecar(int id)
         {
             string queryString = "Delete from Car where  NextId = @NextId";
@@ -56,7 +73,12 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
             connection.Close();
         }
-
+        /// <summary>
+        /// For denne metode vi bygger vores query , efter det vores connection, åbner for vores connection, sætter vi vores command,
+        /// vi efter bruger vi vores reader til at læse den og efter lukker vi connection
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public Car GetCarById(int id)
         {
             string query = $"select * from Car where NextId = @NextId";
@@ -75,7 +97,11 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             connection.Close();
             return car; 
         }
-
+        /// <summary>
+        /// For denne metode vi bygger vores query , efter det vores connection, åbner for vores connection, sætter vi vores command,
+        /// vi efter bruger vi vores reader til at læse den og efter lukker vi connection
+        /// </summary>
+        /// <returns></returns>
         public List<Car> GetCarList()
         {
             string query = "select * from Car";
@@ -95,7 +121,11 @@ namespace EnterpriseCarDealership.service_repository_s.repo
             return _cars; 
 
         }
-
+        /// <summary>
+        /// den metode læser bare de forskellige attributter for vores klasse
+        /// </summary>
+        /// <param name="reader"></param>
+        /// <returns></returns>
         public Car ReadCar(SqlDataReader reader)
         {
             Car car=new Car();
@@ -116,7 +146,14 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 
 
         }
-
+        /// <summary>
+        /// For Update vi bygger vores query string , laver en sql connection med den constring, åbner for connection,
+        /// execute vores query opdaterer values ind og lukker connection til sidst
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="car"></param>
+        /// <returns></returns>
+        /// <exception cref="ArgumentException"></exception>
         public async Task Updatecar(int id, Car car)
         {
             string queryString = "Update Car set  Brand=@Brand,Type=@Type,PrisPrDag=@PrisPrDag,Year=@Year, Km=@Km, Ac=@AC, Sunroof=@Sunroof, Screen=@Screen, DVD=@DVD, Camera=@Camera, Sensor=@Sensor where NextId=@id";
