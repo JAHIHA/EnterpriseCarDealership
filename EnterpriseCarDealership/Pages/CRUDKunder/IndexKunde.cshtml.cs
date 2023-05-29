@@ -8,14 +8,23 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
 {
     public class IndexKundeModel : PageModel
     {
+        /// <summary>
+        /// /injekt services
+        /// </summary>
 
         private IKundeService _kundeService;
+        /// <summary>
+        /// konstruktører
+        /// </summary>
+        /// <param name="kundeService"></param>
         public IndexKundeModel(IKundeService kundeService)
         {
             _kundeService = kundeService;
         }
 
-
+        /// <summary>
+        /// Bind properties
+        /// </summary>
         [BindProperty]
         public int NextId { get; set; }
 
@@ -30,7 +39,10 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
 
         [BindProperty]
         public List<Kunde> kunder { get; set; }
-
+        /// <summary>
+        /// on get metoden tjekker for cookies og henter en liste
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
             kunder = _kundeService.GetKundeList();
@@ -44,6 +56,11 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
             return Page();
 
         }
+        /// <summary>
+        /// forskellige sortirings metoder
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task OnPostDelete(int id)
         {
             await _kundeService.Deletekunde(id);

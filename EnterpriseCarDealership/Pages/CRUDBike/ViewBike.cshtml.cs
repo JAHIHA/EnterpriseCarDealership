@@ -9,6 +9,9 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
 {
     public class ViewBikeModel : PageModel
     {
+        /// <summary>
+        /// Bind Properties
+        /// </summary>
         [BindProperty]
         public int MinPris { get; set; }
 
@@ -24,10 +27,15 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
         [BindProperty]
         public bool ExtraStorage { get; set; }
 
-
+        /// <summary>
+        /// Injekt services
+        /// </summary>
         private readonly IbikeFilters _bikeFilters;
         private IBikeService _service;
-
+        /// <summary>
+        /// Konstruktører
+        /// </summary>
+        /// <param name="bikeService"></param>
         public ViewBikeModel(IBikeService bikeService)
 
         {
@@ -37,7 +45,10 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
         [BindProperty]
         public List<Bike> bikes { get; set; }
 
-
+        /// <summary>
+        /// On get metode for en liste
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
             bikes = _service.GetBikeList();
@@ -45,7 +56,11 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
           
             return Page();
         }
-
+        /// <summary>
+        /// Forskellige sortiringsmetoder
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task OnPostDelete(int id)
         {
             await _service.Deletebike(id);
@@ -107,7 +122,9 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
             var ExtraStorage = bikes.Select(E => E).Where(E => E.ExtraStorage == true).ToList();
             bikes = ExtraStorage;
         }
-
+        /// <summary>
+        /// Forskellige filterings metoder
+        /// </summary>
         public void OnPostFilterMax()
         {
             bikes = _service.GetBikeList().Where((b) => b.PrisPrDag <= MaxPris).ToList();

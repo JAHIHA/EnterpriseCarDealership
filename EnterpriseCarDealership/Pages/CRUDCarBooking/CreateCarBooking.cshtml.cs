@@ -9,17 +9,28 @@ namespace EnterpriseCarDealership.Pages.CRUDBooking
 {
     public class CreateCarBookingModel : PageModel
     {
+        /// <summary>
+        /// injekt services
+        /// </summary>
         private readonly ICarBookingService _addservice;
-
+        /// <summary>
+        /// konstruktører
+        /// </summary>
+        /// <param name="carbookingService"></param>
         public CreateCarBookingModel(ICarBookingService carbookingService)
             
         {
             _addservice = carbookingService;
         }
-
+        /// <summary>
+        /// bind properties
+        /// </summary>
         [BindProperty]
         public CreateCarBooking CreateCar { get; set; }
-
+        /// <summary>
+        /// on post metoden tilføje en ny car booking
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> OnPost()
         {
             await _addservice.AddCarbooking(CreateCar);
@@ -28,7 +39,9 @@ namespace EnterpriseCarDealership.Pages.CRUDBooking
         }
 
     }
-     
+     /// <summary>
+     /// skabelsen af modellen
+     /// </summary>
     
     public class CreateCarBooking
     {

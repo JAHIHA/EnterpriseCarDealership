@@ -8,11 +8,21 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
 {
     public class ViewCarModel : PageModel
     {
+        /// <summary>
+        /// injekt services
+        /// </summary>
         private ICarService _carService;
+        /// <summary>
+        /// konstruktører
+        /// </summary>
+        /// <param name="carService"></param>
         public ViewCarModel(ICarService carService)
         {
             _carService = carService;
         }
+        /// <summary>
+        /// Bind properties
+        /// </summary>
         [BindProperty]
         public List<Car> cars { get; set; }
         [BindProperty]
@@ -34,7 +44,10 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
 
 
 
-
+        /// <summary>
+        /// on get metoden henter en liste
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
             cars = _carService.GetCarList();
@@ -44,6 +57,11 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
             return Page();
 
         }
+        /// <summary>
+        /// forskellige sorterings metoder
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task OnPostDelete(int id)
         {
             await _carService.Deletecar(id);
@@ -123,6 +141,9 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
         {
             cars = _carService.GetCarList();
         }
+        /// <summary>
+        /// forskellige filterings metoder
+        /// </summary>
         public void OnPostFilterMax() 
         {
 

@@ -11,23 +11,38 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
 {
     public class CreateBikeModel : PageModel
     {
-
+        /// <summary>
+        /// Her vi Injekt vores services
+        /// </summary>
         private readonly IBikeService _addservice;
-
+        /// <summary>
+        /// konstruktører
+        /// </summary>
+        /// <param name="bikeService"></param>
         public CreateBikeModel(IBikeService bikeService)
 
         {
             _addservice = bikeService;
         }
-
+        /// <summary>
+        /// Bind Properties for at de bliver fanget i frontend
+        /// </summary>
         [BindProperty]
         public CreateBike createBike { get; set; }
 
+        /// <summary>
+        /// On post metode med add metode og redirect
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> OnPost()
         {
             await _addservice.Addbike(createBike);
            return RedirectToPage("IndexBike");
         }
+        /// <summary>
+        /// Onget metode som tjekker for cookies
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
             User us = SessionHelper.GetUser(HttpContext);
@@ -41,6 +56,9 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
         }
     }
 
+    /// <summary>
+    /// Her skaber vi modellen med attributter
+    /// </summary>
     public class CreateBike
     {
 

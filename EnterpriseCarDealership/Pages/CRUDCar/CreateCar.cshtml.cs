@@ -11,18 +11,36 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
 {
     public class CreateCarModel : PageModel
     {
+        /// <summary>
+        /// Injekt services
+        /// </summary>
         private readonly ICarService _carService;
+        /// <summary>
+        /// Konstruktører
+        /// </summary>
+        /// <param name="carService"></param>
         public CreateCarModel(ICarService carService)
         {
             _carService = carService;
         }
+        /// <summary>
+        /// Bind Properties
+        /// </summary>
         [BindProperty]
         public CreateCar createCar { get; set; }
+        /// <summary>
+        /// OnPost metoden tilføjer en car
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> OnPost()
         {
             await _carService.Addcar(createCar);
             return RedirectToPage("IndexCar");
         }
+        /// <summary>
+        /// On get metoden tjekker for cookies
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
             
@@ -37,6 +55,9 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
         }
         
     }
+    /// <summary>
+    /// Skabelse af modellen
+    /// </summary>
     public class CreateCar
     {
         [Required]

@@ -9,16 +9,28 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
 {
     public class IndexManagerModel : PageModel
     {
+        /// <summary>
+        /// injekt services
+        /// </summary>
         private IManagerService _service;
-
+        /// <summary>
+        /// konstriktører
+        /// </summary>
+        /// <param name="managerService"></param>
         public IndexManagerModel(IManagerService managerService)
 
         {
             _service = managerService;
         }
-
+        /// <summary>
+        /// Bind properties
+        /// </summary>
         [BindProperty]
         public List<Manager> managers { get; set; }
+        /// <summary>
+        /// on get metoden tjekker for cookies og henter en liste af managers
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
            managers = _service.GetManagerList();
@@ -33,14 +45,20 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
             return Page();
 
         }
-
+        /// <summary>
+        /// delete metoden
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task OnPostDelete(int id)
         {
            await _service.DeleteManager(id);
             managers = _service.GetManagerList();
 
         }
-
+        /// <summary>
+        /// forskellige sorterings metoder
+        /// </summary>
         public void OnPostSort()
         {
             managers = _service.GetManagerList();

@@ -8,24 +8,43 @@ using EnterpriseCarDealership.service_repository_s.Service.cookies;
 namespace EnterpriseCarDealership.Pages.CRUDCar
 {
     public class UpdateCarModel : PageModel
-    {
-        private readonly ICarService _carService;
 
+    {
+        /// <summary>
+        /// Injekt services
+        /// </summary>
+        private readonly ICarService _carService;
+        /// <summary>
+        /// Konstruktører
+        /// </summary>
+        /// <param name="carService"></param>
         public UpdateCarModel(ICarService carService)
         {
             _carService = carService;   
         }
+        /// <summary>
+        /// Bind Properties
+        /// </summary>
         [BindProperty]
         public Car car { get; set; }
 
         [BindProperty]
         public Car  existingCar { get; set; }
-        
+        /// <summary>
+        /// onpost metoden opdaterer car
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task<IActionResult>OnPost(int id)
         {
             await _carService.Updatecar( id, car);
             return RedirectToPage("IndexCar");
         }
+        /// <summary>
+        /// onget metoden tjekker for cookies og henter en car via id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public IActionResult OnGet(int id)
         {
             

@@ -9,16 +9,29 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
 {
     public class IndexBikeBookingModel : PageModel
     {
+        /// <summary>
+        /// Injekt services
+        /// </summary>
         private IBikeBookingService _service;
+        /// <summary>
+        /// Konstruktører
+        /// </summary>
+        /// <param name="bikeBookingService"></param>
 
         public IndexBikeBookingModel(IBikeBookingService bikeBookingService)
 
         {
             _service = bikeBookingService;
         }
-
+        /// <summary>
+        /// Bind Properties
+        /// </summary>
         [BindProperty]
         public List<BikeBooking> bikeBookings { get; set; }
+        /// <summary>
+        /// On get metoden tjekker for cookies og henter en liste
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
             bikeBookings = _service.GetBikebookingList();
@@ -31,7 +44,11 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
 
             return Page();
         }
-
+        /// <summary>
+        /// forskellige Sortering metoder
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task OnPostDelete(int id)
         {
             await _service.DeleteBikebooking(id);

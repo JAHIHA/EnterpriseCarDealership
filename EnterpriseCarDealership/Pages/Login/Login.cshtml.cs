@@ -32,6 +32,7 @@ namespace EnterpriseCarDealership.Pages.Login
 
         public IActionResult OnPost()
         {
+            ///vi bruger session helper og validerer user til at se´hvis der findes en manager, medarbejder eller kunde og redirect to speciffikee sider
             User us = SessionHelper.GetUser(HttpContext);
             //User us = new User();
 
