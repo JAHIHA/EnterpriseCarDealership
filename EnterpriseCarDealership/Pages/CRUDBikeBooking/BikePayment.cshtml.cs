@@ -8,17 +8,30 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
 {
     public class BikePaymentModel : PageModel
     {
+        /// <summary>
+        /// Injekt service
+        /// </summary>
         private IBikeBookingService _service { get; set; }
+        /// <summary>
+        /// Konstruktører
+        /// </summary>
+        /// <param name="service"></param>
         public BikePaymentModel(IBikeBookingService service)
         {
             _service = service;
         }
-
+        /// <summary>
+        /// Bind Properties
+        /// </summary>
         [BindProperty]
         public double TotalPrice { get; set; }
         [BindProperty]
         public BikeBooking bikebooking { get; set; }
 
+        /// <summary>
+        /// On get metoden henter booking og kalkulerer prisen
+        /// </summary>
+        /// <param name="id"></param>
         public void OnGet(int id)
         {
             bikebooking = _service.GetBikebookingById(id);
@@ -27,6 +40,9 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
             TotalPrice = _service.CalculatePayment(bikebooking.Id, bikebooking.BikeId);
 
         }
+        /// <summary>
+        /// Back metoden gå til index
+        /// </summary>
         public void OnPostBack()
         {
             RedirectToPage("IndexCarBooking");

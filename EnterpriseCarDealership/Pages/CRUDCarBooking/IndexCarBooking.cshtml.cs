@@ -12,20 +12,33 @@ namespace EnterpriseCarDealership.Pages.CRUDCarBooking
 {
     public class IndexCarBookingModel : PageModel
     {
+        /// <summary>
+        /// injekt services
+        /// </summary>
         private ICarBookingService _service;
         private ICarService _carservice;
-
+        /// <summary>
+        /// konstruktører
+        /// </summary>
+        /// <param name="carBookingService"></param>
+        /// <param name="carservice"></param>
         public IndexCarBookingModel(ICarBookingService carBookingService, ICarService carservice)
 
         {
             _service = carBookingService;
             _carservice = carservice;
         }
-
+        /// <summary>
+        /// Bind properties
+        /// </summary>
         [BindProperty]
         public List<CarBooking> carBookings { get; set; }
         [BindProperty]
         public double TotalPayment { get; set; }
+        /// <summary>
+        /// on get metoden tjekker for cookies og henter en liste
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
             carBookings = _service.GetCarbookingList();
@@ -40,7 +53,11 @@ namespace EnterpriseCarDealership.Pages.CRUDCarBooking
            
                 return Page();
         }
-
+        /// <summary>
+        /// forskellige sorterings metoder
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task OnPostDelete(int id)
         {
             await _service.DeleteCarbooking(id);

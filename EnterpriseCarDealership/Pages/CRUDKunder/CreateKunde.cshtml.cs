@@ -10,18 +10,29 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
 {
     public class CreateKundeModel : PageModel
     {
+        /// <summary>
+        /// injekt services
+        /// </summary>
         private readonly IKundeService _addservice;
-
+        /// <summary>
+        /// Konstruktører
+        /// </summary>
+        /// <param name="kundeService"></param>
         public CreateKundeModel(IKundeService kundeService)
 
         {
             _addservice = kundeService;
         }
-
+        /// <summary>
+        /// Bind properties
+        /// </summary>
         [BindProperty]
         public CreateKunde createKunde { get; set; }
 
-
+        /// <summary>
+        /// onpost metoden tilføjer en kunde
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> OnPost()
         {
             await _addservice.Addkunde(createKunde);
@@ -29,7 +40,9 @@ namespace EnterpriseCarDealership.Pages.CRUDKunder
         }
     }
 
-
+    /// <summary>
+    /// skabelsen af modellen
+    /// </summary>
     public class CreateKunde
     {
 

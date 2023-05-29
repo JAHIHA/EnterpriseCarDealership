@@ -9,20 +9,36 @@ namespace EnterpriseCarDealership.Pages.CRUDMedarbejder
 {
     public class CreateMedarbejderModel : PageModel
     {
+        /// <summary>
+        /// injekt services
+        /// </summary>
         private readonly IMedarbejderService _service;
-
+        /// <summary>
+        /// Konstruktører
+        /// </summary>
+        /// <param name="service"></param>
         public CreateMedarbejderModel(IMedarbejderService service)
         {
             _service = service;
         }
+        /// <summary>
+        /// Bind Properties
+        /// </summary>
         [BindProperty]
         public CreateMedarbejder createMedarbejder { get; set;}
-
+        /// <summary>
+        /// onpost metoden tilføjer en medarbejder
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> OnPost()
         {
             await _service.Addmedarbejder(createMedarbejder);
             return RedirectToPage("IndexMedarbejder");
         }
+        /// <summary>
+        /// on get metoden tjekker for cookies
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
 
@@ -38,6 +54,9 @@ namespace EnterpriseCarDealership.Pages.CRUDMedarbejder
         }
 
     }
+    /// <summary>
+    /// skabelse af modellen
+    /// </summary>
     public class CreateMedarbejder
     {
         [Required]

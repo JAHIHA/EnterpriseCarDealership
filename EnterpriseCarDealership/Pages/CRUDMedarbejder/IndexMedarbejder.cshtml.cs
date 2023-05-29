@@ -8,11 +8,21 @@ namespace EnterpriseCarDealership.Pages.CRUDMedarbejder
 {
     public class IndexMedarbejderModel : PageModel
     {
+        /// <summary>
+        /// injekt services
+        /// </summary>
         private IMedarbejderService _medarbejderService;
+        /// <summary>
+        /// konstruktører
+        /// </summary>
+        /// <param name="medarbejderService"></param>
         public IndexMedarbejderModel(IMedarbejderService medarbejderService)
         {
             _medarbejderService = medarbejderService;
         }
+        /// <summary>
+        /// Bind properties
+        /// </summary>
         [BindProperty]
         public List<Medarbejder> medarbejders { get; set; }
         [BindProperty]
@@ -25,7 +35,10 @@ namespace EnterpriseCarDealership.Pages.CRUDMedarbejder
         public string Adress { get; set; }
         [BindProperty]
         public int ManagerId { get; set; }
-
+        /// <summary>
+        /// on get metoden tjekker for cookies og henter en medarbejder via id
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
             medarbejders = _medarbejderService.GetmedarbejderList();
@@ -39,14 +52,20 @@ namespace EnterpriseCarDealership.Pages.CRUDMedarbejder
 
             return Page();
         }
-
+        /// <summary>
+        /// delete metoden
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
 
         public async Task OnPostDelete(int id)
         {
             await _medarbejderService.Deletemedarbejder(id);
             medarbejders = _medarbejderService.GetmedarbejderList();
         }
-
+        /// <summary>
+        /// forskellige sorterings metoder
+        /// </summary>
         public void OnPostId()
         {
             medarbejders = _medarbejderService.GetmedarbejderList();

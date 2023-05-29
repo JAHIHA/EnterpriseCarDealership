@@ -8,11 +8,21 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
 {
     public class IndexCarModel : PageModel
     {
+        /// <summary>
+        /// Injekt services
+        /// </summary>
         private ICarService _carService;
+        /// <summary>
+        /// Konstruktører
+        /// </summary>
+        /// <param name="carService"></param>
         public IndexCarModel (ICarService carService)
         {
             _carService = carService;
         }
+        /// <summary>
+        /// BindProperties
+        /// </summary>
         [BindProperty]
         public List<Car> cars { get; set; }
         [BindProperty]
@@ -34,7 +44,10 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
 
 
 
-
+        /// <summary>
+        /// on get metoden tjekker for cookies og henter en liste
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
             cars=_carService.GetCarList();
@@ -49,6 +62,11 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
                 return Page();
             
         }
+        /// <summary>
+        /// Forskellige sortirings metoder
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task OnPostDelete(int id)
         {
             await _carService.Deletecar(id);
@@ -128,6 +146,9 @@ namespace EnterpriseCarDealership.Pages.CRUDCar
         {
             cars=_carService.GetCarList();
         }
+        /// <summary>
+        /// Forskellige filterings metoder
+        /// </summary>
         public void OnPostMaxPris()
         {
             cars = _carService.GetCarList().Where((M) => M.PrisPrDag <= MaxPris).ToList(); 

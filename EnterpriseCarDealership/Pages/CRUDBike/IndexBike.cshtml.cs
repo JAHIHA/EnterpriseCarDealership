@@ -13,7 +13,11 @@ using EnterpriseCarDealership.service_repository_s.sercive;
 namespace EnterpriseCarDealership.Pages.CRUDBike
 {
     public class IndexBikeModel : PageModel
+
     {
+        /// <summary>
+        /// Bind Properties
+        /// </summary>
         [BindProperty]
         public int MinPris { get; set; }
 
@@ -29,10 +33,15 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
         [BindProperty]
         public bool ExtraStorage { get; set; }
 
-
+        /// <summary>
+        /// here vi injekt vores services
+        /// </summary>
         private readonly IbikeFilters _bikeFilters;
         private IBikeService _service;
-
+        /// <summary>
+        /// Konstruktører
+        /// </summary>
+        /// <param name="bikeService"></param>
         public IndexBikeModel(IBikeService bikeService)
 
         {
@@ -42,7 +51,10 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
         [BindProperty]
         public List<Bike> bikes { get; set; }
 
-
+        /// <summary>
+        /// On get metode tjekker for cookies og henter en liste
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
             bikes = _service.GetBikeList();
@@ -56,7 +68,11 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
             //List<Bike> filteredBike = _bikeFilters.Filter();
             return Page();
         }
-
+        /// <summary>
+        /// forskellige sortirings metoder
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public async Task OnPostDelete(int id)
         {
             await _service.Deletebike(id);
@@ -118,7 +134,9 @@ namespace EnterpriseCarDealership.Pages.CRUDBike
             var ExtraStorage = bikes.Select(E => E).Where(E => E.ExtraStorage == true).ToList();
             bikes = ExtraStorage;
         }
-
+        /// <summary>
+        /// Forskellige filtrerings metoder
+        /// </summary>
         public void OnPostFilterMax()
         {
             bikes = _service.GetBikeList().Where((b) => b.PrisPrDag <= MaxPris).ToList();

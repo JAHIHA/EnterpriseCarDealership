@@ -8,24 +8,38 @@ using System.ComponentModel.DataAnnotations;
 namespace EnterpriseCarDealership.Pages.CRUDManager
 {
     public class CreateManagerModel : PageModel
-    {
+    {/// <summary>
+    /// injekt services
+    /// </summary>
         private readonly IManagerService _addservice;
-
+        /// <summary>
+        /// konstruktører
+        /// </summary>
+        /// <param name="managerService"></param>
         public CreateManagerModel(IManagerService managerService)
 
         {
             _addservice = managerService;
         }
-
+        /// <summary>
+        /// Bind Properties
+        /// </summary>
         [BindProperty]
         public CreateManager CreateManager { get; set; }
 
-
+        /// <summary>
+        /// on post metoden tilføjer en manager
+        /// </summary>
+        /// <returns></returns>
         public async Task<IActionResult> OnPost()
         {
             await _addservice.AddManager(CreateManager);
             return RedirectToPage("IndexManager");
         }
+        /// <summary>
+        /// on get metoden tjekker for cookies
+        /// </summary>
+        /// <returns></returns>
         public IActionResult OnGet()
         {
           
@@ -42,7 +56,9 @@ namespace EnterpriseCarDealership.Pages.CRUDManager
         }
     }
 
-
+    /// <summary>
+    /// skabelse af modellen
+    /// </summary>
     public class CreateManager
     {
 
