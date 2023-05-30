@@ -3,7 +3,7 @@ using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 
 namespace EnterpriseCarDealership.service_repository_s.repo
-{
+{//Jakob
     public class BikeBookingRepo : IBikeBookingRepo
         /// Bike bookking repository's job er at forbinde programmet med vores database. den arver metoder fra interface.
     {

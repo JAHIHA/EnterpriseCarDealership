@@ -5,9 +5,9 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 {
     public interface IMedarbejderRepo
     {
-      
-        
-            public List<Medarbejder> GetmedarbejderList();
+        //Khaled
+
+        public List<Medarbejder> GetmedarbejderList();
 
             public Task Addmedarbejder(Medarbejder medarbejder);
 

@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
 {
+    //Jakob
     public class BikePaymentModel : PageModel
     {
         /// <summary>

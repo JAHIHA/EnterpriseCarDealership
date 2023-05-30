@@ -11,7 +11,7 @@ using DocumentFormat.OpenXml.Wordprocessing;
 using EnterpriseCarDealership.service_repository_s.sercive;
 
 namespace EnterpriseCarDealership.Pages.CRUDBike
-{
+{//Jakob
     public class IndexBikeModel : PageModel
 
     {

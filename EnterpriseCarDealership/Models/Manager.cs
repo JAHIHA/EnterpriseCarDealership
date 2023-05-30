@@ -2,6 +2,9 @@
 
 namespace EnterpriseCarDealership.Models
 {
+   
+    /// Jakob
+   
     public class Manager:User
     {
         /// <summary>

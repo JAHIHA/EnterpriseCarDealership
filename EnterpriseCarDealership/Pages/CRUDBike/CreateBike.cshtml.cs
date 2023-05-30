@@ -6,7 +6,7 @@ using EnterpriseCarDealership.service_repository_s.Service.Interface;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
-
+//Karzan
 namespace EnterpriseCarDealership.Pages.CRUDBike
 {
     public class CreateBikeModel : PageModel

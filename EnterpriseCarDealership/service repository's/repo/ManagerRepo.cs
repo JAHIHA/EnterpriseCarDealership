@@ -5,7 +5,7 @@ using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 using Microsoft.Data.SqlClient;
 
 namespace EnterpriseCarDealership.service_repository_s.repo
-{
+{//Jakob
     public class ManagerRepo : IManagerRepo
     {
         /// <summary>

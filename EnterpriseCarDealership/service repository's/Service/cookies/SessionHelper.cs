@@ -2,7 +2,7 @@
 using System.Text.Json;
 
 namespace EnterpriseCarDealership.service_repository_s.Service.cookies
-{
+{//jakob
     public class SessionHelper
     {/// <summary>
     /// denne klasse vil hjælpe os med at skabe en session for hver gange vi logger ind

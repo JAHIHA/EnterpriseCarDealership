@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
 
 namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
-{
+{//Jakob
     public class CreateBikeBookingModel : PageModel
     {
         /// <summary>

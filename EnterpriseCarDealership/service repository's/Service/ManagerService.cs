@@ -4,7 +4,7 @@ using EnterpriseCarDealership.Pages.CRUDManager;
 using EnterpriseCarDealership.service_repository_s.repo.interfaces;
 
 namespace EnterpriseCarDealership.service_repository_s.sercive
-{
+{//Jakob
     public class ManagerService : IManagerService
     ///Injektioner og KOnstruktører
     {
