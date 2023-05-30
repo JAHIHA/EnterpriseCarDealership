@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EnterpriseCarDealership.DBContextFolder
 {
+    //khaled
     public class DealershipContext : DbContext
     {
         /// <summary>

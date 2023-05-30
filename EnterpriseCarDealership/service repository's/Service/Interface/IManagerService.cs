@@ -2,7 +2,7 @@
 using EnterpriseCarDealership.Pages.CRUDManager;
 
 namespace EnterpriseCarDealership.service_repository_s
-{
+{//Jakob
     public interface IManagerService
     {
         public List<Manager> GetManagerList();

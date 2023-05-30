@@ -1,6 +1,6 @@
 ﻿namespace EnterpriseCarDealership.Models
 {
-
+    //karzan
     public abstract class Vehicle
     {
         /// <summary>

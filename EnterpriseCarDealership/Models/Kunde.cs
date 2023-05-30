@@ -4,6 +4,7 @@
     public class Kunde : User
     {
         //KARZAN
+
         /// <summary>
         /// Ekstra attribut unik for kunde. resten er arvet fra user
         /// </summary>

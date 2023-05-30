@@ -6,7 +6,7 @@ using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.ComponentModel.DataAnnotations;
-
+//Khaled
 namespace EnterpriseCarDealership.Pages.CRUDCar
 {
     public class CreateCarModel : PageModel

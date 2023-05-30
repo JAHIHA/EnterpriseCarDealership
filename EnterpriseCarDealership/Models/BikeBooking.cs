@@ -1,7 +1,6 @@
 ﻿using EnterpriseCarDealership.service_repository_s;
 using EnterpriseCarDealership.service_repository_s.Service.Interface;
-
-
+///Jakob
 namespace EnterpriseCarDealership.Models
 {
 

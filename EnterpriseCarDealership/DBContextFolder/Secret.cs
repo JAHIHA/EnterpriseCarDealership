@@ -1,5 +1,6 @@
 ﻿namespace EnterpriseCarDealership.DBContextFolder
 {
+    //Karzan
     public static class Secret
     {
         /// <summary>

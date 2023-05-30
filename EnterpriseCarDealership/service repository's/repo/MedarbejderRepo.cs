@@ -4,7 +4,7 @@ using EnterpriseCarDealership.Models;
 using EnterpriseCarDealership.Pages.CRUDMedarbejder;
 
 namespace EnterpriseCarDealership.service_repository_s.repo
-{
+{//Khaled
     public class MedarbejderRepo:IMedarbejderRepo
     {
         /// <summary>

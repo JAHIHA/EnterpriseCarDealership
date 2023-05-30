@@ -1,5 +1,6 @@
 ﻿namespace EnterpriseCarDealership.Models
 {
+    //khaled
     public abstract class Payment
     {/// <summary>
     /// her sætter vi attributter for Payment som skal arves til CarPayment og Bike Payment

@@ -3,7 +3,7 @@ using EnterpriseCarDealership.Pages.CRUDManager;
 using Microsoft.Data.SqlClient;
 
 namespace EnterpriseCarDealership.service_repository_s.repo.interfaces
-{
+{//Jakob
     public interface IManagerRepo
     {
         public List<Manager> GetManagerList();

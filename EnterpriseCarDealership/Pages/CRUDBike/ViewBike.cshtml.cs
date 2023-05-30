@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EnterpriseCarDealership.Pages.CRUDBike
 {
+    //Karzan
     public class ViewBikeModel : PageModel
     {
         /// <summary>

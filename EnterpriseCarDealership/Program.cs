@@ -8,7 +8,7 @@ using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using EnterpriseCarDealership.service_repository_s.Service.Interface;
 
 var builder = WebApplication.CreateBuilder(args);
-
+//Jakob
 // Add services to the container.
 ///først er for Razor Pages
 builder.Services.AddRazorPages();
