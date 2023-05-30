@@ -43,9 +43,9 @@ namespace EnterpriseCarDealership.Pages.CRUDBikeBooking
         /// <summary>
         /// Back metoden gå til index
         /// </summary>
-        public void OnPostBack()
+        public IActionResult OnPostBack()
         {
-            RedirectToPage("IndexCarBooking");
+           return  RedirectToPage("/CRUDBikeBooking/IndexBikeBooking");
         }
     }
 }

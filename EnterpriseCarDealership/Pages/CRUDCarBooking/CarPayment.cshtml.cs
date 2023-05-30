@@ -41,9 +41,9 @@ namespace EnterpriseCarDealership.Pages.CRUDCarBooking
         /// <summary>
         /// Back metoden redirect to index
         /// </summary>
-        public void OnPostBack()
+        public IActionResult OnPostBack()
         {
-            RedirectToPage("IndexCarBooking");
+           return RedirectToPage("/CRUDCarBooking/IndexCarBooking");
         }
     }
 }
