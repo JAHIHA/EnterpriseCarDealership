@@ -7,7 +7,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 {
     public class KundeRepo : IKundeRepo
     {
-        //KARZAN
+        //Jakob
         /// <summary>
         /// her har vi en liste med kunder
         /// </summary>

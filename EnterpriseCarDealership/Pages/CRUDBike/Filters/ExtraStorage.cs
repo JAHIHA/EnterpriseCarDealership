@@ -4,7 +4,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBike.Filters
 {
     public class ExtraStorage : IbikeFilters
     {
-        //KARZAN
+        //Jakob
         private IbikeFilters _filters;
 
         public ExtraStorage(IbikeFilters filters)

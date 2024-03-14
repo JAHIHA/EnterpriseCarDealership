@@ -4,7 +4,7 @@ using EnterpriseCarDealership.Pages.CRUDBike;
 namespace EnterpriseCarDealership.service_repository_s
 {
     public interface IBikeService
-        //KARZAN
+    //Jakob
     {
         public List<Bike> GetBikeList();
 

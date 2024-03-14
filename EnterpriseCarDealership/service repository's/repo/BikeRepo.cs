@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 namespace EnterpriseCarDealership.service_repository_s.repo
 {
     public class BikeRepo : IBikeRepo
-    //KARZAN
+    //Jakob
     {
         /// <summary>
         /// her injekter vi vores database context

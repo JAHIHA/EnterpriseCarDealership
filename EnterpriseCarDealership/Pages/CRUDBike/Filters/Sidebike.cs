@@ -4,7 +4,7 @@ namespace EnterpriseCarDealership.Pages.CRUDBike.Filters
 {
     public class Sidebike : IbikeFilters
     {
-        //KARZAN
+        //Jakob
         private IbikeFilters _filters;
 
         public Sidebike(IbikeFilters filters)

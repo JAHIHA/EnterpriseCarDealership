@@ -1,6 +1,6 @@
 ﻿namespace EnterpriseCarDealership.DBContextFolder
 {
-    //Karzan
+    //Jakob
     public static class Secret
     {
         /// <summary>
