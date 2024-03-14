@@ -42,6 +42,7 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
                 Camera = createCar.Camera,
                 Sensor = createCar.Sensor,
 
+
             };
             
             await _carRepo.Addcar(car); 
