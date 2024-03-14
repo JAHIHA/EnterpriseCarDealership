@@ -10,7 +10,7 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
 {
     public class BikeService : IBikeService
     {
-        //KARZAN
+        //Jakob
         /// <summary>
         /// Injektioner og KOnstruktører
         /// </summary>

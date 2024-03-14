@@ -1,7 +1,7 @@
 ﻿using EnterpriseCarDealership.Models;
 
 namespace EnterpriseCarDealership.service_repository_s.Service.cookies
-{//khaled
+{  //Jakob
     public interface IValidateUser
     {
         /// <summary>

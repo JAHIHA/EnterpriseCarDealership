@@ -1,6 +1,6 @@
 ﻿namespace EnterpriseCarDealership.Models
 {
-    //KARZAN
+    //Jakob
     public class Bike :Vehicle
     {
        /// <summary>

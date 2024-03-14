@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 namespace EnterpriseCarDealership.Pages.CRUDKunder
 {
 
-    //KARZAN
+    //Jakob
     public class UpdateKundeModel : PageModel
     {/// <summary>
     /// injekt services

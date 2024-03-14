@@ -4,7 +4,7 @@ using EnterpriseCarDealership.service_repository_s.Service.cookies;
 using Microsoft.EntityFrameworkCore;
 
 namespace EnterpriseCarDealership.Models
-{//khaled
+{//Jakob
     public class ValidateUser : IValidateUser
     {
         public User? Validate(string navn, string password)

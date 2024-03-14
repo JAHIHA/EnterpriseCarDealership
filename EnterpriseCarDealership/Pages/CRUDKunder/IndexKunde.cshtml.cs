@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EnterpriseCarDealership.Pages.CRUDKunder
-{//Karzan
+{  //Jakob
     public class IndexKundeModel : PageModel
     {
         /// <summary>

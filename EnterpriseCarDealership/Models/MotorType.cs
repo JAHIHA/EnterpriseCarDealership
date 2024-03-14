@@ -1,6 +1,6 @@
 ﻿namespace EnterpriseCarDealership.Models
 {
-    //KARZAN
+    //Jakob
     /// <summary>
     /// her Sætter vi enum typene for motortypen
     /// </summary>

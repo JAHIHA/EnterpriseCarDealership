@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EnterpriseCarDealership.Pages
-{
+{  //Jakob
     public class IndexModel : PageModel
     {
         private readonly ILogger<IndexModel> _logger;

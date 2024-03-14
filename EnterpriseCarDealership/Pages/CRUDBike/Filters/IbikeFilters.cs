@@ -2,7 +2,7 @@
 
 namespace EnterpriseCarDealership.Pages.CRUDBike.Filters
 {
-    //KARZAN
+    //Jakob
     public interface IbikeFilters
     {
         public List<Bike> Filter(); 

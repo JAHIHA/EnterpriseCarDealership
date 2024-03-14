@@ -4,8 +4,8 @@ namespace EnterpriseCarDealership.Pages.CRUDBike.Filters
 {
     public class LeatherSaddle : IbikeFilters
     {
-        //KARZAN
-         private IbikeFilters _filters;
+        //Jakob
+        private IbikeFilters _filters;
 
          public LeatherSaddle(IbikeFilters filters)
          {

@@ -1,7 +1,7 @@
 ﻿namespace EnterpriseCarDealership.Models
 {
     public class CarPayment:Payment
-    {
+    {//Jakob
         /// <summary>
         /// here har vi vores id fra carbooking som forbindes med payments id og total price,
         /// som er arved fra Payment

@@ -1,7 +1,7 @@
 ﻿using EnterpriseCarDealership.Models;
 
 namespace EnterpriseCarDealership.Pages.CRUDCar.Filters
-{
+{  //Jakob
     public class FilterCamera : ICarFilter
     {
         private ICarFilter _filter; 

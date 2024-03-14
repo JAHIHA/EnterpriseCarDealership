@@ -19,10 +19,12 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
             _carRepo = carRepo; 
         }
         /// <summary>
+        /// 
         ///  Add Metoden som kalder metoden fra repo for at gemme informationer
         /// </summary>
         /// <param name="createCar"></param>
         /// <returns></returns>
+        
         public async Task Addcar(CreateCar createCar)
         {
             Car car = new Car()
@@ -39,6 +41,7 @@ namespace EnterpriseCarDealership.service_repository_s.sercive
                 DVD = createCar.DVD,
                 Camera = createCar.Camera,
                 Sensor = createCar.Sensor,
+
 
             };
             

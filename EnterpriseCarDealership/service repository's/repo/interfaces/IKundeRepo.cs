@@ -6,7 +6,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo
 {
     public interface IKundeRepo
     {
-        //KARZAN
+        //Jakob
 
         public Kunde ReadKunde(SqlDataReader reader);
         public List<Kunde> GetKundeList();

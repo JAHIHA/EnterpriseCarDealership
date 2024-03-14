@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace EnterpriseCarDealership.Pages.CRUDBike
 {
-    //Karzan
+    //Jakob
     public class UpdateBikeModel : PageModel
     {
         /// <summary>

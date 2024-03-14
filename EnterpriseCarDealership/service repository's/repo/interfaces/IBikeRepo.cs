@@ -5,7 +5,7 @@ namespace EnterpriseCarDealership.service_repository_s.repo.interfaces
 {
     public interface IBikeRepo
     {
-        //KARZAN
+        //Jakob
         public List<Bike> GetBikeList();
 
         public Task Addbike(Bike bike);
